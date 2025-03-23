@@ -103,8 +103,9 @@ const Contact = () => {
                     <div className="ml-4 flex flex-col space-y-2">
                       <h4 className="font-semibold text-white">Cajuru</h4>
                       <a
-                        href="tel:+5541998583196"
+                        href="https://wa.me/+5541998583196?text=Olá,%20vim%20pelo%20site,%20pode%20me%20passar%20algumas%20informações??%20:)%20"
                         className="text-white hover:text-beef-600 transition-colors"
+                        target="_blank"
                       >
                         (41) 99858-3196
                       </a>
@@ -131,8 +132,9 @@ const Contact = () => {
                     <div className="ml-4 flex flex-col space-y-2">
                       <h4 className="font-semibold text-white">Uberaba</h4>
                       <a
-                        href="tel:+5541998532456"
+                        href="https://wa.me/+5541998532456?text=Olá,%20vim%20pelo%20site,%20pode%20me%20passar%20algumas%20informações??%20:)%20"
                         className="text-white hover:text-beef-600 transition-colors"
+                        target="_blank"
                       >
                         (41) 99853-2456
                       </a>
