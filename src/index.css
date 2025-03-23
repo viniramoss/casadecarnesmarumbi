@@ -1,0 +1,117 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  overflow-x: hidden;
+}
+
+
+@layer base {
+  :root {
+    --background: 30 33% 98%;
+    --foreground: 30 10% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 30 10% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 10% 15%;
+
+    --primary: 352 72% 36%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 30 20% 94%;
+    --secondary-foreground: 24 9% 10%;
+
+    --muted: 30 10% 96%;
+    --muted-foreground: 30 10% 40%;
+
+    --accent: 28 40% 92%;
+    --accent-foreground: 24 9% 14%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 10% 90%;
+    --input: 30 10% 90%;
+    --ring: 30 91% 42%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .butcher-container {
+    @apply max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section-title {
+    @apply relative font-serif font-bold text-3xl md:text-4xl lg:text-5xl text-butcher-950 mb-6 md:mb-8;
+  }
+  
+  /* .section-title::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-16 h-1 bg-beef-600 mt-2;
+  } */
+  
+  .section-subtitle {
+    @apply font-sans text-sm tracking-wider uppercase text-butcher-500 mb-2;
+  }
+  
+  .premium-card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl;
+  }
+  
+  .premium-badge {
+    @apply inline-block px-3 py-1 text-xs font-medium rounded-full bg-beef-50 text-beef-800;
+  }
+  
+  .product-transition {
+    @apply transition-all duration-300 transform hover:scale-[1.02];
+  }
+}
+
+.map-container {
+  height: 400px;
+  width: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
