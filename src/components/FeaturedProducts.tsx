@@ -116,9 +116,6 @@ const FeaturedProducts = () => {
                   <span className="text-lg font-semibold text-beef-700">
                     {product.price}
                   </span>
-                  <button className="text-beef-600 hover:text-beef-800 transition-colors">
-                    Ver detalhes
-                  </button>
                 </div>
               </div>
             </div>

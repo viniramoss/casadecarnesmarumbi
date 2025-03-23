@@ -50,7 +50,7 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-textColor-fundoDaMagia/80 animate-slide-in">
           <div className="butcher-container py-4 flex flex-col items-center space-y-4">
-            <MobileNavLink to="/" onClick={() => setIsMobileMenuOpen(false)}>
+            <MobileNavLink to="/#home" onClick={() => setIsMobileMenuOpen(false)}>
               Início
             </MobileNavLink>
             <MobileNavLink to="/products" onClick={() => setIsMobileMenuOpen(false)}>

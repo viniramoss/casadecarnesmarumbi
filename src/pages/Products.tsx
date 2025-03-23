@@ -192,16 +192,16 @@ const allProducts = [
   },
   {
     "id": 50,
-    "name": "Hamburguer",
+    "name": "Kit 5 Hamburgueres",
     "description": "Delicioso kit com 5 hamburgueres artesanais",
     "price": 10,
     "tag": "Promoção",
     "image": hamburguer,
-    "category": "aves"
+    "category": "bovinos"
   },
   {
     "id": 19,
-    "name": "Linguiça Filipak Fina",
+    "name": "Linguiça Fininha",
     "description": "Linguiça fina para grelha ou pratos do dia a dia.",
     "price": 34.99,
     "image": linguiçaFina,
@@ -611,9 +611,6 @@ const Products = () => {
                       <span className="text-lg font-semibold text-beef-700">
                         R$ {product.price.toFixed(2)}
                       </span>
-                      <button className="inline-flex items-center justify-center px-3 py-1 bg-butcher-50 text-butcher-700 rounded-md hover:bg-butcher-100 transition-colors">
-                        Ver detalhes
-                      </button>
                     </div>
                   </div>
                 </div>
