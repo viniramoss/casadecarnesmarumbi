@@ -80,7 +80,7 @@ const Hero = () => {
       </div>
 
       {/* Indicador de scroll */}
-      <div className="absolute bottom-10 inset-x-0 flex justify-center">
+      <div className="absolute bottom-10 md:bottom-2 sm:bottom-2 inset-x-0 flex justify-center">
         <button 
           onClick={scrollToNextSection}
           aria-label="Scroll down"
