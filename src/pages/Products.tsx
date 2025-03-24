@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+  import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -30,7 +30,7 @@ import mioloDaAlcatra from '../images/carnes/mioloDaAlcatra.jpg';
 import mocoto from '../images/carnes/mocoto.jpg';
 import moidaPrimeira from '../images/carnes/moidaPrimeira.jpg';
 import moidaSegunda from '../images/carnes/moidaSegunda.jpg';
-import musculo from '../images/musclo.png';
+import musculo from '../images/musclo.png';  
 import musculoSemOsso from '../images/carnes/musculoSemOsso.jpg';
 import paletaSuina from '../images/carnes/paletaSuina.jpg';
 import panceta from '../images/carnes/panceta.jpg';
@@ -567,7 +567,7 @@ const Products = () => {
                   key={category.id}
                   className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
                     activeCategory === category.id
-                      ? 'bg-beef-600 text-white'
+                      ? 'bg-beef-600 text-black'
                       : 'bg-butcher-50 text-butcher-700 hover:bg-butcher-100'
                   }`}
                   onClick={() => handleCategoryChange(category.id)}
