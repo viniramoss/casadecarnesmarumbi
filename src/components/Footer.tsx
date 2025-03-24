@@ -15,7 +15,7 @@ const Footer = () => {
               <img src={logo} alt="Logo Marumbi" className="w-40 mx-auto md:mx-0" />
             </Link>
             <p className="text-butcher-300 mb-6 max-w-xs">
-              Há mais de 7 anos oferecendo as melhores carnes, com tradição e excelência no atendimento.
+              Há mais de 5 anos oferecendo as melhores carnes, com tradição e excelência no atendimento.
             </p>
             <div className="flex space-x-4 justify-center md:justify-start">
               <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-beef-600 transition-colors">
