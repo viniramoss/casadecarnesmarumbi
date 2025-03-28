@@ -193,7 +193,7 @@ const allProducts = [
   {
     "id": 50,
     "name": "Kit 5 Hamburgueres",
-    "description": "Delicioso kit com 5 hamburgueres artesanais",
+    "description": "Delicioso kit com 5 hamburgueres artesanais com 100 gramas cada",
     "price": 10,
     "tag": "Promoção",
     "image": hamburguer,
