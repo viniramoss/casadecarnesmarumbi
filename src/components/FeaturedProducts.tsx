@@ -10,7 +10,7 @@ const featuredProducts = [
   {
     id: 1,
     name: "Hamburguer",
-    description: `Delicioso hamburguer artesanal com 120gr.`,
+    description: `Delicioso hamburguer artesanal com 100gr.`,
     price: "5 por R$ 10.00",
     image: aborgue,
     tag: "Mais Vendido"
