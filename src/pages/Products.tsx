@@ -73,7 +73,7 @@ const allProducts = [
     "id": 2,
     "name": "Bisteca Suína",
     "description": "Corte com osso e gordura equilibrada, ideal para fritar.",
-    "price": 20.99,
+    "price": 22.99,
     "image": bisteca,
     "category": "suinos"
   },
@@ -81,7 +81,7 @@ const allProducts = [
     "id": 3,
     "name": "Bucho",
     "description": "Miúdo bovino tradicional, ideal para dobradinha e ensopados.",
-    "price": 11.99,
+    "price": 14.99,
     "image": bucho,
     "category": "miúdos"
   },
@@ -114,7 +114,7 @@ const allProducts = [
     "id": 8,
     "name": "Costela Ripa",
     "description": "Costela com ossos largos, excelente para churrascos.",
-    "price": 29.99,
+    "price": 32.99,
     "image": costelaRipa,
     "category": "bovinos"
   },
@@ -154,7 +154,7 @@ const allProducts = [
     "id": 13,
     "name": "Fígado de Boi",
     "description": "Fonte rica em ferro, ideal para grelhar ou refogar.",
-    "price": 11.99,
+    "price": 13.99,
     "image": figado,
     "category": "miúdos"
   },
@@ -193,7 +193,7 @@ const allProducts = [
   {
     "id": 50,
     "name": "Kit 5 Hamburgueres",
-    "description": "Delicioso kit com 5 hamburgueres artesanais com 100 gramas cada",
+    "description": "Delicioso kit com 5 hamburgueres artesanais",
     "price": 10,
     "tag": "Promoção",
     "image": hamburguer,
@@ -227,7 +227,7 @@ const allProducts = [
     "id": 22,
     "name": "Lombo Agulha",
     "description": "Corte suculento do lombo suíno com osso.",
-    "price": 22.99,
+    "price": 28.99,
     "image": lomboAgulhajpg,
     "category": "bovinos"
   },
@@ -259,7 +259,7 @@ const allProducts = [
     "id": 26,
     "name": "Moída de Primeira",
     "description": "Carne moída nobre, ideal para pratos refinados e hambúrgueres.",
-    "price": 22.99,
+    "price": 26.99,
     "image": moidaPrimeira,
     "category": "moídas"
   },
@@ -267,7 +267,7 @@ const allProducts = [
     "id": 27,
     "name": "Moída de Segunda",
     "description": "Carne moída econômica, excelente para molhos e recheios.",
-    "price": 14.99,
+    "price": 16.99,
     "image": moidaSegunda,
     "category": "moídas"
   },
@@ -275,7 +275,7 @@ const allProducts = [
     "id": 28,
     "name": "Músculo com Osso",
     "description": "Ideal para sopas e caldos nutritivos, cheio de colágeno.",
-    "price": 22.99,
+    "price": 28.99,
     "image": musculo,
     "category": "bovinos"
   },
@@ -291,7 +291,7 @@ const allProducts = [
     "id": 30,
     "name": "Paleta Suína",
     "description": "Corte dianteiro do porco, ótimo para assados e desfiados.",
-    "price": 19.90,
+    "price": 19.99,
     "image": paletaSuina,
     "category": "suinos"
   },
@@ -411,7 +411,7 @@ const allProducts = [
     "id": 46,
     "name": "Suan Suíno",
     "description": "Espinhaço do porco, perfeito para arroz com suã.",
-    "price": 5.99,
+    "price": 2.99,
     "image": suan,
     "category": "suinos"
   },
@@ -427,7 +427,7 @@ const allProducts = [
     "id": 49,
     "name": "Vina Perdigão",
     "description": "Salsicha Perdigão, sabor tradicional para o dia a dia.",
-    "price": 13.99,
+    "price": 15.99,
     "image": vina,
     "category": "embutidos"
   }
