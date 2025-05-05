@@ -27,7 +27,7 @@ const featuredProducts = [
     id: 3,
     name: "Musculo com osso",
     description: "Corte com osso para cozidos.",
-    price: 22.99,
+    price: 28.99,
     image: musclo,
     tag: "Para Cozidos"
   }
