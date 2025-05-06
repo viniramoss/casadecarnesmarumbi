@@ -259,7 +259,7 @@ const allProducts = [
     "id": 26,
     "name": "Moída de Primeira",
     "description": "Carne moída nobre, ideal para pratos refinados e hambúrgueres.",
-    "price": 26.99,
+    "price": 29.99,
     "image": moidaPrimeira,
     "category": "moídas"
   },
@@ -267,7 +267,7 @@ const allProducts = [
     "id": 27,
     "name": "Moída de Segunda",
     "description": "Carne moída econômica, excelente para molhos e recheios.",
-    "price": 16.99,
+    "price": 18.99,
     "image": moidaSegunda,
     "category": "moídas"
   },
