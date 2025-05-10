@@ -97,7 +97,7 @@ const allProducts = [
     "id": 6,
     "name": "Contra Filé com Osso",
     "description": "Corte bovino com osso, sabor intenso, ideal para grelha.",
-    "price": 43,99,
+    "price": 43.99,
     "tag": "Churrasco",
     "image": contraComOsso,
     "category": "bovinos"
