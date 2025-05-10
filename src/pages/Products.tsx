@@ -97,7 +97,7 @@ const allProducts = [
     "id": 6,
     "name": "Contra Filé com Osso",
     "description": "Corte bovino com osso, sabor intenso, ideal para grelha.",
-    "price": 39.90,
+    "price": 43,99,
     "tag": "Churrasco",
     "image": contraComOsso,
     "category": "bovinos"
@@ -162,7 +162,7 @@ const allProducts = [
     "id": 14,
     "name": "Filé com Mignon",
     "description": "Combinação de cortes nobres, muito macio e suculento.",
-    "price": 49.90,
+    "price": 54.99,
     "image": fileComMignon,
     "category": "bovinos"
   },
@@ -178,7 +178,7 @@ const allProducts = [
     "id": 16,
     "name": "Fraldinha",
     "description": "Corte suculento e versátil, muito usado em churrascos.",
-    "price": 44.99,
+    "price": 59.90,
     "image": fraldinha,
     "category": "bovinos"
   },
@@ -235,7 +235,7 @@ const allProducts = [
     "id": 23,
     "name": "Mignon",
     "description": "Corte nobre bovino extremamente macio, ideal para medalhões.",
-    "price": 54.99,
+    "price": 79.90,
     "image": mignon,
     "category": "bovinos"
   },
@@ -355,7 +355,7 @@ const allProducts = [
     "id": 39,
     "name": "Picanha",
     "description": "Corte nobre e muito saboroso, estrela do churrasco.",
-    "price": 59.90,
+    "price": 89.90,
     "image": picanha,
     "category": "bovinos"
   },
