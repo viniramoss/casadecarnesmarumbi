@@ -162,7 +162,7 @@ const allProducts = [
     "id": 14,
     "name": "Filé com Mignon",
     "description": "Combinação de cortes nobres, muito macio e suculento.",
-    "price": 54.99,
+    "price": 49.99,
     "image": fileComMignon,
     "category": "bovinos"
   },
@@ -178,7 +178,7 @@ const allProducts = [
     "id": 16,
     "name": "Fraldinha",
     "description": "Corte suculento e versátil, muito usado em churrascos.",
-    "price": 59.90,
+    "price": 49.90,
     "image": fraldinha,
     "category": "bovinos"
   },
@@ -235,7 +235,7 @@ const allProducts = [
     "id": 23,
     "name": "Mignon",
     "description": "Corte nobre bovino extremamente macio, ideal para medalhões.",
-    "price": 79.90,
+    "price": 69.90,
     "image": mignon,
     "category": "bovinos"
   },
@@ -355,7 +355,7 @@ const allProducts = [
     "id": 39,
     "name": "Picanha",
     "description": "Corte nobre e muito saboroso, estrela do churrasco.",
-    "price": 89.90,
+    "price": 59.90,
     "image": picanha,
     "category": "bovinos"
   },
@@ -395,7 +395,7 @@ const allProducts = [
     "id": 44,
     "name": "Setinho",
     "description": "Corte bovino, otimo para fritar e assar.",
-    "price": 36.99,
+    "price": 30.99,
     "image": setinho,
     "category": "bovinos"
   },
@@ -411,7 +411,7 @@ const allProducts = [
     "id": 46,
     "name": "Suan Suíno",
     "description": "Espinhaço do porco, perfeito para arroz com suã.",
-    "price": 2.99,
+    "price": 3.99,
     "image": suan,
     "category": "suinos"
   },
