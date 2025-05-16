@@ -395,7 +395,7 @@ const allProducts = [
     "id": 44,
     "name": "Setinho",
     "description": "Corte bovino, otimo para fritar e assar.",
-    "price": 30.99,
+    "price": 39.99,
     "image": setinho,
     "category": "bovinos"
   },
