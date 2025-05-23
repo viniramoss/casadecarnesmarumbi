@@ -138,7 +138,7 @@ const allProducts = [
     "id": 11,
     "name": "Coxão Mole",
     "description": "Corte nobre bovino, ideal para assados, bifes ou refogados.",
-    "price": 47.99,
+    "price": 49.99,
     "image": coxaomole,
     "category": "bovinos"
   },
@@ -307,7 +307,7 @@ const allProducts = [
     "id": 33,
     "name": "Patinho sem Osso",
     "description": "Corte magro e versátil, ótimo para bifes e moídos.",
-    "price": 45.99,
+    "price": 47.99,
     "image": patinho,
     "category": "bovinos"
   },
