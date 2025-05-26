@@ -411,7 +411,7 @@ const allProducts = [
     "id": 46,
     "name": "Suan Suíno",
     "description": "Espinhaço do porco, perfeito para arroz com suã.",
-    "price": 3.99,
+    "price": 6.99,
     "image": suan,
     "category": "suinos"
   },
