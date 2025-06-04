@@ -19,7 +19,7 @@ const featuredProducts = [
     id: 2,
     name: "Coxa com sobrecoxa",
     description: "Corte suculento, otimo para assar.",
-    price: 13.99,
+    price: 14.99,
     image: cuxa,
     tag: "Promoção"
   },
@@ -27,7 +27,7 @@ const featuredProducts = [
     id: 3,
     name: "Musculo com osso",
     description: "Corte com osso para cozidos.",
-    price: 28.99,
+    price: 29.99,
     image: musclo,
     tag: "Para Cozidos"
   }
