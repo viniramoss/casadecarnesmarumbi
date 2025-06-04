@@ -1,4 +1,4 @@
-  import React, { useEffect, useState } from 'react';
+  import React, { useEffect, useState } from 'react
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -73,7 +73,7 @@ const allProducts = [
     "id": 2,
     "name": "Bisteca Suína",
     "description": "Corte com osso e gordura equilibrada, ideal para fritar.",
-    "price": 22.99,
+    "price": 24.99,
     "image": bisteca,
     "category": "suinos"
   },
@@ -122,7 +122,7 @@ const allProducts = [
     "id": 9,
     "name": "Coxa com Sobrecoxa",
     "description": "Corte de frango suculento, ótimo para assar ou fritar.",
-    "price": 12.99,
+    "price": 14.99,
     "image": coxaSobre,
     "category": "aves"
   },
@@ -146,7 +146,7 @@ const allProducts = [
     "id": 12,
     "name": "Coxinha da Asa",
     "description": "Parte suculenta da asa, perfeita para frituras e churrasco.",
-    "price": 18.99,
+    "price": 19.99,
     "image": coxinhaAsa,
     "category": "aves"
   },
@@ -170,7 +170,7 @@ const allProducts = [
     "id": 15,
     "name": "Filé de Frango",
     "description": "Corte magro e versátil, ótimo para grelhar ou empanar.",
-    "price": 25.99,
+    "price": 27.99,
     "image": fileteFrago,
     "category": "aves"
   },
@@ -186,7 +186,7 @@ const allProducts = [
     "id": 18,
     "name": "Frango Inteiro",
     "description": "Ideal para assados de domingo ou receitas especiais.",
-    "price": 13.99,
+    "price": 15.99,
     "image": frangoInteiro,
     "category": "aves"
   },
@@ -331,7 +331,7 @@ const allProducts = [
     "id": 36,
     "name": "Peito sem Osso",
     "description": "Peito de frango desossado, ideal para grelhar ou empanar.",
-    "price": 23.99,
+    "price": 25.99,
     "image": fileFrango,
     "category": "aves"
   },
@@ -427,7 +427,7 @@ const allProducts = [
     "id": 49,
     "name": "Vina Perdigão",
     "description": "Salsicha Perdigão, sabor tradicional para o dia a dia.",
-    "price": 15.99,
+    "price": 17.99,
     "image": vina,
     "category": "embutidos"
   }
