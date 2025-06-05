@@ -275,7 +275,7 @@ const allProducts = [
     "id": 28,
     "name": "Músculo com Osso",
     "description": "Ideal para sopas e caldos nutritivos, cheio de colágeno.",
-    "price": 28.99,
+    "price": 29.99,
     "image": musculo,
     "category": "bovinos"
   },
