@@ -1,4 +1,4 @@
-  import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -97,7 +97,7 @@ const allProducts = [
     "id": 6,
     "name": "Contra Filé com Osso",
     "description": "Corte bovino com osso, sabor intenso, ideal para grelha.",
-    "price": 43.99,
+    "price": 39.99,
     "tag": "Churrasco",
     "image": contraComOsso,
     "category": "bovinos"
@@ -106,7 +106,7 @@ const allProducts = [
     "id": 7,
     "name": "Costela Ponta",
     "description": "Costela macia e suculenta, ideal para longos assados.",
-    "price": 29.99,
+    "price": 34.99,
     "image": costelaPonta,
     "category": "bovinos"
   },
@@ -114,7 +114,7 @@ const allProducts = [
     "id": 8,
     "name": "Costela Ripa",
     "description": "Costela com ossos largos, excelente para churrascos.",
-    "price": 32.99,
+    "price": 36.99,
     "image": costelaRipa,
     "category": "bovinos"
   },
@@ -154,7 +154,7 @@ const allProducts = [
     "id": 13,
     "name": "Fígado de Boi",
     "description": "Fonte rica em ferro, ideal para grelhar ou refogar.",
-    "price": 13.99,
+    "price": 19.99,
     "image": figado,
     "category": "miúdos"
   },
@@ -211,7 +211,7 @@ const allProducts = [
     "id": 20,
     "name": "Linguiça Friela",
     "description": "Sabor tradicional da Friela, ideal para o churrasco.",
-    "price": 25.99,
+    "price": 28.99,
     "image": linguiçaFriela,
     "category": "embutidos"
   },
@@ -219,7 +219,7 @@ const allProducts = [
     "id": 21,
     "name": "Linguiça Frimesa Toscana",
     "description": "Linguiça toscana da Frimesa, temperada e pronta pra grelha.",
-    "price": 27.99,
+    "price": 29.99,
     "image": linguiçaFrimesa,
     "category": "embutidos"
   },
@@ -291,7 +291,7 @@ const allProducts = [
     "id": 30,
     "name": "Paleta Suína",
     "description": "Corte dianteiro do porco, ótimo para assados e desfiados.",
-    "price": 19.99,
+    "price": 21.99,
     "image": paletaSuina,
     "category": "suinos"
   },
@@ -339,7 +339,7 @@ const allProducts = [
     "id": 37,
     "name": "Pernil Suíno",
     "description": "Corte traseiro do porco, muito usado em assados.",
-    "price": 19.90,
+    "price": 21.90,
     "image": pernilSuino,
     "category": "suinos"
   },
@@ -347,7 +347,7 @@ const allProducts = [
     "id": 38,
     "name": "Picadão Suíno",
     "description": "Carne suína picada com osso, ideal para refogados rápidos.",
-    "price": 19.99,
+    "price": 21.99,
     "image": picadoPorco,
     "category": "suinos"
   },
@@ -411,7 +411,7 @@ const allProducts = [
     "id": 46,
     "name": "Suan Suíno",
     "description": "Espinhaço do porco, perfeito para arroz com suã.",
-    "price": 6.99,
+    "price": 7.99,
     "image": suan,
     "category": "suinos"
   },
