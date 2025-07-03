@@ -138,7 +138,7 @@ const allProducts = [
     "id": 11,
     "name": "Coxão Mole",
     "description": "Corte nobre bovino, ideal para assados, bifes ou refogados.",
-    "price": 49.99,
+    "price": 54.99,
     "image": coxaomole,
     "category": "bovinos"
   },
@@ -227,7 +227,7 @@ const allProducts = [
     "id": 22,
     "name": "Lombo Agulha",
     "description": "Corte suculento do lombo suíno com osso.",
-    "price": 28.99,
+    "price": 29.99,
     "image": lomboAgulhajpg,
     "category": "bovinos"
   },
@@ -291,7 +291,7 @@ const allProducts = [
     "id": 30,
     "name": "Paleta Suína",
     "description": "Corte dianteiro do porco, ótimo para assados e desfiados.",
-    "price": 21.99,
+    "price": 23.99,
     "image": paletaSuina,
     "category": "suinos"
   },
@@ -307,7 +307,7 @@ const allProducts = [
     "id": 33,
     "name": "Patinho sem Osso",
     "description": "Corte magro e versátil, ótimo para bifes e moídos.",
-    "price": 47.99,
+    "price": 49.99,
     "image": patinho,
     "category": "bovinos"
   },
@@ -339,7 +339,7 @@ const allProducts = [
     "id": 37,
     "name": "Pernil Suíno",
     "description": "Corte traseiro do porco, muito usado em assados.",
-    "price": 21.90,
+    "price": 25.99,
     "image": pernilSuino,
     "category": "suinos"
   },
@@ -363,7 +363,7 @@ const allProducts = [
     "id": 40,
     "name": "Ponta de Peito",
     "description": "Corte bovino usado em churrascos ou defumados.",
-    "price": 24.99,
+    "price": 29.99,
     "image": pontaPeito,
     "category": "bovinos"
   },
@@ -403,7 +403,7 @@ const allProducts = [
     "id": 45,
     "name": "Strogonoff de Carne",
     "description": "Carne cortada em tiras finas, pronta para strogonoff.",
-    "price": 44.99,
+    "price": 49.99,
     "image": strogonoff,
     "category": "bovinos"
   },
@@ -411,7 +411,7 @@ const allProducts = [
     "id": 46,
     "name": "Suan Suíno",
     "description": "Espinhaço do porco, perfeito para arroz com suã.",
-    "price": 7.99,
+    "price": 8.99,
     "image": suan,
     "category": "suinos"
   },
@@ -515,6 +515,9 @@ const Products = () => {
           </h1>
           <p className="text-butcher-200 max-w-2xl">
             Conheça nossa seleção de carnes. Cuidadosamente selecionadas para garantir qualidade e sabor em suas refeições.
+          </p>
+          <p className="text-butcher-200 max-w-2xl">
+            Temos 2 unidades, os preços podem variar de acordo com cada loja, entre em contato por whatsapp para ter um atendimento mais direto. (Numero disponivel na pagina inicial.)
           </p>
         </div>
       </div>
