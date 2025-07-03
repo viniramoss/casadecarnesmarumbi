@@ -516,7 +516,7 @@ const Products = () => {
           <p className="text-butcher-200 max-w-2xl">
             Conheça nossa seleção de carnes. Cuidadosamente selecionadas para garantir qualidade e sabor em suas refeições.
           </p>
-          <p className="text-butcher-200 max-w-2xl">
+          <p className="text-butcher-200 max-w-2xl mt-2">
             Temos 2 unidades, os preços podem variar de acordo com cada loja, entre em contato por whatsapp para ter um atendimento mais direto. (Numero disponivel na pagina inicial.)
           </p>
         </div>
