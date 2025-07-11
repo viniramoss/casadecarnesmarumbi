@@ -65,7 +65,7 @@ const allProducts = [
     "id": 1,
     "name": "Bacon",
     "description": "Tiras suculentas de bacon defumado, perfeito para receitas e petiscos.",
-    "price": 43.99,
+    "price": 44.99,
     "image": bacon,
     "category": "suinos"
   },
@@ -73,7 +73,7 @@ const allProducts = [
     "id": 2,
     "name": "Bisteca Suína",
     "description": "Corte com osso e gordura equilibrada, ideal para fritar.",
-    "price": 24.99,
+    "price": 26.99,
     "image": bisteca,
     "category": "suinos"
   },
@@ -81,7 +81,7 @@ const allProducts = [
     "id": 3,
     "name": "Bucho",
     "description": "Miúdo bovino tradicional, ideal para dobradinha e ensopados.",
-    "price": 14.99,
+    "price": 23.99,
     "image": bucho,
     "category": "miúdos"
   },
@@ -89,7 +89,7 @@ const allProducts = [
     "id": 4,
     "name": "Calabresa Frimesa",
     "description": "Linguiça calabresa defumada Frimesa, sabor marcante e versátil.",
-    "price": 31.90,
+    "price": 36.90,
     "image": calabresa,
     "category": "embutidos"
   },
@@ -97,7 +97,7 @@ const allProducts = [
     "id": 6,
     "name": "Contra Filé com Osso",
     "description": "Corte bovino com osso, sabor intenso, ideal para grelha.",
-    "price": 39.99,
+    "price": 45.99,
     "tag": "Churrasco",
     "image": contraComOsso,
     "category": "bovinos"
@@ -162,7 +162,7 @@ const allProducts = [
     "id": 14,
     "name": "Filé com Mignon",
     "description": "Combinação de cortes nobres, muito macio e suculento.",
-    "price": 49.99,
+    "price": 49.90,
     "image": fileComMignon,
     "category": "bovinos"
   },
@@ -227,7 +227,7 @@ const allProducts = [
     "id": 22,
     "name": "Lombo Agulha",
     "description": "Corte suculento do lombo suíno com osso.",
-    "price": 29.99,
+    "price": 28.99,
     "image": lomboAgulhajpg,
     "category": "bovinos"
   },
@@ -243,7 +243,7 @@ const allProducts = [
     "id": 24,
     "name": "Miolo da Alcatra",
     "description": "Parte mais macia da alcatra, ótima para bifes suculentos.",
-    "price": 69.90,
+    "price": 69.99,
     "image": mioloDaAlcatra,
     "category": "bovinos"
   },
@@ -251,7 +251,7 @@ const allProducts = [
     "id": 25,
     "name": "Mocotó",
     "description": "Pé do boi, muito usado em caldos e receitas nordestinas.",
-    "price": 10.99,
+    "price": 19.99,
     "image": mocoto,
     "category": "miúdos"
   },
@@ -275,7 +275,7 @@ const allProducts = [
     "id": 28,
     "name": "Músculo com Osso",
     "description": "Ideal para sopas e caldos nutritivos, cheio de colágeno.",
-    "price": 29.99,
+    "price": 29.90,
     "image": musculo,
     "category": "bovinos"
   },
@@ -283,7 +283,7 @@ const allProducts = [
     "id": 29,
     "name": "Músculo sem Osso",
     "description": "Corte firme e saboroso, ótimo para cozidos e ensopados.",
-    "price": 39.99,
+    "price": 41.99,
     "image": musculoSemOsso,
     "category": "bovinos"
   },
@@ -291,7 +291,7 @@ const allProducts = [
     "id": 30,
     "name": "Paleta Suína",
     "description": "Corte dianteiro do porco, ótimo para assados e desfiados.",
-    "price": 23.99,
+    "price": 25.99,
     "image": paletaSuina,
     "category": "suinos"
   },
@@ -299,7 +299,7 @@ const allProducts = [
     "id": 31,
     "name": "Panceta Suína",
     "description": "Barriga do porco, muito saborosa e ótima para torresmo.",
-    "price": 27.99,
+    "price": 29.90,
     "image": panceta,
     "category": "suinos"
   },
@@ -307,7 +307,7 @@ const allProducts = [
     "id": 33,
     "name": "Patinho sem Osso",
     "description": "Corte magro e versátil, ótimo para bifes e moídos.",
-    "price": 49.99,
+    "price": 34.99,
     "image": patinho,
     "category": "bovinos"
   },
@@ -315,7 +315,7 @@ const allProducts = [
     "id": 34,
     "name": "Pé de Frango",
     "description": "Muito usado em caldos e sopas, colágeno natural.",
-    "price": 11.99,
+    "price": 12.99,
     "image": peDeFrango,
     "category": "aves"
   },
@@ -339,7 +339,7 @@ const allProducts = [
     "id": 37,
     "name": "Pernil Suíno",
     "description": "Corte traseiro do porco, muito usado em assados.",
-    "price": 25.99,
+    "price": 24.99,
     "image": pernilSuino,
     "category": "suinos"
   },
@@ -355,7 +355,7 @@ const allProducts = [
     "id": 39,
     "name": "Picanha",
     "description": "Corte nobre e muito saboroso, estrela do churrasco.",
-    "price": 59.90,
+    "price": 89.90,
     "image": picanha,
     "category": "bovinos"
   },
@@ -363,7 +363,7 @@ const allProducts = [
     "id": 40,
     "name": "Ponta de Peito",
     "description": "Corte bovino usado em churrascos ou defumados.",
-    "price": 29.99,
+    "price": 29.90,
     "image": pontaPeito,
     "category": "bovinos"
   },
