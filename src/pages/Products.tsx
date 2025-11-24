@@ -192,7 +192,7 @@ const allProducts = [
   },
   {
     "id": 50,
-    "name": "Kit 5 Hamburgueres",
+    "name": "Kit 6 Hamburgueres - LJ1 e L2",
     "description": "Delicioso kit com 5 hamburgueres artesanais",
     "price": 10,
     "tag": "Promoção",
