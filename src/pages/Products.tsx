@@ -89,7 +89,7 @@ const allProducts = [
     "id": 4,
     "name": "Calabresa Frimesa",
     "description": "Linguiça calabresa defumada Frimesa, sabor marcante e versátil.",
-    "price": 36.90,
+    "price": 36.99,
     "image": calabresa,
     "category": "embutidos"
   },
@@ -106,7 +106,7 @@ const allProducts = [
     "id": 7,
     "name": "Costela Ponta",
     "description": "Costela macia e suculenta, ideal para longos assados.",
-    "price": 34.99,
+    "price": 36.99,
     "image": costelaPonta,
     "category": "bovinos"
   },
@@ -114,7 +114,7 @@ const allProducts = [
     "id": 8,
     "name": "Costela Ripa",
     "description": "Costela com ossos largos, excelente para churrascos.",
-    "price": 36.99,
+    "price": 39.99,
     "image": costelaRipa,
     "category": "bovinos"
   },
@@ -130,7 +130,7 @@ const allProducts = [
     "id": 10,
     "name": "Coxa Espalmada",
     "description": "Corte plano da coxa, cozinha rápido e é bem temperável.",
-    "price": 14.99,
+    "price": 19.99,
     "image": coxaEspalmada,
     "category": "aves"
   },
@@ -146,7 +146,7 @@ const allProducts = [
     "id": 12,
     "name": "Coxinha da Asa",
     "description": "Parte suculenta da asa, perfeita para frituras e churrasco.",
-    "price": 19.99,
+    "price": 24.99,
     "image": coxinhaAsa,
     "category": "aves"
   },
@@ -162,7 +162,7 @@ const allProducts = [
     "id": 14,
     "name": "Filé com Mignon",
     "description": "Combinação de cortes nobres, muito macio e suculento.",
-    "price": 49.90,
+    "price": 49.99,
     "image": fileComMignon,
     "category": "bovinos"
   },
@@ -170,7 +170,7 @@ const allProducts = [
     "id": 15,
     "name": "Filé de Frango",
     "description": "Corte magro e versátil, ótimo para grelhar ou empanar.",
-    "price": 27.99,
+    "price": 29.99,
     "image": fileteFrago,
     "category": "aves"
   },
@@ -178,7 +178,7 @@ const allProducts = [
     "id": 16,
     "name": "Fraldinha",
     "description": "Corte suculento e versátil, muito usado em churrascos.",
-    "price": 49.90,
+    "price": 49.99,
     "image": fraldinha,
     "category": "bovinos"
   },
@@ -227,7 +227,7 @@ const allProducts = [
     "id": 22,
     "name": "Lombo Agulha",
     "description": "Corte suculento do lombo suíno com osso.",
-    "price": 28.99,
+    "price": 29.99,
     "image": lomboAgulhajpg,
     "category": "bovinos"
   },
@@ -235,7 +235,7 @@ const allProducts = [
     "id": 23,
     "name": "Mignon",
     "description": "Corte nobre bovino extremamente macio, ideal para medalhões.",
-    "price": 69.90,
+    "price": 79.99,
     "image": mignon,
     "category": "bovinos"
   },
@@ -251,7 +251,7 @@ const allProducts = [
     "id": 25,
     "name": "Mocotó",
     "description": "Pé do boi, muito usado em caldos e receitas nordestinas.",
-    "price": 19.99,
+    "price": 22.99,
     "image": mocoto,
     "category": "miúdos"
   },
@@ -275,7 +275,7 @@ const allProducts = [
     "id": 28,
     "name": "Músculo com Osso",
     "description": "Ideal para sopas e caldos nutritivos, cheio de colágeno.",
-    "price": 29.90,
+    "price": 29.99,
     "image": musculo,
     "category": "bovinos"
   },
@@ -299,7 +299,7 @@ const allProducts = [
     "id": 31,
     "name": "Panceta Suína",
     "description": "Barriga do porco, muito saborosa e ótima para torresmo.",
-    "price": 29.90,
+    "price": 39.99,
     "image": panceta,
     "category": "suinos"
   },
@@ -315,7 +315,7 @@ const allProducts = [
     "id": 34,
     "name": "Pé de Frango",
     "description": "Muito usado em caldos e sopas, colágeno natural.",
-    "price": 12.99,
+    "price": 14.99,
     "image": peDeFrango,
     "category": "aves"
   },
@@ -379,7 +379,7 @@ const allProducts = [
     "id": 42,
     "name": "Posta Vermelha",
     "description": "Otimo para bifes, super saboroso",
-    "price": 42.99,
+    "price": 43.99,
     "image": postaVermelha,
     "category": "bovinos"
   },
@@ -419,7 +419,7 @@ const allProducts = [
     "id": 47,
     "name": "Tulipa",
     "description": "Parte média da asa, muito usada em aperitivos.",
-    "price": 29.99,
+    "price": 31.99,
     "image": tulipa,
     "category": "aves"
   },
@@ -427,11 +427,12 @@ const allProducts = [
     "id": 49,
     "name": "Vina Perdigão",
     "description": "Salsicha Perdigão, sabor tradicional para o dia a dia.",
-    "price": 17.99,
+    "price": 19.99,
     "image": vina,
     "category": "embutidos"
   }
 ];
+
 
 const Products = () => {
   const [products, setProducts] = useState(allProducts);
