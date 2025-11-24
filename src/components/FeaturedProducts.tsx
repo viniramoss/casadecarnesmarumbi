@@ -9,9 +9,9 @@ import musclo from '../images/musclo.png';
 const featuredProducts = [
   {
     id: 1,
-    name: "Hamburguer",
+    name: "Hamburguer - LJ1 e L2",
     description: `Delicioso hamburguer artesanal.`,
-    price: "5 por R$ 10.00",
+    price: "6 por R$ 10.00",
     image: aborgue,
     tag: "Mais Vendido"
   },
