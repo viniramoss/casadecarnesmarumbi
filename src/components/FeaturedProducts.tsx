@@ -6,7 +6,7 @@ import { allProducts } from '../data/productsData';
 
 // Pega produtos em destaque da lista principal
 const featuredProducts = allProducts.filter(product => 
-  [50, 9, 39].includes(product.id) // Kit Hamburguer, Coxa com Sobrecoxa, Picanha
+  [50, 9, 52].includes(product.id) // Kit Hamburguer, Coxa com Sobrecoxa, Moída BLEND
 );
 
 const FeaturedProducts = () => {

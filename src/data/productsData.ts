@@ -310,7 +310,7 @@ export const allProducts: Product[] = [
     id: 9,
     name: "Coxa com Sobrecoxa",
     description: "Corte de frango suculento, ótimo para assar ou fritar.",
-    price: createSimplePrice(14.99),
+    price: createSimplePrice(11.99),
     image: coxaSobre,
     category: "aves"
   },
