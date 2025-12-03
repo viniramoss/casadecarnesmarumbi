@@ -111,7 +111,6 @@ export const allProducts: Product[] = [
     description: "Corte nobre bovino extremamente macio, ideal para medalhões.",
     price: {
         default: 79.99,
-        marumbi3: 82.99,
     },
     image: mignon,
     category: "bovinos",
