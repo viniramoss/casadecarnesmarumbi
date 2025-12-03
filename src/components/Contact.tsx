@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Phone, Mail } from "lucide-react";
 import { toast } from "sonner";
+import { getOrderedStores } from '../config/storeConfig';
 
 const Contact = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -84,8 +85,8 @@ const Contact = () => {
           <h2 className="section-title text-center text-white after:left-1/2 after:-translate-x-1/2">
             Informações
           </h2>
-          <div className="mx-auto w-16 h-1 bg-beef-600 mb-6"></div>
-          <p className="max-w-2xl mx-auto text-textColor-marelo">
+          <div className="mx-auto w-16 h-1 bg-gold-500 mb-6"></div>
+          <p className="max-w-2xl mx-auto text-textColor-douradoClaro">
             Estamos prontos para atender suas dúvidas e pedidos. Entre em
             contato conosco.
           </p>
@@ -93,66 +94,38 @@ const Contact = () => {
 
         <div className="flex justify-center">
           <div className="bg-black/60 p-8 rounded-lg w-full max-w-2xl">
-            <div className="mt-8 p-6 bg-black/30 rounded-lg shadow-inner">
-              <div className="space-y-2 text-sm">
-                <div className="flex flex-col justify-center">
-                  <div className="flex items-center">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white flex items-center justify-center">
-                      <Phone className="w-5 h-5 text-black/90" />
-                    </div>
-                    <div className="ml-4 flex flex-col space-y-2">
-                      <h4 className="font-semibold text-white">Cajuru</h4>
-                      <a
-                        href="https://wa.me/+5541998583196?text=Olá,%20vim%20pelo%20site,%20pode%20me%20passar%20algumas%20informações??%20:)%20"
-                        className="text-white hover:text-beef-600 transition-colors"
-                        target="_blank"
-                      >
-                        (41) 99858-3196
-                      </a>
-                      <span className="text-white">
-                        SEGUNDA - SABADO →
-                        <span className="text-textColor-marelo"> 8:00 - 20:00 </span>
-                        / DOMINGO →
-                        <span className="text-textColor-marelo">
-                          9:00 - 14:00
+            {getOrderedStores().map((store, index) => (
+              <div key={store.id} className={`${index > 0 ? 'mt-8' : ''} p-6 bg-black/30 rounded-lg shadow-inner`}>
+                <div className="space-y-2 text-sm">
+                  <div className="flex flex-col justify-center">
+                    <div className="flex items-center">
+                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white flex items-center justify-center">
+                        <Phone className="w-5 h-5 text-black/90" />
+                      </div>
+                      <div className="ml-4 flex flex-col space-y-2">
+                        <h4 className="font-semibold text-white">{store.title}</h4>
+                        <a
+                          href={store.whatsappLink}
+                          className="text-white hover:text-gold-400 transition-colors"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {store.phone}
+                        </a>
+                        <span className="text-white">
+                          SEGUNDA - SABADO →
+                          <span className="text-textColor-dourado"> {store.hours.weekdays} </span>
+                          / DOMINGO →
+                          <span className="text-textColor-dourado">
+                            {store.hours.sunday}
+                          </span>
                         </span>
-                      </span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="mt-8 p-6 bg-black/30 rounded-lg shadow-inner">
-              <div className="space-y-2 text-sm">
-                <div className="flex flex-col justify-center">
-                  <div className="flex items-center">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white flex items-center justify-center">
-                      <Phone className="w-5 h-5 text-black/90" />
-                    </div>
-                    <div className="ml-4 flex flex-col space-y-2">
-                      <h4 className="font-semibold text-white">Uberaba</h4>
-                      <a
-                        href="https://wa.me/+5541998532456?text=Olá,%20vim%20pelo%20site,%20pode%20me%20passar%20algumas%20informações??%20:)%20"
-                        className="text-white hover:text-beef-600 transition-colors"
-                        target="_blank"
-                      >
-                        (41) 99853-2456
-                      </a>
-                      <span className="text-white">
-                        SEGUNDA - SABADO →
-                        <span className="text-textColor-marelo">
-                          8:00 - 21:00{" "}
-                        </span>
-                        / DOMINGO →
-                        <span className="text-textColor-marelo">
-                          9:00 - 14:00
-                        </span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

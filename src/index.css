@@ -62,6 +62,16 @@ html, body {
     @apply max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8;
   }
   
+  .logo-marumbi {
+    @apply transition-all duration-300 ease-in-out;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  }
+  
+  .logo-marumbi:hover {
+    @apply scale-105;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15)) brightness(1.05);
+  }
+  
   .section-title {
     @apply relative font-serif font-bold text-3xl md:text-4xl lg:text-5xl text-butcher-950 mb-6 md:mb-8;
   }
@@ -80,11 +90,37 @@ html, body {
   }
   
   .premium-badge {
-    @apply inline-block px-3 py-1 text-xs font-medium rounded-full bg-beef-50 text-beef-800;
+    @apply inline-block px-3 py-1 text-xs font-medium rounded-full bg-gold-100 text-gold-800;
   }
   
   .product-transition {
     @apply transition-all duration-300 transform hover:scale-[1.02];
+  }
+  
+  .store-tag {
+    @apply inline-flex items-center px-2 py-1 text-xs font-medium rounded-full border backdrop-blur-sm;
+    font-size: 10px;
+    line-height: 1.2;
+  }
+  
+  .store-tag-single {
+    @apply store-tag;
+  }
+  
+  .store-tag-multiple {
+    @apply store-tag bg-gold-50/90 text-gold-800 border-gold-300;
+  }
+  
+  .store-tag-special-price {
+    @apply store-tag bg-orange-50/95 text-orange-800 border-orange-300;
+  }
+  
+  .special-glow {
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.25), 0 0 20px rgba(212, 175, 55, 0.15);
+  }
+  
+  .special-glow:hover {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.35), 0 0 25px rgba(212, 175, 55, 0.2);
   }
 }
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Twitter, Phone, Mail } from 'lucide-react';
-import logo from '../images/LogoMarumbiS.png';
+import logo from '../logo/LogoMarumbiSemfundoLB.png';
+import { getOrderedStores } from '../config/storeConfig';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,14 +12,18 @@ const Footer = () => {
       <div className="butcher-container py-16">
         <div className="pl-0 md:pl-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="text-center md:text-left">
-            <Link to="/" className="inline-block mb-6">
-              <img src={logo} alt="Logo Marumbi" className="w-40 mx-auto md:mx-0" />
+            <Link to="/" className="inline-block mb-6 group">
+              <img 
+                src={logo} 
+                alt="Açougue Marumbi - Carnes Selecionadas" 
+                className="h-20 w-auto sm:h-24 md:h-28 mx-auto md:mx-0 logo-marumbi filter brightness-110" 
+              />
             </Link>
-            <p className="text-butcher-300 mb-6 max-w-xs">
+            <p className="text-butcher-300 mb-6 max-w-xs">''
               Há mais de 5 anos oferecendo as melhores carnes, com tradição e excelência no atendimento.
             </p>
             <div className="flex space-x-4 justify-center md:justify-start">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-beef-600 transition-colors">
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold-500 transition-colors">
                 <Instagram size={18} />
               </a>
             </div>
@@ -46,19 +51,20 @@ const Footer = () => {
             <h3 className="font-serif font-bold text-xl mb-6">Contato</h3>
             <ul className="space-y-4">
               <li className="flex items-center">
-                <Phone size={18} className="text-textColor-marelo flex-shrink-0" />
+                <Phone size={18} className="text-textColor-dourado flex-shrink-0" />
                 <div className="ml-3">
-                  <a href="tel:+5511999999999" className="text-butcher-300 hover:text-white transition-colors">
-                    (41) 99858-3196
-                  </a>
-                  <br />
-                  <a href="tel:+5511999999999" className="text-butcher-300 hover:text-white transition-colors">
-                    (41) 99853-2456
-                  </a>
+                  {getOrderedStores().map((store, index) => (
+                    <React.Fragment key={store.id}>
+                      <a href={`tel:${store.whatsappNumber}`} className="text-butcher-300 hover:text-white transition-colors">
+                        {store.phone}
+                      </a>
+                      {index < getOrderedStores().length - 1 && <br />}
+                    </React.Fragment>
+                  ))}
                 </div>
               </li>
               <li className="flex items-center">
-                <Mail size={18} className="text-textColor-marelo flex-shrink-0" />
+                <Mail size={18} className="text-textColor-dourado flex-shrink-0" />
                 <a href="mailto:contato@primecuts.com.br" className="ml-3 text-butcher-300 hover:text-white transition-colors">
                   casadecarnesmarumbicontato@gmail.com
                 </a>

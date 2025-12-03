@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import logo from '../images/LogoMarumbiS.png';
+import logo from '../logo/LogoMarumbiSemfundoLB.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,7 +26,11 @@ const Navbar = () => {
     >
       <div className="butcher-container flex items-center justify-between">
         <Link to="/" className="flex items-center">
-          <img src={logo} alt="Logo" className="w-20" />
+          <img 
+            src={logo} 
+            alt="Açougue Marumbi - Logo" 
+            className="h-12 w-auto sm:h-14 md:h-16 logo-marumbi" 
+          />
         </Link>
 
         {/* Desktop Menu */}
@@ -87,7 +91,7 @@ const NavLink = ({ to, children }: { to: string; children: React.ReactNode }) =>
     <Link 
       to={to} 
       onClick={handleClick}
-      className="relative font-medium text-butcher-800 hover:text-beef-600 transition-colors pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-beef-600 after:transition-all hover:after:w-full"
+      className="relative font-medium text-butcher-800 hover:text-gold-600 transition-colors pb-1 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-gold-600 after:transition-all hover:after:w-full"
     >
       {children}
     </Link>

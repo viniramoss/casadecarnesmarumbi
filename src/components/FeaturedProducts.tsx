@@ -1,37 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import aborgue from '../images/aborgue.png';
-import cuxa from '../images/cuxa.png';
-import musclo from '../images/musclo.png';
+import StoreTags from './StoreTags';
+import { allProducts } from '../data/productsData';
 
-// Featured product data
-const featuredProducts = [
-  {
-    id: 1,
-    name: "Hamburguer - LJ1 e L2",
-    description: `Delicioso hamburguer artesanal.`,
-    price: "6 por R$ 10.00",
-    image: aborgue,
-    tag: "Mais Vendido"
-  },
-  {
-    id: 2,
-    name: "Coxa com sobrecoxa",
-    description: "Corte suculento, otimo para assar.",
-    price: 14.99,
-    image: cuxa,
-    tag: "Promoção"
-  },
-  {
-    id: 3,
-    name: "Musculo com osso",
-    description: "Corte com osso para cozidos.",
-    price: 29.99,
-    image: musclo,
-    tag: "Para Cozidos"
-  }
-];
+// Pega produtos em destaque da lista principal
+const featuredProducts = allProducts.filter(product => 
+  [50, 9, 39].includes(product.id) // Kit Hamburguer, Coxa com Sobrecoxa, Picanha
+);
 
 const FeaturedProducts = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -80,7 +56,7 @@ const FeaturedProducts = () => {
       >
         <div className="text-center mb-16">
           <h2 className="section-title text-center text-white">Nossos Destaques</h2>
-          <p className="max-w-2xl mx-auto text-textColor-marelo">
+          <p className="max-w-2xl mx-auto text-textColor-douradoClaro">
             Selecionamos cuidadosamente para sua mesa, unindo tradição e qualidade.
           </p>
         </div>
@@ -99,11 +75,14 @@ const FeaturedProducts = () => {
                   alt={product.name}
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                 />
-                {product.tag && (
-                  <span className="absolute top-4 right-4 premium-badge">
-                    {product.tag}
-                  </span>
-                )}
+                <div className="absolute top-4 right-4 flex flex-col gap-2">
+                  {product.tag && (
+                    <span className="premium-badge">
+                      {product.tag}
+                    </span>
+                  )}
+                  <StoreTags product={product} />
+                </div>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-serif font-bold text-white/80 mb-2">
@@ -113,9 +92,19 @@ const FeaturedProducts = () => {
                   {product.description}
                 </p>
                 <div className="flex items-center justify-between">
-                  <span className="text-lg font-semibold text-beef-700">
-                    {product.price}
-                  </span>
+                  <div className="flex flex-col">
+                    <span className="text-lg font-semibold text-gold-600">
+                      {product.id === 50 ? "6 por R$ 10,00" : `R$ ${product.price.default.toFixed(2).replace('.', ',')}`}
+                    </span>
+                    {/* Mostra variação de preços se houver */}
+                    {product.id !== 50 && (product.price.marumbi1 !== product.price.default || 
+                      product.price.marumbi2 !== product.price.default || 
+                      product.price.marumbi3 !== product.price.default) && (
+                      <span className="text-xs text-white/60">
+                        *Preços podem variar por loja
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -125,7 +114,7 @@ const FeaturedProducts = () => {
         <div className="mt-12 text-center">
           <Link
             to="/products"
-            className="inline-flex items-center text-beef-600 font-medium hover:text-beef-800 transition-colors group"
+            className="inline-flex items-center text-gold-600 font-medium hover:text-gold-700 transition-colors group"
           >
             Ver todos os produtos
             <ArrowRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
