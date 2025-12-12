@@ -157,9 +157,7 @@ export const allProducts: Product[] = [
     name: "Picanha",
     description: "Corte nobre e muito saboroso, estrela do churrasco.",
     price: {
-      default: 129.99,
-      marumbi1: 99.99, // Preço premium na loja 1
-      marumbi2: 99.99, // Preço promocional na loja 3
+      default: 99.99
     },
     image: picanha,
     category: "bovinos",
@@ -229,7 +227,9 @@ export const allProducts: Product[] = [
     id: 2,
     name: "Bisteca Suína",
     description: "Corte com osso e gordura equilibrada, ideal para fritar.",
-    price: createSimplePrice(19.99),
+    price: {
+        default: 22.99,
+    },
     image: bisteca,
     category: "suinos",
     tag: 'Promoção'
