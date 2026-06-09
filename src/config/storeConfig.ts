@@ -45,9 +45,9 @@ export const storeLocations: Record<string, StoreLocation> = {
     address1: "Rua Crysostomo da Rosa, 258",
     address2: "Cajuru, Curitiba - PR",
     cep: "CEP: 82900-410",
-    phone: "(41) 99858-3196",
-    whatsappNumber: "+5541998583196",
-    whatsappLink: "https://wa.me/+5541998583196?text=Olá,%20vim%20pelo%20site,%20pode%20me%20passar%20algumas%20informações??%20:)%20",
+    phone: "(41) 99203-7766",
+    whatsappNumber: "+5541992037766",
+    whatsappLink: "https://wa.me/+5541992037766?text=Olá,%20vim%20pelo%20site,%20pode%20me%20passar%20algumas%20informações??%20:)%20",
     embedUrl: "https://www.google.com/maps?q=Rua%20Crysostomo%20da%20Rosa%2C%20258%2C%20Cajuru%2C%20Curitiba%20-%20PR&output=embed",
     directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=Rua+Crysostomo+da+Rosa,+258,+Cajuru,+Curitiba+-+PR",
     hours: {

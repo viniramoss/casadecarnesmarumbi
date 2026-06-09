@@ -3,11 +3,30 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import StoreTags from './StoreTags';
 import { allProducts } from '../data/productsData';
+import { Product, StoreTag } from '../config/productsConfig';
 
 // Pega produtos em destaque da lista principal
 const featuredProducts = allProducts.filter(product => 
   [50, 9, 52].includes(product.id) // Kit Hamburguer, Coxa com Sobrecoxa, Moída BLEND
 );
+
+const storePriceKeys: StoreTag[] = ['marumbi1', 'marumbi2', 'marumbi3'];
+
+const formatCurrency = (price: number) => `R$ ${price.toFixed(2).replace('.', ',')}`;
+
+const getFeaturedPrice = (product: Product) => {
+  if (product.id === 50) return "6 por R$ 10,00";
+  if (product.id === 52) return formatCurrency(product.price.marumbi3 ?? product.price.default);
+
+  return formatCurrency(product.price.default);
+};
+
+const hasStorePriceVariation = (product: Product) => {
+  return storePriceKeys.some(store => {
+    const storePrice = product.price[store];
+    return storePrice !== undefined && storePrice !== product.price.default;
+  });
+};
 
 const FeaturedProducts = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -81,7 +100,7 @@ const FeaturedProducts = () => {
                       {product.tag}
                     </span>
                   )}
-                  <StoreTags product={product} />
+                  {product.id !== 52 && <StoreTags product={product} />}
                 </div>
               </div>
               <div className="p-6">
@@ -94,12 +113,10 @@ const FeaturedProducts = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex flex-col">
                     <span className="text-lg font-semibold text-gold-600">
-                      {product.id === 50 ? "6 por R$ 10,00" : `R$ ${product.price.default.toFixed(2).replace('.', ',')}`}
+                      {getFeaturedPrice(product)}
                     </span>
                     {/* Mostra variação de preços se houver */}
-                    {product.id !== 50 && (product.price.marumbi1 !== product.price.default || 
-                      product.price.marumbi2 !== product.price.default || 
-                      product.price.marumbi3 !== product.price.default) && (
+                    {product.id !== 50 && product.id !== 52 && hasStorePriceVariation(product) && (
                       <span className="text-xs text-white/60">
                         *Preços podem variar por loja
                       </span>

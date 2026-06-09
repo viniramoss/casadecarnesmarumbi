@@ -65,8 +65,8 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Mail size={18} className="text-textColor-dourado flex-shrink-0" />
-                <a href="mailto:contato@primecuts.com.br" className="ml-3 text-butcher-300 hover:text-white transition-colors">
-                  casadecarnesmarumbicontato@gmail.com
+                <a href="mailto:casadecarnesmarumbiadm@gmail.com" className="ml-3 text-butcher-300 hover:text-white transition-colors">
+                  casadecarnesmarumbiadm@gmail.com
                 </a>
               </li>
             </ul>
