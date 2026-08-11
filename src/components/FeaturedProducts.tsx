@@ -13,8 +13,7 @@ const featuredProducts = allProducts.filter(product =>
 const formatCurrency = (price: number) => `R$ ${price.toFixed(2).replace('.', ',')}`;
 
 const getFeaturedPrice = (product: Product) => {
-  if (product.id === 50) return "6 por R$ 10,00";
-  if (product.id === 52) return formatCurrency(product.price.marumbi3 ?? product.price.default);
+  if (product.id === 50) return "6 por R$ 10,00"; // kit fechado, não é preço por quilo
 
   return formatCurrency(product.price.default);
 };
@@ -91,7 +90,7 @@ const FeaturedProducts = () => {
                       {product.tag}
                     </span>
                   )}
-                  {product.id !== 52 && <StoreTags product={product} />}
+                  <StoreTags product={product} />
                 </div>
               </div>
               <div className="p-6">
@@ -107,7 +106,7 @@ const FeaturedProducts = () => {
                       {getFeaturedPrice(product)}
                     </span>
                     {/* Mostra variação de preços se houver */}
-                    {product.id !== 50 && product.id !== 52 && hasStorePriceVariation(product) && (
+                    {product.id !== 50 && hasStorePriceVariation(product) && (
                       <span className="text-xs text-white/60">
                         *Preços podem variar por loja
                       </span>

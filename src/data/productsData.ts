@@ -635,7 +635,7 @@ export const allProducts: Product[] = [
   // ==================== MOÍDAS ====================
     {
     id: 51,
-    name: "Moída ESPECIAL - Loja 3",
+    name: "Moída ESPECIAL",
     description: "Carne moída sequinha, feita com coxao mole e patinho.",
     price: {
       default: 29.99,
@@ -649,7 +649,7 @@ export const allProducts: Product[] = [
   },
     {
     id: 52,
-    name: "Moída BLEND - Loja 3",
+    name: "Moída BLEND",
     description: "Carne com sabor intenso, feita com costela e acem",
     price: {
       default: 19.99,
