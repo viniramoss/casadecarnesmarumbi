@@ -634,32 +634,6 @@ export const allProducts: Product[] = [
 
   // ==================== MOÍDAS ====================
     {
-    id: 26,
-    name: "Moída de Primeira",
-    description: "Carne moída nobre, ideal para pratos refinados e hambúrgueres.",
-    price: {
-      default: 29.99,
-      marumbi1: 29.99,
-    },
-    image: moidaPrimeira,
-    category: "moídas",
-    availableAt: ['marumbi1'],
-    showLocationTags: true,
-  },
-    {
-    id: 27,
-    name: "Moída de Segunda",
-    description: "Carne moída econômica, excelente para molhos e recheios.",
-    price: {
-      default: 12.99,
-      marumbi1: 12.99,
-    },
-    image: moidaSegunda,
-    category: "moídas",
-    availableAt: ['marumbi1'],
-    showLocationTags: true,
-  },
-    {
     id: 51,
     name: "Moída ESPECIAL - Loja 3",
     description: "Carne moída sequinha, feita com coxao mole e patinho.",

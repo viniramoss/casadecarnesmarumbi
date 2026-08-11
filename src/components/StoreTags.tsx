@@ -1,5 +1,5 @@
 import React from 'react';
-import { Product, StoreTag, getPriceForStore } from '../config/productsConfig';
+import { Product, StoreTag, getPriceForStore, getAvailableStores, hasStorePriceVariation } from '../config/productsConfig';
 import { storeTags } from '../config/productsConfig';
 
 interface StoreTagsProps {
@@ -13,33 +13,19 @@ const StoreTags: React.FC<StoreTagsProps> = ({ product, className = "" }) => {
     return null;
   }
 
-  // Se não tem availableAt definido, está disponível em todas as lojas
-  const availableStores: StoreTag[] = product.availableAt || ['marumbi1', 'marumbi2', 'marumbi3'];
-  
-  // Encontra lojas com preços especiais (diferentes do default)
-  const storesWithSpecialPrices = availableStores.filter(store => {
-    const storePrice = getPriceForStore(product, store);
-    return storePrice !== product.price.default;
-  });
+  // Lojas onde o produto é vendido, já na ordem 1, 2, 3
+  const sortedAvailableStores = getAvailableStores(product);
+
+  // O preço muda de uma loja para outra?
+  const hasPriceVariation = hasStorePriceVariation(product);
 
   // Verifica se tem disponibilidade limitada (não está em todas as 3 lojas)
-  const hasLimitedAvailability = availableStores.length < 3;
+  const hasLimitedAvailability = sortedAvailableStores.length < 3;
 
-  // Se não há preços especiais E não tem disponibilidade limitada, não mostra tags
-  if (storesWithSpecialPrices.length === 0 && !hasLimitedAvailability) {
+  // Se o preço é o mesmo em todas E não tem disponibilidade limitada, não mostra tags
+  if (!hasPriceVariation && !hasLimitedAvailability) {
     return null;
   }
-
-  // Ordena as lojas para sempre mostrar na ordem correta
-  const sortedSpecialPrices = storesWithSpecialPrices.sort((a, b) => {
-    const order = { marumbi1: 1, marumbi2: 2, marumbi3: 3 };
-    return order[a] - order[b];
-  });
-
-  const sortedAvailableStores = availableStores.sort((a, b) => {
-    const order = { marumbi1: 1, marumbi2: 2, marumbi3: 3 };
-    return order[a] - order[b];
-  });
 
   // Cor específica para cada loja
   const getStoreColor = (storeTag: StoreTag): string => {
@@ -94,14 +80,13 @@ const StoreTags: React.FC<StoreTagsProps> = ({ product, className = "" }) => {
     );
   };
 
-  // Retorna todas as tags individuais em um container flex
+  // Havendo variação, mostra o preço de TODAS as lojas: se listasse só as
+  // diferentes do padrão, a loja do preço em destaque sumiria da etiqueta.
   return (
     <div className="flex flex-col gap-1">
-      {/* Tags de preços especiais */}
-      {sortedSpecialPrices.map(store => renderPriceTag(store))}
-      
-      {/* Tag de disponibilidade (só se não há preços especiais) */}
-      {storesWithSpecialPrices.length === 0 && renderAvailabilityTag()}
+      {hasPriceVariation
+        ? sortedAvailableStores.map(store => renderPriceTag(store))
+        : renderAvailabilityTag()}
     </div>
   );
 };

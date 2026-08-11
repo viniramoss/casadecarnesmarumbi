@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import StoreTags from '../components/StoreTags';
 import { ChevronDown, Search, Filter, X } from 'lucide-react';
 import { allProducts } from '../data/productsData';
+import { hasStorePriceVariation } from '../config/productsConfig';
 
 
 // Categorias
@@ -238,9 +239,7 @@ const Products = () => {
                           R$ {product.price.default.toFixed(2).replace('.', ',')}
                         </span>
                         {/* Mostra variação de preços se houver */}
-                        {(product.price.marumbi1 !== product.price.default || 
-                          product.price.marumbi2 !== product.price.default || 
-                          product.price.marumbi3 !== product.price.default) && (
+                        {hasStorePriceVariation(product) && (
                           <span className="text-xs text-gray-500">
                             *Preços podem variar por loja
                           </span>

@@ -3,14 +3,12 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import StoreTags from './StoreTags';
 import { allProducts } from '../data/productsData';
-import { Product, StoreTag } from '../config/productsConfig';
+import { Product, hasStorePriceVariation } from '../config/productsConfig';
 
 // Pega produtos em destaque da lista principal
-const featuredProducts = allProducts.filter(product => 
+const featuredProducts = allProducts.filter(product =>
   [50, 9, 52].includes(product.id) // Kit Hamburguer, Coxa com Sobrecoxa, Moída BLEND
 );
-
-const storePriceKeys: StoreTag[] = ['marumbi1', 'marumbi2', 'marumbi3'];
 
 const formatCurrency = (price: number) => `R$ ${price.toFixed(2).replace('.', ',')}`;
 
@@ -19,13 +17,6 @@ const getFeaturedPrice = (product: Product) => {
   if (product.id === 52) return formatCurrency(product.price.marumbi3 ?? product.price.default);
 
   return formatCurrency(product.price.default);
-};
-
-const hasStorePriceVariation = (product: Product) => {
-  return storePriceKeys.some(store => {
-    const storePrice = product.price[store];
-    return storePrice !== undefined && storePrice !== product.price.default;
-  });
 };
 
 const FeaturedProducts = () => {
