@@ -1,5 +1,5 @@
 import React from 'react';
-import { Product, StoreTag, getPriceForStore, getAvailableStores, hasStorePriceVariation } from '../config/productsConfig';
+import { Product, StoreTag, getPriceForStore, getAvailableStores, hasStorePriceVariation, allStoreTags } from '../config/productsConfig';
 import { storeTags } from '../config/productsConfig';
 
 interface StoreTagsProps {
@@ -19,8 +19,8 @@ const StoreTags: React.FC<StoreTagsProps> = ({ product, className = "" }) => {
   // O preço muda de uma loja para outra?
   const hasPriceVariation = hasStorePriceVariation(product);
 
-  // Verifica se tem disponibilidade limitada (não está em todas as 3 lojas)
-  const hasLimitedAvailability = sortedAvailableStores.length < 3;
+  // Disponibilidade limitada = não está em todas as lojas em operação
+  const hasLimitedAvailability = sortedAvailableStores.length < allStoreTags.length;
 
   // Se o preço é o mesmo em todas E não tem disponibilidade limitada, não mostra tags
   if (!hasPriceVariation && !hasLimitedAvailability) {
@@ -31,7 +31,6 @@ const StoreTags: React.FC<StoreTagsProps> = ({ product, className = "" }) => {
   const getStoreColor = (storeTag: StoreTag): string => {
     switch(storeTag) {
       case 'marumbi1': return 'bg-blue-100 text-blue-800 border-blue-300';
-      case 'marumbi2': return 'bg-green-100 text-green-800 border-green-300';
       case 'marumbi3': return 'bg-purple-100 text-purple-800 border-purple-300';
       default: return 'bg-gray-100 text-gray-800 border-gray-300';
     }
@@ -39,7 +38,7 @@ const StoreTags: React.FC<StoreTagsProps> = ({ product, className = "" }) => {
 
   // Gera uma tag individual para cada loja com preço especial
   const renderPriceTag = (store: StoreTag) => {
-    const storeNumber = store === 'marumbi1' ? '1' : store === 'marumbi2' ? '2' : '3';
+    const storeNumber = store.replace('marumbi', '');
     const price = getPriceForStore(product, store);
     const storeName = storeTags[store].name;
 
@@ -58,14 +57,7 @@ const StoreTags: React.FC<StoreTagsProps> = ({ product, className = "" }) => {
   const renderAvailabilityTag = () => {
     if (!hasLimitedAvailability) return null;
 
-    const storeNumbers = sortedAvailableStores.map(store => {
-      switch(store) {
-        case 'marumbi1': return '1';
-        case 'marumbi2': return '2';
-        case 'marumbi3': return '3';
-        default: return '';
-      }
-    });
+    const storeNumbers = sortedAvailableStores.map(store => store.replace('marumbi', ''));
 
     const storeNames = sortedAvailableStores.map(store => storeTags[store].name);
 

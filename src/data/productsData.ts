@@ -1,5 +1,5 @@
 // Dados dos produtos com novo sistema de preços e tags
-import { Product, createSimplePrice } from '../config/productsConfig';
+import { Product, StoreTag, createSimplePrice } from '../config/productsConfig';
 
 // Importação das imagens (mantendo as existentes)
 import bacon from '../images/carnes/bacon.jpg';
@@ -59,7 +59,6 @@ export const allProducts: Product[] = [
     price: {
       default: 29.99,
       marumbi1: 29.99,
-      marumbi2: 29.99,
       marumbi3: 39.99,
     },
     image: contraComOsso,
@@ -73,7 +72,6 @@ export const allProducts: Product[] = [
     price: {
       default: 29.99,
       marumbi1: 29.99,
-      marumbi2: 29.99,
       marumbi3: 29.99,
     },
     image: costelaPonta,
@@ -87,7 +85,6 @@ export const allProducts: Product[] = [
     price: {
       default: 27.99,
       marumbi1: 27.99,
-      marumbi2: 27.99,
       marumbi3: 29.99,
     },
     image: costelaRipa,
@@ -101,7 +98,6 @@ export const allProducts: Product[] = [
     price: {
       default: 46.99,
       marumbi1: 46.99,
-      marumbi2: 46.99,
       marumbi3: 59.99,
     },
     image: coxaomole,
@@ -128,7 +124,6 @@ export const allProducts: Product[] = [
     price: {
       default: 37.99,
       marumbi1: 37.99,
-      marumbi2: 37.99,
       marumbi3: 54.99,
     },
     image: fraldinha,
@@ -142,7 +137,6 @@ export const allProducts: Product[] = [
     price: {
       default: 59.99,
       marumbi1: 59.99,
-      marumbi2: 59.99,
       marumbi3: 79.99,
     },
     image: mignon,
@@ -169,7 +163,6 @@ export const allProducts: Product[] = [
     price: {
       default: 29.99,
       marumbi1: 29.99,
-      marumbi2: 29.99,
       marumbi3: 28.99,
     },
     image: musculo,
@@ -204,11 +197,10 @@ export const allProducts: Product[] = [
     price: {
       default: 59.99,
       marumbi1: 59.99,
-      marumbi2: 59.99,
     },
     image: picanha,
     category: "bovinos",
-    availableAt: ['marumbi1', 'marumbi2'],
+    availableAt: ['marumbi1'],
     showLocationTags: true,
   },
     {
@@ -218,7 +210,6 @@ export const allProducts: Product[] = [
     price: {
       default: 28.99,
       marumbi1: 28.99,
-      marumbi2: 28.99,
       marumbi3: 26.99,
     },
     image: pontaPeito,
@@ -232,7 +223,6 @@ export const allProducts: Product[] = [
     price: {
       default: 39.99,
       marumbi1: 39.99,
-      marumbi2: 39.99,
       marumbi3: 42.99,
     },
     image: postaBranca,
@@ -246,7 +236,6 @@ export const allProducts: Product[] = [
     price: {
       default: 39.99,
       marumbi1: 39.99,
-      marumbi2: 39.99,
       marumbi3: 44.99,
     },
     image: postaVermelha,
@@ -260,7 +249,6 @@ export const allProducts: Product[] = [
     price: {
       default: 29.99,
       marumbi1: 29.99,
-      marumbi2: 29.99,
       marumbi3: 34.99,
     },
     image: setinho,
@@ -274,7 +262,6 @@ export const allProducts: Product[] = [
     price: {
       default: 44.99,
       marumbi1: 44.99,
-      marumbi2: 44.99,
       marumbi3: 49.99,
     },
     image: strogonoff,
@@ -283,16 +270,15 @@ export const allProducts: Product[] = [
   },
     {
     id: 50,
-    name: "Kit 6 Hamburgueres - LJ1 e LJ2",
+    name: "Kit 6 Hamburgueres",
     description: "Delicioso kit com 6 hamburgueres artesanais.",
     price: {
       default: 10.00,
       marumbi1: 10.00,
-      marumbi2: 10.00,
     },
     image: hamburguer,
     category: "bovinos",
-    availableAt: ['marumbi1', 'marumbi2'],
+    availableAt: ['marumbi1'],
     showLocationTags: true,
   },
 
@@ -304,7 +290,6 @@ export const allProducts: Product[] = [
     price: {
       default: 43.99,
       marumbi1: 43.99,
-      marumbi2: 44.99,
       marumbi3: 44.99,
     },
     image: bacon,
@@ -318,7 +303,6 @@ export const allProducts: Product[] = [
     price: {
       default: 16.99,
       marumbi1: 16.99,
-      marumbi2: 16.99,
       marumbi3: 16.99,
     },
     image: bisteca,
@@ -333,7 +317,6 @@ export const allProducts: Product[] = [
     price: {
       default: 25.99,
       marumbi1: 25.99,
-      marumbi2: 25.99,
       marumbi3: 28.99,
     },
     image: lomboAgulhajpg,
@@ -348,7 +331,6 @@ export const allProducts: Product[] = [
     price: {
       default: 13.99,
       marumbi1: 13.99,
-      marumbi2: 12.99,
       marumbi3: 12.99,
     },
     image: paletaSuina,
@@ -362,7 +344,6 @@ export const allProducts: Product[] = [
     price: {
       default: 27.99,
       marumbi1: 27.99,
-      marumbi2: 29.90,
       marumbi3: 25.99,
     },
     image: panceta,
@@ -376,7 +357,6 @@ export const allProducts: Product[] = [
     price: {
       default: 17.99,
       marumbi1: 17.99,
-      marumbi2: 18.99,
       marumbi3: 18.99,
     },
     image: pePorco,
@@ -390,7 +370,6 @@ export const allProducts: Product[] = [
     price: {
       default: 12.99,
       marumbi1: 12.99,
-      marumbi2: 12.99,
       marumbi3: 13.99,
     },
     image: pernilSuino,
@@ -404,7 +383,6 @@ export const allProducts: Product[] = [
     price: {
       default: 12.99,
       marumbi1: 12.99,
-      marumbi2: 11.99,
       marumbi3: 15.99,
     },
     image: picadoPorco,
@@ -418,7 +396,6 @@ export const allProducts: Product[] = [
     price: {
       default: 6.99,
       marumbi1: 6.99,
-      marumbi2: 7.99,
       marumbi3: 7.99,
     },
     image: suan,
@@ -434,7 +411,6 @@ export const allProducts: Product[] = [
     price: {
       default: 10.99,
       marumbi1: 10.99,
-      marumbi2: 10.99,
       marumbi3: 8.99,
     },
     image: coxaSobre,
@@ -448,7 +424,6 @@ export const allProducts: Product[] = [
     price: {
       default: 12.99,
       marumbi1: 12.99,
-      marumbi2: 12.99,
       marumbi3: 14.99,
     },
     image: coxaEspalmada,
@@ -462,7 +437,6 @@ export const allProducts: Product[] = [
     price: {
       default: 15.99,
       marumbi1: 15.99,
-      marumbi2: 13.99,
       marumbi3: 14.99,
     },
     image: coxinhaAsa,
@@ -484,7 +458,6 @@ export const allProducts: Product[] = [
     price: {
       default: 13.99,
       marumbi1: 13.99,
-      marumbi2: 15.99,
       marumbi3: 15.99,
     },
     image: frangoInteiro,
@@ -498,7 +471,6 @@ export const allProducts: Product[] = [
     price: {
       default: 11.99,
       marumbi1: 11.99,
-      marumbi2: 14.99,
       marumbi3: 14.99,
     },
     image: peDeFrango,
@@ -513,7 +485,6 @@ export const allProducts: Product[] = [
     price: {
       default: 25.99,
       marumbi1: 25.99,
-      marumbi2: 22.99,
       marumbi3: 25.99,
     },
     image: fileFrango,
@@ -537,7 +508,6 @@ export const allProducts: Product[] = [
     price: {
       default: 36.99,
       marumbi1: 36.99,
-      marumbi2: 36.90,
       marumbi3: 36.99,
     },
     image: calabresa,
@@ -551,7 +521,6 @@ export const allProducts: Product[] = [
     price: {
       default: 34.99,
       marumbi1: 34.99,
-      marumbi2: 34.99,
       marumbi3: 36.99,
     },
     image: linguiçaFina,
@@ -565,7 +534,6 @@ export const allProducts: Product[] = [
     price: {
       default: 28.99,
       marumbi1: 28.99,
-      marumbi2: 28.99,
       marumbi3: 29.99,
     },
     image: linguiçaFriela,
@@ -579,7 +547,6 @@ export const allProducts: Product[] = [
     price: {
       default: 29.90,
       marumbi1: 29.90,
-      marumbi2: 29.99,
       marumbi3: 29.99,
     },
     image: linguiçaFrimesa,
@@ -624,7 +591,6 @@ export const allProducts: Product[] = [
     price: {
       default: 15.99,
       marumbi1: 15.99,
-      marumbi2: 15.99,
       marumbi3: 18.99,
     },
     image: mocoto,
@@ -638,13 +604,12 @@ export const allProducts: Product[] = [
     name: "Moída ESPECIAL",
     description: "Carne moída sequinha, feita com coxao mole e patinho.",
     price: {
-      default: 29.99,
-      marumbi2: 29.99,
+      default: 36.99,
       marumbi3: 36.99,
     },
     image: moidaPrimeira,
     category: "moídas",
-    availableAt: ['marumbi2', 'marumbi3'],
+    availableAt: ['marumbi3'],
     showLocationTags: true,
   },
     {
@@ -654,7 +619,6 @@ export const allProducts: Product[] = [
     price: {
       default: 19.99,
       marumbi1: 19.99,
-      marumbi2: 17.99,
       marumbi3: 26.99,
     },
     image: moidaSegunda,
@@ -670,7 +634,7 @@ export const getProductsByCategory = (category: string) => {
 };
 
 // Função para buscar produtos por loja
-export const getProductsByStore = (storeTag: 'marumbi1' | 'marumbi2' | 'marumbi3') => {
+export const getProductsByStore = (storeTag: StoreTag) => {
   return allProducts.filter(product => 
     !product.availableAt || product.availableAt.includes(storeTag)
   );

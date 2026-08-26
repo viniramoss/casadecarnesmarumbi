@@ -1,12 +1,11 @@
 // Configuração centralizada dos produtos Marumbi
 
 // Tipos para melhor organização
-export type StoreTag = 'marumbi1' | 'marumbi2' | 'marumbi3';
+export type StoreTag = 'marumbi1' | 'marumbi3';
 export type ProductCategory = 'bovinos' | 'suinos' | 'aves' | 'embutidos' | 'miúdos' | 'moídas';
 
 export interface ProductPrice {
   marumbi1?: number; // Uberaba
-  marumbi2?: number; // Cajuru  
   marumbi3?: number; // Capão da Imbuia
   default: number;   // Preço padrão se não especificado
 }
@@ -41,7 +40,7 @@ export const isAvailableAtStore = (product: Product, storeTag: StoreTag): boolea
 
 // Lojas onde o produto é vendido (todas, se não houver restrição)
 export const getAvailableStores = (product: Product): StoreTag[] => {
-  const ordem: StoreTag[] = ['marumbi1', 'marumbi2', 'marumbi3'];
+  const ordem = allStoreTags;
   if (!product.availableAt) return ordem;
   return ordem.filter(store => product.availableAt!.includes(store));
 };
@@ -62,17 +61,15 @@ export const storeTags = {
     location: 'Uberaba',
     color: 'bg-blue-500'
   },
-  marumbi2: {
-    name: 'Marumbi 2', 
-    location: 'Cajuru',
-    color: 'bg-green-500'
-  },
   marumbi3: {
     name: 'Marumbi 3',
     location: 'Capão da Imbuia', 
     color: 'bg-purple-500'
   }
 } as const;
+
+// Ordem canonica das lojas, derivada de storeTags para nao repetir a lista
+export const allStoreTags = Object.keys(storeTags) as StoreTag[];
 
 // Função para criar preço simples (apenas preço padrão)
 export const createSimplePrice = (price: number): ProductPrice => {
@@ -85,11 +82,12 @@ export const createSimplePrice = (price: number): ProductPrice => {
 export const updateAllPrices = (products: Product[], percentage: number): Product[] => {
   return products.map(product => ({
     ...product,
-    price: {
+    price: allStoreTags.reduce((acc, store) => {
+      const preco = product.price[store];
+      if (preco !== undefined) acc[store] = Math.round(preco * (1 + percentage / 100) * 100) / 100;
+      return acc;
+    }, {
       default: Math.round(product.price.default * (1 + percentage / 100) * 100) / 100,
-      marumbi1: product.price.marumbi1 ? Math.round(product.price.marumbi1 * (1 + percentage / 100) * 100) / 100 : undefined,
-      marumbi2: product.price.marumbi2 ? Math.round(product.price.marumbi2 * (1 + percentage / 100) * 100) / 100 : undefined,
-      marumbi3: product.price.marumbi3 ? Math.round(product.price.marumbi3 * (1 + percentage / 100) * 100) / 100 : undefined,
-    }
+    } as ProductPrice)
   }));
 };
