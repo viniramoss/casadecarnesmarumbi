@@ -278,6 +278,7 @@ export const allProducts: Product[] = [
     },
     image: hamburguer,
     category: "bovinos",
+    priceLabel: "6 por R$ 10,00", // kit fechado, nao e vendido por peso
     availableAt: ['marumbi1'],
     showLocationTags: true,
   },

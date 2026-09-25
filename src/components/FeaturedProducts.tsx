@@ -3,20 +3,12 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import StoreTags from './StoreTags';
 import { allProducts } from '../data/productsData';
-import { Product, hasStorePriceVariation } from '../config/productsConfig';
+import { hasStorePriceVariation, formatProductPrice } from '../config/productsConfig';
 
 // Pega produtos em destaque da lista principal
 const featuredProducts = allProducts.filter(product =>
   [50, 9, 52].includes(product.id) // Kit Hamburguer, Coxa com Sobrecoxa, Moída BLEND
 );
-
-const formatCurrency = (price: number) => `R$ ${price.toFixed(2).replace('.', ',')}`;
-
-const getFeaturedPrice = (product: Product) => {
-  if (product.id === 50) return "6 por R$ 10,00"; // kit fechado, não é preço por quilo
-
-  return formatCurrency(product.price.default);
-};
 
 const FeaturedProducts = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -103,10 +95,10 @@ const FeaturedProducts = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex flex-col">
                     <span className="text-lg font-semibold text-gold-600">
-                      {getFeaturedPrice(product)}
+                      {formatProductPrice(product)}
                     </span>
                     {/* Mostra variação de preços se houver */}
-                    {product.id !== 50 && hasStorePriceVariation(product) && (
+                    {!product.priceLabel && hasStorePriceVariation(product) && (
                       <span className="text-xs text-white/60">
                         *Preços podem variar por loja
                       </span>

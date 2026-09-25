@@ -1,5 +1,5 @@
 import React from 'react';
-import { Product, StoreTag, getPriceForStore, getAvailableStores, hasStorePriceVariation, allStoreTags } from '../config/productsConfig';
+import { Product, StoreTag, getPriceForStore, getAvailableStores, hasStorePriceVariation, allStoreTags, formatPrice, formatProductPrice } from '../config/productsConfig';
 import { storeTags } from '../config/productsConfig';
 
 interface StoreTagsProps {
@@ -46,9 +46,9 @@ const StoreTags: React.FC<StoreTagsProps> = ({ product, className = "" }) => {
       <span 
         key={`price-${store}`}
         className={`inline-flex items-center px-2 py-1 text-xs font-medium rounded-full border ${getStoreColor(store)} ${className} cursor-help`}
-        title={`${storeName}: R$ ${price.toFixed(2).replace('.', ',')}`}
+        title={`${storeName}: ${formatProductPrice(product, price)}`}
       >
-        💰 Marumbi {storeNumber} - R$ {price.toFixed(2).replace('.', ',')}
+        💰 Marumbi {storeNumber} - {formatPrice(price)}
       </span>
     );
   };

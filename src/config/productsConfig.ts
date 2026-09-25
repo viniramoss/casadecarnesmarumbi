@@ -20,6 +20,8 @@ export interface Product {
   tag?: string;
   availableAt?: StoreTag[]; // Em quais lojas está disponível
   showLocationTags?: boolean; // Se deve mostrar tags de localização com preços
+  unit?: string;       // Unidade de venda; kg quando não informado
+  priceLabel?: string; // Texto fixo, para o que não é vendido por peso (kits, combos)
 }
 
 // Função para obter preço por loja
@@ -27,9 +29,18 @@ export const getPriceForStore = (product: Product, storeTag: StoreTag): number =
   return product.price[storeTag] || product.price.default;
 };
 
-// Função para formatar preço
+// Unidade de venda padrão do açougue
+export const DEFAULT_UNIT = 'kg';
+
+// Formata só o valor, sem unidade
 export const formatPrice = (price: number): string => {
   return `R$ ${price.toFixed(2).replace('.', ',')}`;
+};
+
+// Preço como o cliente lê: com a unidade, ou o texto fixo de kits e combos
+export const formatProductPrice = (product: Product, price?: number): string => {
+  if (product.priceLabel) return product.priceLabel;
+  return `${formatPrice(price ?? product.price.default)} / ${product.unit ?? DEFAULT_UNIT}`;
 };
 
 // Função para verificar se produto está disponível na loja

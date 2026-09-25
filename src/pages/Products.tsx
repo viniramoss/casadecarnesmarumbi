@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import StoreTags from '../components/StoreTags';
 import { ChevronDown, Search, Filter, X } from 'lucide-react';
 import { allProducts } from '../data/productsData';
-import { hasStorePriceVariation } from '../config/productsConfig';
+import { hasStorePriceVariation, formatProductPrice, allStoreTags } from '../config/productsConfig';
 
 
 // Categorias
@@ -117,7 +117,7 @@ const Products = () => {
             Conheça nossa seleção de carnes. Cuidadosamente selecionadas para garantir qualidade e sabor em suas refeições.
           </p>
           <p className="text-butcher-200 max-w-2xl mt-2">
-            Temos 2 unidades, os preços podem variar de acordo com cada loja, entre em contato por whatsapp para ter um atendimento mais direto. (Numero disponivel na pagina inicial.)
+            Temos {allStoreTags.length} unidades, os preços podem variar de acordo com cada loja, entre em contato por whatsapp para ter um atendimento mais direto. (Numero disponivel na pagina inicial.)
           </p>
         </div>
       </div>
@@ -236,7 +236,7 @@ const Products = () => {
                     <div className="flex items-center justify-between mt-auto">
                       <div className="flex flex-col">
                         <span className="text-lg font-semibold text-gold-600">
-                          R$ {product.price.default.toFixed(2).replace('.', ',')}
+                          {formatProductPrice(product)}
                         </span>
                         {/* Mostra variação de preços se houver */}
                         {hasStorePriceVariation(product) && (
