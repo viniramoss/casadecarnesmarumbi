@@ -1,36 +1,48 @@
-import { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { ArrowLeftRight, Clock, MapPin, MessageCircle, Navigation, Search, X } from 'lucide-react';
-import logo from '../logo/LogoMarumbiSemfundoLB.png';
-import { getStoreByCatalogo } from '../config/storeConfig';
-import {
-  ProductCategory,
-  StoreTag,
-  catalogo,
-  categorias,
-  formatAtualizadoEm,
-  formatPrice,
-  produtosDaLoja,
-  salvarUnidade,
-} from '../config/catalogo';
+import { MapPin, Search, X } from 'lucide-react';
+import Navbar from '../components/Navbar';
+import CabecalhoPagina from '../components/CabecalhoPagina';
+import Footer from '../components/Footer';
+import { StoreLocation, getOrderedStores, getStoreByCatalogo } from '../config/storeConfig';
+import { ProductCategory, categorias, formatPrice, produtosDaLoja } from '../config/catalogo';
 
 // Normaliza para a busca ignorar acento e maiúsculas
 const normalizar = (texto: string) =>
-  texto.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
+  texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+
+// Botões para trocar de unidade sem sair do catálogo
+const SeletorDeUnidade = ({ atual }: { atual: StoreLocation }) => (
+  <nav aria-label="Unidade">
+    <p className="mb-1.5 text-xs font-bold uppercase tracking-[0.2em] text-white/70 sm:mb-2">Unidade</p>
+    <div className="flex flex-wrap gap-1.5 rounded-xl bg-white/10 p-1.5 backdrop-blur-sm">
+      {getOrderedStores().map(store => {
+        const ativa = store.id === atual.id;
+        return (
+          <Link
+            key={store.id}
+            to={`/catalogo/${store.catalogo}`}
+            aria-current={ativa ? 'page' : undefined}
+            className={`min-w-[7.5rem] flex-1 rounded-lg px-3 py-1.5 text-center transition-colors sm:min-w-[10.5rem] sm:px-5 sm:py-2 ${
+              ativa ? 'bg-gold-500 text-black shadow' : 'text-white hover:bg-white/15'
+            }`}
+          >
+            <span className="block font-bold leading-tight">{store.displayName}</span>
+            <span className={`block whitespace-nowrap text-xs font-semibold ${ativa ? 'text-black/75' : 'text-white/70'}`}>
+              {store.bairro}
+            </span>
+          </Link>
+        );
+      })}
+    </div>
+  </nav>
+);
 
 const Catalogo = () => {
   const { loja = '' } = useParams();
   const store = getStoreByCatalogo(loja);
   const [busca, setBusca] = useState('');
   const [categoria, setCategoria] = useState<ProductCategory | 'todos'>('todos');
-
-  useEffect(() => {
-    if (!store) return;
-    salvarUnidade(store.catalogo);
-    window.scrollTo(0, 0);
-    setBusca('');
-    setCategoria('todos');
-  }, [store]);
 
   const itens = useMemo(() => (store ? produtosDaLoja(store.catalogo) : []), [store]);
 
@@ -39,6 +51,13 @@ const Catalogo = () => {
     () => categorias.filter(c => itens.some(item => item.categoria === c.id)),
     [itens],
   );
+
+  // Ao trocar de unidade a busca continua; a categoria volta para Todos se a outra unidade não tiver
+  useEffect(() => {
+    if (categoria !== 'todos' && !categoriasDaLoja.some(c => c.id === categoria)) {
+      setCategoria('todos');
+    }
+  }, [categoria, categoriasDaLoja]);
 
   const secoes = useMemo(() => {
     const termo = normalizar(busca);
@@ -52,49 +71,44 @@ const Catalogo = () => {
       .filter(secao => secao.itens.length > 0);
   }, [itens, categoriasDaLoja, busca, categoria]);
 
-  if (!store) return <Navigate to="/unidades" replace />;
-
-  const atualizadoEm = formatAtualizadoEm(catalogo.lojas[store.catalogo as StoreTag]?.atualizadoEm ?? '');
+  if (!store) return <Navigate to="/" replace />;
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Cabeçalho da unidade */}
-      <header className="bg-neutral-950 text-white">
-        <div className="max-w-3xl mx-auto px-4 pt-4 pb-6">
-          <div className="flex items-center justify-between gap-3">
-            <Link to="/unidades" aria-label="Escolher unidade">
-              <img src={logo} alt="Casa de Carnes Marumbi" className="h-12 w-auto" />
-            </Link>
-            <Link
-              to="/unidades"
-              className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full border border-white/20 px-4 py-2 text-sm font-medium hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-            >
-              <ArrowLeftRight size={16} />
-              Trocar unidade
-            </Link>
-          </div>
+    <div className="flex min-h-screen flex-col bg-background">
+      <Navbar />
 
-          <p className="mt-6 text-xs uppercase tracking-[0.25em] text-red-300/80">Catálogo</p>
-          <h1 className="mt-1 text-3xl font-serif font-semibold">{store.displayName}</h1>
-          <p className="mt-2 flex items-start gap-2 text-sm text-neutral-300">
-            <MapPin size={16} className="mt-0.5 shrink-0 text-red-400" />
-            {store.address1} · {store.address2}
-          </p>
-        </div>
-      </header>
+      <CabecalhoPagina rotulo="Catálogo de preços" titulo={store.displayName} lateral={<SeletorDeUnidade atual={store} />}>
+        <a
+          href={store.directionsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-2 inline-flex items-start gap-2 text-sm font-medium text-white/85 hover:text-white transition-colors sm:text-base"
+        >
+          <MapPin size={18} className="mt-0.5 shrink-0 text-gold-400" />
+          <span>
+            {store.address1} · {store.bairro}
+          </span>
+        </a>
+      </CabecalhoPagina>
 
       {/* Busca e categorias */}
-      <div className="sticky top-0 z-10 bg-background/95 backdrop-blur border-b">
-        <div className="max-w-3xl mx-auto px-4 py-3 space-y-3">
-          <label className="relative block">
+      <div className="z-30 border-b border-border bg-background/95 backdrop-blur-sm md:sticky md:top-20">
+        <div className="butcher-container flex flex-col gap-3 py-3 md:py-4 lg:flex-row lg:items-center lg:justify-between lg:gap-6">
+          <label className="relative block w-full lg:order-last lg:w-80 lg:shrink-0">
             <span className="sr-only">Buscar produto</span>
-            <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+            <Search
+              size={18}
+              className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
+            />
             <input
-              type="search"
+              type="text"
+              inputMode="search"
+              enterKeyHint="search"
+              autoComplete="off"
               value={busca}
               onChange={e => setBusca(e.target.value)}
               placeholder="Buscar produto"
-              className="w-full rounded-lg border bg-white py-2.5 pl-10 pr-10 text-base focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full rounded-lg border border-input bg-card py-2.5 pl-10 pr-10 text-base font-medium text-card-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-gold-500"
             />
             {busca && (
               <button
@@ -108,16 +122,17 @@ const Catalogo = () => {
             )}
           </label>
 
-          <div className="-mx-4 px-4 flex gap-2 overflow-x-auto pb-1">
+          <div className="flex flex-wrap gap-2" role="group" aria-label="Categorias">
             {[{ id: 'todos' as const, nome: 'Todos' }, ...categoriasDaLoja].map(c => (
               <button
                 key={c.id}
                 type="button"
                 onClick={() => setCategoria(c.id)}
-                className={`shrink-0 rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+                aria-pressed={categoria === c.id}
+                className={`rounded-full px-3.5 py-1.5 text-sm font-bold transition-colors sm:px-4 sm:py-2 ${
                   categoria === c.id
-                    ? 'bg-primary text-primary-foreground'
-                    : 'bg-secondary text-secondary-foreground hover:bg-accent'
+                    ? 'bg-gold-500 text-black shadow-sm'
+                    : 'border border-border bg-card text-card-foreground hover:border-gold-500'
                 }`}
               >
                 {c.nome}
@@ -128,66 +143,64 @@ const Catalogo = () => {
       </div>
 
       {/* Lista de preços */}
-      <main className="max-w-3xl mx-auto px-4 py-6">
-        {secoes.length === 0 ? (
-          <p className="py-16 text-center text-muted-foreground">Nenhum produto encontrado.</p>
-        ) : (
-          <div className="space-y-8">
-            {secoes.map(secao => (
-              <section key={secao.id}>
-                <h2 className="mb-2 text-lg font-serif font-semibold text-primary">{secao.nome}</h2>
-                <ul className="divide-y rounded-xl border bg-white">
-                  {secao.itens.map(item => (
-                    <li key={item.id} className="flex items-baseline justify-between gap-4 px-4 py-3">
-                      <span className="font-medium">{item.nome}</span>
-                      <span className="shrink-0 whitespace-nowrap [font-variant-numeric:lining-nums_tabular-nums]">
-                        <span className="font-semibold">{formatPrice(item.preco)}</span>
-                        <span className="text-sm text-muted-foreground"> /{item.unidade}</span>
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            ))}
-          </div>
-        )}
+      <main className="flex-1">
+        <div className="butcher-container py-7 md:py-10">
+          {secoes.length === 0 ? (
+            <div className="py-16 text-center">
+              <p className="text-lg font-semibold text-foreground">Nenhum produto encontrado.</p>
+              {busca && (
+                <button
+                  type="button"
+                  onClick={() => setBusca('')}
+                  className="mt-3 font-semibold text-gold-800 underline dark:text-gold-400"
+                >
+                  Limpar a busca
+                </button>
+              )}
+            </div>
+          ) : (
+            <div className="space-y-10">
+              {secoes.map(secao => (
+                <section key={secao.id} aria-labelledby={`categoria-${secao.id}`}>
+                  <div className="mb-4 flex items-end justify-between gap-3 border-b-2 border-gold-500 pb-2">
+                    <h2 id={`categoria-${secao.id}`} className="font-serif text-2xl font-bold text-foreground md:text-3xl">
+                      {secao.nome}
+                    </h2>
+                    <span className="pb-1 text-sm font-semibold text-muted-foreground">
+                      {secao.itens.length} {secao.itens.length === 1 ? 'produto' : 'produtos'}
+                    </span>
+                  </div>
 
-        <p className="mt-6 text-center text-xs text-muted-foreground">
-          Preços da unidade {store.displayName}, sujeitos a alteração sem aviso.
-          {atualizadoEm && <> Atualizado em {atualizadoEm}.</>}
-        </p>
+                  <ul className="grid gap-2.5 md:grid-cols-2 md:gap-3 xl:grid-cols-3">
+                    {secao.itens.map(item => (
+                      <li
+                        key={item.id}
+                        className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 shadow-sm"
+                      >
+                        <span className="min-w-0 break-words font-bold leading-snug text-card-foreground">
+                          {item.nome}
+                        </span>
+                        <span className="shrink-0 whitespace-nowrap rounded-lg bg-gold-100 px-2.5 py-1.5 ring-1 ring-inset ring-gold-300 dark:bg-gold-500/10 dark:ring-gold-500/40">
+                          <span className="text-base font-extrabold text-gold-900 sm:text-lg dark:text-gold-300">
+                            {formatPrice(item.preco)}
+                          </span>
+                          <span className="ml-0.5 text-xs font-bold text-gold-800 dark:text-gold-400">/{item.unidade}</span>
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
+            </div>
+          )}
+
+          <p className="mt-10 text-center text-sm font-semibold text-muted-foreground">
+            Preços da unidade {store.displayName}, sujeitos a alterações sem aviso.
+          </p>
+        </div>
       </main>
 
-      {/* Informações da unidade */}
-      <footer className="bg-neutral-950 text-neutral-300">
-        <div className="max-w-3xl mx-auto px-4 py-8 space-y-4 text-sm">
-          <p className="flex items-center gap-2">
-            <Clock size={16} className="shrink-0 text-red-400" />
-            Seg a sáb {store.hours.weekdays} · Dom {store.hours.sunday}
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <a
-              href={store.whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-green-600 px-4 py-2 font-medium text-white hover:bg-green-700"
-            >
-              <MessageCircle size={16} />
-              WhatsApp {store.phone}
-            </a>
-            <a
-              href={store.directionsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 font-medium text-white hover:bg-white/10"
-            >
-              <Navigation size={16} />
-              Como chegar
-            </a>
-          </div>
-          <p className="pt-2 text-xs text-neutral-500">© {new Date().getFullYear()} Casa de Carnes Marumbi</p>
-        </div>
-      </footer>
+      <Footer loja={store} />
     </div>
   );
 };

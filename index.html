@@ -1,13 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Marumbi</title>
-    <meta name="description" content="Marumbi" />
+    <title>Açougue Marumbi | Catálogo de preços</title>
+    <meta name="description" content="Catálogo de preços das unidades do Açougue Marumbi, em Curitiba." />
     <meta name="author" content="Marumbi" />
+    <meta name="color-scheme" content="light dark" />
 
-    <meta property="og:title" content="Marumbi" />
+    <!-- Modo claro ou escuro conforme o sistema da pessoa (sem preferência, fica claro).
+         Roda antes da página aparecer para não piscar. -->
+    <script>
+      (function () {
+        var escuro = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+        var aplicar = function () {
+          document.documentElement.classList.toggle('dark', !!(escuro && escuro.matches));
+        };
+        aplicar();
+        if (escuro && escuro.addEventListener) escuro.addEventListener('change', aplicar);
+        else if (escuro && escuro.addListener) escuro.addListener(aplicar);
+      })();
+    </script>
+
+    <meta property="og:title" content="Açougue Marumbi | Catálogo de preços" />
     <meta property="og:description" content="Casa de Carnes Marumbi" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="" />

@@ -6,6 +6,7 @@ export interface StoreLocation {
   catalogo: StoreTag; // chave da unidade no catalogo de precos (src/data/catalogo.json)
   title: string;
   displayName: string;
+  bairro: string;
   address1: string;
   address2: string;
   cep: string;
@@ -21,6 +22,13 @@ export interface StoreLocation {
   order: number;
 }
 
+// Contatos que valem para todas as unidades, mostrados no rodapé.
+// Instagram vazio = o botão não aparece.
+export const contatos = {
+  instagram: "",
+  email: "casadecarnesmarumbiadm@gmail.com",
+};
+
 // Configuração das unidades Marumbi em operação
 export const storeLocations: Record<string, StoreLocation> = {
   uberaba: {
@@ -28,6 +36,7 @@ export const storeLocations: Record<string, StoreLocation> = {
     catalogo: "marumbi1",
     title: "Uberaba - Marumbi 1",
     displayName: "Marumbi 1",
+    bairro: "Uberaba",
     address1: "Rua Eunice Bettini Bartoszeck, 1122",
     address2: "Uberaba, Curitiba - PR",
     cep: "CEP: 81590-180",
@@ -47,6 +56,7 @@ export const storeLocations: Record<string, StoreLocation> = {
     catalogo: "marumbi3",
     title: "Capão da Imbuia - Marumbi 3",
     displayName: "Marumbi 3",
+    bairro: "Capão da Imbuia",
     address1: "Rua Delegado Leopoldo Belczak, 2045",
     address2: "Capão da Imbuia, Curitiba - PR",
     cep: "CEP: 82810-060",

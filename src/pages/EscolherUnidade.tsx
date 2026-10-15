@@ -1,74 +1,69 @@
-import { useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { ChevronRight, Clock, MapPin } from 'lucide-react';
-import logo from '../logo/LogoMarumbiSemfundoLB.png';
-import { getOrderedStores, getStoreByCatalogo } from '../config/storeConfig';
-import { lerUnidadeSalva } from '../config/catalogo';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { ChevronRight, MapPin } from 'lucide-react';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import fundo from '../images/fundo-carne.jpg';
+import { getOrderedStores } from '../config/storeConfig';
 
-// Primeira tela: o cliente escolhe a unidade antes de ver os preços.
-// Em "/", quem já escolheu antes vai direto para o catálogo; "/unidades" sempre mostra a escolha.
+// Página inicial: a pessoa escolhe a unidade para abrir o catálogo de preços
 const EscolherUnidade = () => {
-  const navigate = useNavigate();
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    if (pathname !== '/') return;
-    const salva = lerUnidadeSalva();
-    if (salva && getStoreByCatalogo(salva)) {
-      navigate(`/catalogo/${salva}`, { replace: true });
-    }
-  }, [pathname, navigate]);
+  const lojas = getOrderedStores();
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-white flex flex-col">
-      <main className="flex-1 w-full max-w-xl mx-auto px-4 py-10 sm:py-16 flex flex-col">
-        <img
-          src={logo}
-          alt="Casa de Carnes Marumbi"
-          className="h-20 sm:h-24 w-auto mx-auto mb-8"
+    <div className="flex min-h-screen flex-col bg-background">
+      <Navbar />
+
+      <main className="relative flex-1 overflow-hidden bg-black pt-16 md:pt-20">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url('${fundo}')` }}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-butcher-950/80 to-textColor-fundoDaMagia"
+          aria-hidden="true"
         />
 
-        <p className="text-center text-xs uppercase tracking-[0.25em] text-red-300/80 mb-2">
-          Catálogo de preços
-        </p>
-        <h1 className="text-center text-2xl sm:text-3xl font-serif font-semibold mb-8">
-          Selecione a unidade mais próxima de você
-        </h1>
+        <div className="relative butcher-container flex min-h-[calc(100svh-4rem)] flex-col items-center justify-center py-10 text-center md:min-h-[calc(100svh-5rem)] md:py-14">
+          <span className="inline-block rounded-full bg-gold-100/10 px-3 py-1 text-xs font-semibold text-gold-100 backdrop-blur-sm">
+            TRADIÇÃO & QUALIDADE
+          </span>
+          <h1 className="mt-5 font-instrument text-[clamp(2.25rem,11vw,4.5rem)] leading-tight tracking-widest text-white lg:text-8xl">
+            AÇOUGUE MARUMBI
+          </h1>
+          <p className="mt-3 text-lg font-bold uppercase tracking-[0.2em] text-gold-400 sm:text-xl">
+            Catálogo de preços
+          </p>
+          <p className="mt-2 text-base font-semibold text-white/90 sm:text-lg">
+            Selecione a unidade mais próxima de você
+          </p>
 
-        <div className="space-y-4">
-          {getOrderedStores().map(store => (
-            <Link
-              key={store.id}
-              to={`/catalogo/${store.catalogo}`}
-              className="group flex items-center gap-4 rounded-xl border border-white/10 bg-white/[0.04] p-5 transition-colors hover:border-primary hover:bg-primary/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-            >
-              <div className="flex-1 min-w-0">
-                <p className="text-xl font-serif font-semibold">{store.displayName}</p>
-                <p className="mt-2 flex items-start gap-2 text-sm text-neutral-300">
-                  <MapPin size={16} className="mt-0.5 shrink-0 text-red-400" />
-                  <span>
+          <div className="mt-8 grid w-full max-w-3xl gap-3 sm:grid-cols-2 sm:gap-4">
+            {lojas.map(store => (
+              <Link
+                key={store.id}
+                to={`/catalogo/${store.catalogo}`}
+                className="group flex items-center gap-4 rounded-2xl border border-white/20 bg-black/55 p-4 text-left backdrop-blur-sm transition-colors hover:border-gold-400 hover:bg-black/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 sm:p-5"
+              >
+                <span className="min-w-0 flex-1">
+                  <span className="block font-serif text-2xl font-bold text-white sm:text-3xl">{store.displayName}</span>
+                  <span className="mt-0.5 block text-sm font-bold uppercase tracking-wider text-gold-400">{store.bairro}</span>
+                  <span className="mt-2 flex items-start gap-1.5 text-sm font-medium text-white/80">
+                    <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
                     {store.address1}
-                    <br />
-                    {store.address2}
                   </span>
-                </p>
-                <p className="mt-2 flex items-center gap-2 text-xs text-neutral-400">
-                  <Clock size={14} className="shrink-0" />
-                  Seg a sáb {store.hours.weekdays} · Dom {store.hours.sunday}
-                </p>
-              </div>
-              <ChevronRight
-                size={22}
-                className="shrink-0 text-neutral-500 transition-transform group-hover:translate-x-1 group-hover:text-white"
-              />
-            </Link>
-          ))}
+                </span>
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gold-500 text-black transition-transform group-hover:translate-x-1">
+                  <ChevronRight className="h-6 w-6" />
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
       </main>
 
-      <footer className="py-6 text-center text-xs text-neutral-500">
-        © {new Date().getFullYear()} Casa de Carnes Marumbi
-      </footer>
+      <Footer />
     </div>
   );
 };

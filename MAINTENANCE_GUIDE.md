@@ -66,10 +66,19 @@ O site agora é um **catálogo de preços**: o cliente escolhe a unidade e vê n
 Não edite à mão sem necessidade: use as ferramentas da seção 4.
 
 ### `src/config/storeConfig.ts` — as lojas
-Endereço, telefone, WhatsApp e horário de cada unidade, mostrados na tela de escolha e no catálogo. O campo `catalogo` liga a loja à chave usada no `catalogo.json` (`marumbi1`, `marumbi3`).
+Endereço, telefone, WhatsApp e horário de cada unidade, mostrados na página inicial, no catálogo, nas abas Localização e Informações e no rodapé. O campo `catalogo` liga a loja à chave usada no `catalogo.json` (`marumbi1`, `marumbi3`). Em `contatos` ficam o link do Instagram (vazio = o botão não aparece) e o e-mail do rodapé.
 
 ### Telas
-`src/pages/EscolherUnidade.tsx` (tela inicial e `/unidades`) e `src/pages/Catalogo.tsx` (`/catalogo/marumbi1`, `/catalogo/marumbi3`). Quem já escolheu uma unidade abre o site direto nela; o botão **Trocar unidade** volta para a escolha.
+| Endereço | Arquivo | O que mostra |
+|---|---|---|
+| `/` | `src/pages/EscolherUnidade.tsx` | Página inicial: a pessoa escolhe a unidade toda vez que entra |
+| `/catalogo/marumbi1`, `/catalogo/marumbi3` | `src/pages/Catalogo.tsx` | Preços da unidade, com a troca de unidade no topo e os dados dela no rodapé. Dá para mandar o link direto de uma unidade |
+| `/localizacao` | `src/pages/Localizacao.tsx` | Mapa e endereço de todas as unidades |
+| `/informacoes` | `src/pages/Informacoes.tsx` | Telefone, horário e WhatsApp de todas as unidades |
+
+Os endereços antigos `/products` e `/catalogo` levam para a página inicial.
+
+O site fica claro ou escuro conforme o sistema da pessoa (sem preferência, fica claro). Quem decide é o script no `index.html`; as cores dos dois modos ficam em `src/index.css`.
 
 ---
 
@@ -132,7 +141,7 @@ npx tsc --noEmit -p tsconfig.app.json
 
 Esse comando pega erros de digitação e campos inválidos. **Vale rodar porque o build da Vercel não faz essa checagem** — ela roda só `vite build`, que ignora erros de tipo. Ou seja, dá para publicar código com erro de tipo sem a Vercel reclamar.
 
-Confira a tela de escolha de unidade e o catálogo de cada unidade.
+Confira a página inicial, o catálogo de cada unidade (no modo claro e no escuro) e as abas Localização e Informações, no celular e no computador.
 
 ---
 
@@ -203,4 +212,4 @@ Fechou ou mudou uma loja? O site é só uma das pontas. Lembre também do **Goog
 - **2 unidades ativas:** Marumbi 1 (Uberaba) e Marumbi 3 (Capão da Imbuia)
 - A Marumbi 2 (Cajuru) foi removida do site em agosto de 2026
 - A numeração segue 1 e 3 de propósito, para o Capão continuar com o nome que os clientes conhecem
-- Em outubro de 2026 o site virou catálogo de preços por unidade (sem fotos); os 44 produtos por kg do site antigo foram migrados ainda **sem código do GranMoney**
+- Em outubro de 2026 o site virou catálogo de preços por unidade (sem fotos), com todos os produtos ligados a um código do GranMoney. A página inicial passou a ser a escolha da unidade
