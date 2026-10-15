@@ -13,7 +13,7 @@ Como mexer no site, testar e publicar.
 | **Hospedagem** | Vercel, projeto `viniramoss-projects/casadecarnesmarumbi` |
 | **Site no ar** | https://casadecarnesmarumbi.vercel.app |
 
-O site é feito em **React + Vite + Tailwind**. Não tem banco de dados: preços, produtos e dados das lojas são arquivos de código. Mudar um preço = editar um arquivo e publicar.
+O site é feito em **React + Vite + Tailwind**. Não tem banco de dados: preços e produtos ficam em `src/data/catalogo.json` e os dados das lojas em `src/config/storeConfig.ts`. Mudar um preço = mudar esse arquivo e publicar.
 
 ---
 
@@ -43,121 +43,70 @@ Depois é só esperar um minuto e conferir em https://casadecarnesmarumbi.vercel
 
 ## 3. Os arquivos que importam
 
-Quase tudo que você vai querer mudar está em **três arquivos**:
+### `src/data/catalogo.json` — produtos e preços por unidade
+O site agora é um **catálogo de preços**: o cliente escolhe a unidade e vê nome e preço/kg, sem fotos. Cada produto tem um bloco por unidade, ligado ao **proCodigo** do GranMoney daquela unidade (os códigos não valem entre lojas):
 
-### `src/data/productsData.ts` — os produtos e preços
-A lista dos 45 produtos. É aqui que se muda preço, nome, descrição e em quais lojas cada item aparece.
-
-### `src/config/storeConfig.ts` — as lojas
-Endereço, telefone, WhatsApp, horário e mapa de cada unidade. As seções de Localização, Informações e o rodapé do site leem tudo daqui — mudou aqui, mudou nos três lugares.
-
-### `src/config/productsConfig.ts` — as regras
-Os tipos e as funções auxiliares. Mexe-se pouco aqui, só quando a regra muda (unidade de venda, nova categoria, nova loja).
-
-Os arquivos de tela (`src/pages/Products.tsx`, `src/components/FeaturedProducts.tsx`, `src/components/StoreTags.tsx`) normalmente não precisam ser tocados para mudanças de conteúdo.
-
----
-
-## 4. Receitas
-
-### Mudar o preço de um produto
-
-Abra `src/data/productsData.ts`, ache o produto pelo nome e edite os números:
-
-```typescript
+```json
 {
-  id: 11,
-  name: "Coxão Mole",
-  price: {
-    default: 46.99,   // preço em destaque no card
-    marumbi1: 46.99,  // Uberaba
-    marumbi3: 59.99,  // Capão da Imbuia
-  },
-  ...
+  "id": "picanha",
+  "nome": "Picanha",
+  "categoria": "bovinos",
+  "lojas": {
+    "marumbi1": { "codigo": "90", "nomeGranMoney": "PICANHA", "preco": 79.9 },
+    "marumbi3": { "codigo": "214", "nomeGranMoney": "PICANHA BOV", "preco": 84.9 }
+  }
 }
 ```
 
-**Regra do `default`:** é o preço grande que aparece no card. Mantenha igual ao da loja mais barata. As etiquetas coloridas mostram o valor de cada unidade.
+- O nome no site é livre; o vínculo é pelo código.
+- Produto sem bloco de uma unidade não aparece naquela unidade.
+- `codigo: null` = veio do site antigo e ainda não foi ligado ao GranMoney (a sincronização ignora).
+- Categorias: `bovinos | suinos | aves | embutidos | miúdos | moídas`.
 
-Se o preço é o mesmo nas duas lojas, pode usar a forma curta:
+Não edite à mão sem necessidade: use as ferramentas da seção 4.
 
-```typescript
-price: createSimplePrice(39.99),
+### `src/config/storeConfig.ts` — as lojas
+Endereço, telefone, WhatsApp e horário de cada unidade, mostrados na tela de escolha e no catálogo. O campo `catalogo` liga a loja à chave usada no `catalogo.json` (`marumbi1`, `marumbi3`).
+
+### Telas
+`src/pages/EscolherUnidade.tsx` (tela inicial e `/unidades`) e `src/pages/Catalogo.tsx` (`/catalogo/marumbi1`, `/catalogo/marumbi3`). Quem já escolheu uma unidade abre o site direto nela; o botão **Trocar unidade** volta para a escolha.
+
+---
+
+## 4. Ferramentas de preço (pasta `tools/`)
+
+Nenhuma delas grava no GranMoney: elas só **leem** o GranMoney e mudam o `catalogo.json`.
+
+### Credenciais
+Copie `tools/env.exemplo` para `tools/.env` e preencha email e senha do GranMoney de cada unidade. O `tools/.env` não vai para o GitHub.
+
+### Dashboard (escolher o que entra no site)
+```bash
+npm run dashboard
 ```
+Abre em **http://localhost:5174**. Escolha a unidade → **Puxar do GranMoney** → marque o que entra, dê o nome do site e a categoria → **Salvar escolhas** → **Publicar no site**. Para ligar um produto antigo do site a um código, escolha o nome dele no campo "Nome no site".
 
-Quando todas as lojas têm o mesmo preço, o site não mostra etiqueta nem o aviso *"Preços podem variar por loja"* — isso é automático, não precisa configurar.
-
-### Adicionar um produto
-
-1. Coloque a foto em `src/images/carnes/`
-2. Importe no topo do `productsData.ts`:
-   ```typescript
-   import novoCorte from '../images/carnes/novoCorte.jpg';
-   ```
-3. Adicione o item na lista:
-   ```typescript
-   {
-     id: 100,                    // precisa ser único
-     name: "Novo Corte",
-     description: "Descrição que aparece no card.",
-     price: {
-       default: 49.99,
-       marumbi1: 49.99,
-       marumbi3: 54.99,
-     },
-     image: novoCorte,
-     category: "bovinos",        // bovinos | suinos | aves | embutidos | miúdos | moídas
-     tag: "Promoção",            // opcional, é o selo vermelho
-     showLocationTags: true,     // mostra as etiquetas de loja
-   }
-   ```
-
-**ID duplicado quebra os filtros da página** — confira que o número não existe ainda.
-
-### Produto que só tem em uma loja
-
-```typescript
-availableAt: ['marumbi1'],   // só Uberaba
+### Comando de preço (fluxo pelo chat)
+```bash
+npm run preco -- buscar picanha
+npm run preco -- alterar --loja marumbi1 --codigo 90 --preco 79,90            # só mostra
+npm run preco -- alterar --loja marumbi1 --codigo 90 --preco 79,90 --confirmar --publicar
 ```
+Sem `--confirmar` nada é gravado: primeiro confere o produto, depois confirma.
 
-Sem essa linha, o produto aparece em todas as lojas. Com ela, o card ganha a etiqueta `📍 Marumbi 1`.
-
-### Produto que não é vendido por quilo
-
-Por padrão todo preço aparece como `R$ 39,99 / kg`. Para kits e combos:
-
-```typescript
-priceLabel: "6 por R$ 10,00",   // substitui o preço formatado
+### Sincronização com o GranMoney
+```bash
+npm run sincronizar -- --simular     # mostra o que mudaria
+npm run sincronizar -- --publicar    # grava e publica
 ```
+Para cada produto com código, lê o preço de venda no GranMoney da unidade e atualiza o site se mudou. Pula código repetido, inativo ou com preço zerado, e não faz nada se o GranMoney devolver 0 produtos.
 
-Para outra unidade (bandeja, unidade):
+O GitHub roda a mesma sincronização a cada 15 minutos (`.github/workflows/sincronizar-precos.yml`) quando os segredos `GM_MARUMBI1_EMAIL`, `GM_MARUMBI1_SENHA`, `GM_MARUMBI3_EMAIL` e `GM_MARUMBI3_SENHA` estão cadastrados em *Settings → Secrets and variables → Actions*. Sem eles, a unidade é pulada.
 
-```typescript
-unit: 'un',    // vira "R$ 4,00 / un"
-```
+> Como a sincronização automática também faz push na `main`, rode `git pull` antes de mexer no código pelo PC. O botão Publicar da dashboard e o `--publicar` já fazem isso sozinhos.
 
-### Mudar telefone, horário ou endereço de uma loja
-
-Tudo em `src/config/storeConfig.ts`. Ao trocar o telefone, **lembre de trocar nos três campos**, senão o botão do WhatsApp continua ligando para o número antigo:
-
-```typescript
-phone: "(41) 99203-7766",
-whatsappNumber: "+5541992037766",
-whatsappLink: "https://wa.me/+5541992037766?text=Olá,%20vim%20pelo%20site...",
-```
-
-### Fechar ou reabrir uma loja
-
-Apague (ou devolva) o bloco inteiro da loja em `storeConfig.ts`. Localização, Informações e rodapé acompanham sozinhos.
-
-Mas **não para por aí**. Ao fechar uma unidade, confira também:
-
-- Em `productsData.ts`, apague as linhas de preço daquela loja e tire a chave dos `availableAt`
-- Se algum produto só era vendido naquela unidade, decida se sai do site ou troca de loja
-- Se o `default` de algum produto vinha do preço daquela loja, atualize — senão o site anuncia um valor que não existe mais
-- Em `productsConfig.ts`, ajuste o tipo `StoreTag` e o objeto `storeTags`
-
-> **Já aconteceu:** quando a Cajuru fechou, a Moída ESPECIAL ficou com o preço da Cajuru em destaque, um valor que nenhuma loja praticava.
+### Fechar ou abrir uma unidade
+Tire (ou devolva) o bloco em `storeConfig.ts`, a chave em `tools/lib/catalogo.mjs` (`LOJAS`), o tipo `StoreTag` em `src/config/catalogo.ts` e os blocos daquela unidade no `catalogo.json`.
 
 ---
 
@@ -183,7 +132,7 @@ npx tsc --noEmit -p tsconfig.app.json
 
 Esse comando pega erros de digitação e campos inválidos. **Vale rodar porque o build da Vercel não faz essa checagem** — ela roda só `vite build`, que ignora erros de tipo. Ou seja, dá para publicar código com erro de tipo sem a Vercel reclamar.
 
-Confira sempre as quatro seções: Produtos, Localização, Informações e rodapé.
+Confira a tela de escolha de unidade e o catálogo de cada unidade.
 
 ---
 
@@ -254,4 +203,4 @@ Fechou ou mudou uma loja? O site é só uma das pontas. Lembre também do **Goog
 - **2 unidades ativas:** Marumbi 1 (Uberaba) e Marumbi 3 (Capão da Imbuia)
 - A Marumbi 2 (Cajuru) foi removida do site em agosto de 2026
 - A numeração segue 1 e 3 de propósito, para o Capão continuar com o nome que os clientes conhecem
-- **45 produtos** cadastrados
+- Em outubro de 2026 o site virou catálogo de preços por unidade (sem fotos); os 44 produtos por kg do site antigo foram migrados ainda **sem código do GranMoney**

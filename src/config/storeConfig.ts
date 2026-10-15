@@ -1,6 +1,9 @@
 // Configuração centralizada das lojas Marumbi
+import type { StoreTag } from './catalogo';
+
 export interface StoreLocation {
   id: string;
+  catalogo: StoreTag; // chave da unidade no catalogo de precos (src/data/catalogo.json)
   title: string;
   displayName: string;
   address1: string;
@@ -22,6 +25,7 @@ export interface StoreLocation {
 export const storeLocations: Record<string, StoreLocation> = {
   uberaba: {
     id: "uberaba",
+    catalogo: "marumbi1",
     title: "Uberaba - Marumbi 1",
     displayName: "Marumbi 1",
     address1: "Rua Eunice Bettini Bartoszeck, 1122",
@@ -40,6 +44,7 @@ export const storeLocations: Record<string, StoreLocation> = {
   },
   capao: {
     id: "capao",
+    catalogo: "marumbi3",
     title: "Capão da Imbuia - Marumbi 3",
     displayName: "Marumbi 3",
     address1: "Rua Delegado Leopoldo Belczak, 2045",
@@ -66,4 +71,9 @@ export const getOrderedStores = (): StoreLocation[] => {
 // Função para obter loja por ID
 export const getStoreById = (id: string): StoreLocation | undefined => {
   return storeLocations[id];
+};
+
+// Loja pela chave do catalogo (marumbi1, marumbi3)
+export const getStoreByCatalogo = (tag: string): StoreLocation | undefined => {
+  return Object.values(storeLocations).find(store => store.catalogo === tag);
 };
