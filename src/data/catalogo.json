@@ -1,24 +1,213 @@
 {
   "lojas": {
     "marumbi1": {
-      "atualizadoEm": "2026-10-15T21:30:33.602Z"
+      "atualizadoEm": "2026-10-15T22:35:52.894Z"
     },
     "marumbi3": {
-      "atualizadoEm": "2026-10-15T21:30:33.602Z"
+      "atualizadoEm": "2026-10-15T22:50:27.484Z"
     }
   },
   "produtos": [
+    {
+      "id": "acem-com-osso",
+      "nome": "Acem Com Osso",
+      "categoria": "bovinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "1",
+          "nomeGranMoney": "ACEM COM OSSO",
+          "preco": 28.99
+        },
+        "marumbi3": {
+          "codigo": "1",
+          "nomeGranMoney": "ACEM C/OSSO",
+          "preco": 32.99
+        }
+      }
+    },
+    {
+      "id": "alcatra-c-maminha",
+      "nome": "Alcatra C/ Maminha",
+      "categoria": "bovinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "2",
+          "nomeGranMoney": "ALCATRA C/ MAMINHA",
+          "preco": 54.99
+        }
+      }
+    },
+    {
+      "id": "bacon",
+      "nome": "Bacon",
+      "categoria": "suinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "44",
+          "nomeGranMoney": "BACON",
+          "preco": 43.99
+        },
+        "marumbi3": {
+          "codigo": "44",
+          "nomeGranMoney": "BACON",
+          "preco": 44.99
+        }
+      }
+    },
+    {
+      "id": "bananinha",
+      "nome": "Bananinha",
+      "categoria": "bovinos",
+      "lojas": {
+        "marumbi3": {
+          "codigo": "125",
+          "nomeGranMoney": "BANANINHA AMERICANA",
+          "preco": 59.99
+        }
+      }
+    },
+    {
+      "id": "bisteca-suina",
+      "nome": "Bisteca Suína",
+      "categoria": "suinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "55",
+          "nomeGranMoney": "BISTECA SUINA",
+          "preco": 15.99
+        },
+        "marumbi3": {
+          "codigo": "55",
+          "nomeGranMoney": "BISTECA SUÍNA",
+          "preco": 16.99
+        }
+      }
+    },
+    {
+      "id": "bucho",
+      "nome": "Bucho",
+      "categoria": "miúdos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "3",
+          "nomeGranMoney": "BUCHO",
+          "preco": 23.99
+        },
+        "marumbi3": {
+          "codigo": null,
+          "preco": 23.99
+        }
+      }
+    },
+    {
+      "id": "calabresa-frimesa",
+      "nome": "Calabresa Frimesa",
+      "categoria": "embutidos",
+      "lojas": {
+        "marumbi3": {
+          "codigo": null,
+          "preco": 36.99
+        }
+      }
+    },
+    {
+      "id": "carne-moida-blend",
+      "nome": "Carne Moida Blend",
+      "categoria": "moídas",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "19",
+          "nomeGranMoney": "MOIDA BLEND",
+          "preco": 16.99
+        },
+        "marumbi3": {
+          "codigo": "19",
+          "nomeGranMoney": "MOIDA BLEND",
+          "preco": 26.99
+        }
+      }
+    },
+    {
+      "id": "carne-moida-especial",
+      "nome": "Carne Moida Especial",
+      "categoria": "moídas",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "18",
+          "nomeGranMoney": "MOIDA ESPECIAL",
+          "preco": 29.99
+        },
+        "marumbi3": {
+          "codigo": "18",
+          "nomeGranMoney": "MOIDA ESPECIAL",
+          "preco": 36.99
+        }
+      }
+    },
+    {
+      "id": "contra-file-com-mignon",
+      "nome": "Contra Filé Com Mignon",
+      "categoria": "bovinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "12",
+          "nomeGranMoney": "FILE COM MIGNON",
+          "preco": 38.99
+        },
+        "marumbi3": {
+          "codigo": "12",
+          "nomeGranMoney": "FILÉ C/MIGNON",
+          "preco": 49.99
+        }
+      }
+    },
     {
       "id": "contra-file-com-osso",
       "nome": "Contra Filé com Osso",
       "categoria": "bovinos",
       "lojas": {
         "marumbi1": {
-          "codigo": null,
-          "preco": 29.99
+          "codigo": "5",
+          "nomeGranMoney": "CONTRA FILE COM OSSO",
+          "preco": 34.99
         },
         "marumbi3": {
-          "codigo": null,
+          "codigo": "5",
+          "nomeGranMoney": "CONTRA FILE C/OSSO",
+          "preco": 36.99
+        }
+      }
+    },
+    {
+      "id": "contra-file-sem-osso",
+      "nome": "Contra Filé Sem Osso",
+      "categoria": "bovinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "6",
+          "nomeGranMoney": "CONTRA FILÉ S/OSSO",
+          "preco": 74.99
+        },
+        "marumbi3": {
+          "codigo": "6",
+          "nomeGranMoney": "CONTRA FILÉ S/OSSO",
+          "preco": 89.99
+        }
+      }
+    },
+    {
+      "id": "coracao-de-frango",
+      "nome": "Coração De Frango",
+      "categoria": "aves",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "33",
+          "nomeGranMoney": "CORAÇÃO DE FRANGO",
+          "preco": 45.99
+        },
+        "marumbi3": {
+          "codigo": "33",
+          "nomeGranMoney": "CORAÇÃO DE FRANGO",
           "preco": 39.99
         }
       }
@@ -29,12 +218,14 @@
       "categoria": "bovinos",
       "lojas": {
         "marumbi1": {
-          "codigo": null,
-          "preco": 29.99
+          "codigo": "7",
+          "nomeGranMoney": "COSTELA PONTA",
+          "preco": 25.99
         },
         "marumbi3": {
-          "codigo": null,
-          "preco": 29.99
+          "codigo": "7",
+          "nomeGranMoney": "COSTELA PONTA",
+          "preco": 26.99
         }
       }
     },
@@ -44,12 +235,102 @@
       "categoria": "bovinos",
       "lojas": {
         "marumbi1": {
-          "codigo": null,
-          "preco": 27.99
+          "codigo": "8",
+          "nomeGranMoney": "COSTELA RIPA",
+          "preco": 25.99
         },
         "marumbi3": {
-          "codigo": null,
+          "codigo": "8",
+          "nomeGranMoney": "COSTELA RIPA",
+          "preco": 28.99
+        }
+      }
+    },
+    {
+      "id": "costela-suina",
+      "nome": "Costela Suina",
+      "categoria": "suinos",
+      "lojas": {
+        "marumbi3": {
+          "codigo": "57",
+          "nomeGranMoney": "COSTELA SUINA",
+          "preco": 28.99
+        }
+      }
+    },
+    {
+      "id": "costela-suina-c-pele",
+      "nome": "Costela Suina C/ Pele",
+      "categoria": "suinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "56",
+          "nomeGranMoney": "COSTELA SUINA C/ PELE",
+          "preco": 27.99
+        }
+      }
+    },
+    {
+      "id": "coxa",
+      "nome": "Coxa",
+      "categoria": "bovinos",
+      "lojas": {
+        "marumbi3": {
+          "codigo": "755",
+          "nomeGranMoney": "COXA",
+          "preco": 16.99
+        }
+      }
+    },
+    {
+      "id": "coxa-com-sobrecoxa",
+      "nome": "Coxa com Sobrecoxa",
+      "categoria": "aves",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "34",
+          "nomeGranMoney": "COXA C/ SOBRECOXA DORÇO",
+          "preco": 11.99
+        },
+        "marumbi3": {
+          "codigo": "34",
+          "nomeGranMoney": "COXA SOBRE COXA",
+          "preco": 12.99
+        }
+      }
+    },
+    {
+      "id": "coxa-com-sobrecoxa-s-osso",
+      "nome": "Coxa Com Sobrecoxa S/Osso",
+      "categoria": "bovinos",
+      "lojas": {
+        "marumbi3": {
+          "codigo": "80",
+          "nomeGranMoney": "COXA C SOBRE DESOSSADA",
           "preco": 29.99
+        }
+      }
+    },
+    {
+      "id": "coxa-com-sobrecoxa-sem-osso",
+      "nome": "Coxa Com Sobrecoxa Sem Osso",
+      "categoria": "bovinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "93",
+          "nomeGranMoney": "COXA C SOBRE SOSSO",
+          "preco": 19.99
+        }
+      }
+    },
+    {
+      "id": "coxa-espalmada",
+      "nome": "Coxa Espalmada",
+      "categoria": "aves",
+      "lojas": {
+        "marumbi3": {
+          "codigo": null,
+          "preco": 14.99
         }
       }
     },
@@ -59,12 +340,55 @@
       "categoria": "bovinos",
       "lojas": {
         "marumbi1": {
-          "codigo": null,
-          "preco": 46.99
+          "codigo": "9",
+          "nomeGranMoney": "COXAO MOLE",
+          "preco": 44.99
         },
         "marumbi3": {
-          "codigo": null,
+          "codigo": "9",
+          "nomeGranMoney": "COXÃO MOLE",
           "preco": 59.99
+        }
+      }
+    },
+    {
+      "id": "coxinha-da-asa",
+      "nome": "Coxinha da Asa",
+      "categoria": "aves",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "35",
+          "nomeGranMoney": "COXINHA DA ASA",
+          "preco": 17.99
+        },
+        "marumbi3": {
+          "codigo": "35",
+          "nomeGranMoney": "COXINHA DA ASA",
+          "preco": 17.99
+        }
+      }
+    },
+    {
+      "id": "figado-bovino",
+      "nome": "Fígado Bovino",
+      "categoria": "miúdos",
+      "lojas": {
+        "marumbi3": {
+          "codigo": "11",
+          "nomeGranMoney": "FÍGADO BOVINO",
+          "preco": 29.99
+        }
+      }
+    },
+    {
+      "id": "figado-de-boi",
+      "nome": "Fígado de Boi",
+      "categoria": "miúdos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "11",
+          "nomeGranMoney": "FIGADO DE BOI",
+          "preco": 19.99
         }
       }
     },
@@ -80,13 +404,43 @@
       }
     },
     {
+      "id": "file-de-frango",
+      "nome": "Filé de Frango",
+      "categoria": "aves",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "36",
+          "nomeGranMoney": "file de frango",
+          "preco": 29.99
+        },
+        "marumbi3": {
+          "codigo": "224",
+          "nomeGranMoney": "FILE DE FRANGO",
+          "preco": 29.99
+        }
+      }
+    },
+    {
+      "id": "file-empanado-de-frango",
+      "nome": "Filé Empanado De Frango",
+      "categoria": "aves",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "70",
+          "nomeGranMoney": "FILEZINHO EMPANADO DE FRANGO",
+          "preco": 39.99
+        }
+      }
+    },
+    {
       "id": "fraldinha",
       "nome": "Fraldinha",
       "categoria": "bovinos",
       "lojas": {
         "marumbi1": {
-          "codigo": null,
-          "preco": 37.99
+          "codigo": "13",
+          "nomeGranMoney": "FRALDINHA",
+          "preco": 42.99
         },
         "marumbi3": {
           "codigo": null,
@@ -95,350 +449,31 @@
       }
     },
     {
-      "id": "mignon",
-      "nome": "Mignon",
+      "id": "fraldinha-na-mostarda",
+      "nome": "Fraldinha Na Mostarda",
       "categoria": "bovinos",
       "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 59.99
-        },
         "marumbi3": {
-          "codigo": null,
-          "preco": 79.99
-        }
-      }
-    },
-    {
-      "id": "miolo-da-alcatra",
-      "nome": "Miolo da Alcatra",
-      "categoria": "bovinos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 69.99
-        }
-      }
-    },
-    {
-      "id": "musculo-com-osso",
-      "nome": "Músculo com Osso",
-      "categoria": "bovinos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 29.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 28.99
-        }
-      }
-    },
-    {
-      "id": "musculo-sem-osso",
-      "nome": "Músculo sem Osso",
-      "categoria": "bovinos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 39.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 39.99
-        }
-      }
-    },
-    {
-      "id": "patinho-sem-osso",
-      "nome": "Patinho sem Osso",
-      "categoria": "bovinos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 46.99
-        }
-      }
-    },
-    {
-      "id": "picanha",
-      "nome": "Picanha",
-      "categoria": "bovinos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
+          "codigo": "24",
+          "nomeGranMoney": "FRALDINHA NA MOSTARDA",
           "preco": 59.99
         }
       }
     },
     {
-      "id": "ponta-de-peito",
-      "nome": "Ponta de Peito",
-      "categoria": "bovinos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 28.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 26.99
-        }
-      }
-    },
-    {
-      "id": "posta-branca",
-      "nome": "Posta Branca",
-      "categoria": "bovinos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 39.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 42.99
-        }
-      }
-    },
-    {
-      "id": "posta-vermelha",
-      "nome": "Posta Vermelha",
-      "categoria": "bovinos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 39.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 44.99
-        }
-      }
-    },
-    {
-      "id": "setinho",
-      "nome": "Setinho",
-      "categoria": "bovinos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 29.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 34.99
-        }
-      }
-    },
-    {
-      "id": "strogonoff-de-carne",
-      "nome": "Strogonoff de Carne",
-      "categoria": "bovinos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 44.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 49.99
-        }
-      }
-    },
-    {
-      "id": "bacon",
-      "nome": "Bacon",
-      "categoria": "suinos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 43.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 44.99
-        }
-      }
-    },
-    {
-      "id": "bisteca-suina",
-      "nome": "Bisteca Suína",
-      "categoria": "suinos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 16.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 16.99
-        }
-      }
-    },
-    {
-      "id": "lombo-agulha",
-      "nome": "Lombo Agulha",
-      "categoria": "suinos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 25.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 28.99
-        }
-      }
-    },
-    {
-      "id": "paleta-suina",
-      "nome": "Paleta Suína",
-      "categoria": "suinos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 13.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 12.99
-        }
-      }
-    },
-    {
-      "id": "panceta-suina",
-      "nome": "Panceta Suína",
-      "categoria": "suinos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 27.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 25.99
-        }
-      }
-    },
-    {
-      "id": "pe-de-porco",
-      "nome": "Pé de Porco",
-      "categoria": "suinos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 17.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 18.99
-        }
-      }
-    },
-    {
-      "id": "pernil-suino",
-      "nome": "Pernil Suíno",
-      "categoria": "suinos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 12.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 13.99
-        }
-      }
-    },
-    {
-      "id": "picadao-suino",
-      "nome": "Picadão Suíno",
-      "categoria": "suinos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 12.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 15.99
-        }
-      }
-    },
-    {
-      "id": "suan-suino",
-      "nome": "Suan Suíno",
-      "categoria": "suinos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 6.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 7.99
-        }
-      }
-    },
-    {
-      "id": "coxa-com-sobrecoxa",
-      "nome": "Coxa com Sobrecoxa",
+      "id": "frango-a-passarinho",
+      "nome": "Frango A Passarinho",
       "categoria": "aves",
       "lojas": {
         "marumbi1": {
-          "codigo": null,
-          "preco": 10.99
+          "codigo": "37",
+          "nomeGranMoney": "FRANGO A PASSARINHO",
+          "preco": 11.99
         },
         "marumbi3": {
-          "codigo": null,
-          "preco": 8.99
-        }
-      }
-    },
-    {
-      "id": "coxa-espalmada",
-      "nome": "Coxa Espalmada",
-      "categoria": "aves",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
+          "codigo": "37",
+          "nomeGranMoney": "FRANGO A PASSARINHO",
           "preco": 12.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 14.99
-        }
-      }
-    },
-    {
-      "id": "coxinha-da-asa",
-      "nome": "Coxinha da Asa",
-      "categoria": "aves",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 15.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 14.99
-        }
-      }
-    },
-    {
-      "id": "file-de-frango",
-      "nome": "Filé de Frango",
-      "categoria": "aves",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 29.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 29.99
         }
       }
     },
@@ -458,61 +493,25 @@
       }
     },
     {
-      "id": "pe-de-frango",
-      "nome": "Pé de Frango",
-      "categoria": "aves",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 11.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 14.99
-        }
-      }
-    },
-    {
-      "id": "peito-sem-osso",
-      "nome": "Peito sem Osso",
-      "categoria": "aves",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 25.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 25.99
-        }
-      }
-    },
-    {
-      "id": "tulipa",
-      "nome": "Tulipa",
-      "categoria": "aves",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 29.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 29.99
-        }
-      }
-    },
-    {
-      "id": "calabresa-frimesa",
-      "nome": "Calabresa Frimesa",
+      "id": "linguica-artesanal",
+      "nome": "Linguiça Artesanal",
       "categoria": "embutidos",
       "lojas": {
         "marumbi1": {
-          "codigo": null,
-          "preco": 36.99
-        },
+          "codigo": "47",
+          "nomeGranMoney": "linguiça artesanal",
+          "preco": 29.99
+        }
+      }
+    },
+    {
+      "id": "linguica-fina",
+      "nome": "Linguiça Fina",
+      "categoria": "embutidos",
+      "lojas": {
         "marumbi3": {
-          "codigo": null,
+          "codigo": "49",
+          "nomeGranMoney": "LINGUIÇA FINA FILIPAK",
           "preco": 36.99
         }
       }
@@ -563,43 +562,53 @@
       }
     },
     {
-      "id": "vina-perdigao",
-      "nome": "Vina Perdigão",
-      "categoria": "embutidos",
+      "id": "lombo-agulha",
+      "nome": "Lombo Agulha",
+      "categoria": "suinos",
       "lojas": {
         "marumbi1": {
-          "codigo": null,
-          "preco": 13.99
+          "codigo": "14",
+          "nomeGranMoney": "LOMBO AGULHA",
+          "preco": 25.99
         },
         "marumbi3": {
-          "codigo": null,
-          "preco": 13.99
+          "codigo": "10",
+          "nomeGranMoney": "LOMBO AGULHA",
+          "preco": 25.99
         }
       }
     },
     {
-      "id": "bucho",
-      "nome": "Bucho",
-      "categoria": "miúdos",
+      "id": "mignon",
+      "nome": "Mignon",
+      "categoria": "bovinos",
       "lojas": {
         "marumbi1": {
-          "codigo": null,
-          "preco": 23.99
+          "codigo": "16",
+          "nomeGranMoney": "MIGNON",
+          "preco": 59.99
         },
         "marumbi3": {
-          "codigo": null,
-          "preco": 23.99
+          "codigo": "82",
+          "nomeGranMoney": "MIGNON",
+          "preco": 79.99
         }
       }
     },
     {
-      "id": "figado-de-boi",
-      "nome": "Fígado de Boi",
-      "categoria": "miúdos",
+      "id": "miolo-da-alcatra",
+      "nome": "Miolo da Alcatra",
+      "categoria": "bovinos",
       "lojas": {
         "marumbi1": {
-          "codigo": null,
-          "preco": 19.99
+          "codigo": "17",
+          "nomeGranMoney": "MIOLO DA ALCATRA",
+          "preco": 69.99
+        },
+        "marumbi3": {
+          "codigo": "17",
+          "nomeGranMoney": "MIOLO ALCATRA",
+          "preco": 69.99
         }
       }
     },
@@ -609,8 +618,9 @@
       "categoria": "miúdos",
       "lojas": {
         "marumbi1": {
-          "codigo": null,
-          "preco": 15.99
+          "codigo": "76",
+          "nomeGranMoney": "MOCOTO",
+          "preco": 19.99
         },
         "marumbi3": {
           "codigo": null,
@@ -619,13 +629,14 @@
       }
     },
     {
-      "id": "moida-especial",
-      "nome": "Moída ESPECIAL",
-      "categoria": "moídas",
+      "id": "moela",
+      "nome": "Moela",
+      "categoria": "bovinos",
       "lojas": {
-        "marumbi3": {
-          "codigo": null,
-          "preco": 36.99
+        "marumbi1": {
+          "codigo": "119",
+          "nomeGranMoney": "MOELA",
+          "preco": 16.99
         }
       }
     },
@@ -641,6 +652,415 @@
         "marumbi3": {
           "codigo": null,
           "preco": 26.99
+        }
+      }
+    },
+    {
+      "id": "moida-especial",
+      "nome": "Moída ESPECIAL",
+      "categoria": "moídas",
+      "lojas": {
+        "marumbi3": {
+          "codigo": null,
+          "preco": 36.99
+        }
+      }
+    },
+    {
+      "id": "moida-mista",
+      "nome": "Moida Mista",
+      "categoria": "moídas",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "97",
+          "nomeGranMoney": "MOIDA MISTA",
+          "preco": 19.99
+        }
+      }
+    },
+    {
+      "id": "musculo-com-osso",
+      "nome": "Músculo com Osso",
+      "categoria": "bovinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": null,
+          "preco": 29.99
+        },
+        "marumbi3": {
+          "codigo": "20",
+          "nomeGranMoney": "MUSCULO COM OSSO",
+          "preco": 34.99
+        }
+      }
+    },
+    {
+      "id": "musculo-sem-osso",
+      "nome": "Músculo sem Osso",
+      "categoria": "bovinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": null,
+          "preco": 39.99
+        },
+        "marumbi3": {
+          "codigo": "21",
+          "nomeGranMoney": "MUSCULO SEM OSSO",
+          "preco": 44.99
+        }
+      }
+    },
+    {
+      "id": "paleta-suina",
+      "nome": "Paleta Suína",
+      "categoria": "suinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "58",
+          "nomeGranMoney": "PALETA SUINA",
+          "preco": 14.99
+        },
+        "marumbi3": {
+          "codigo": "58",
+          "nomeGranMoney": "PALETA SUÍNA",
+          "preco": 13.99
+        }
+      }
+    },
+    {
+      "id": "panceta-suina",
+      "nome": "Panceta Suína",
+      "categoria": "suinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": null,
+          "preco": 27.99
+        },
+        "marumbi3": {
+          "codigo": "60",
+          "nomeGranMoney": "PANCETA SUINA",
+          "preco": 26.99
+        }
+      }
+    },
+    {
+      "id": "patinho",
+      "nome": "Patinho",
+      "categoria": "bovinos",
+      "lojas": {
+        "marumbi3": {
+          "codigo": "22",
+          "nomeGranMoney": "PATINHO",
+          "preco": 59.99
+        }
+      }
+    },
+    {
+      "id": "patinho-sem-osso",
+      "nome": "Patinho sem Osso",
+      "categoria": "bovinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "22",
+          "nomeGranMoney": "PATINHO SEM OSSO",
+          "preco": 44.99
+        }
+      }
+    },
+    {
+      "id": "pe-de-frango",
+      "nome": "Pé de Frango",
+      "categoria": "aves",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "40",
+          "nomeGranMoney": "PÉ DE FRANGO",
+          "preco": 11.99
+        },
+        "marumbi3": {
+          "codigo": null,
+          "preco": 14.99
+        }
+      }
+    },
+    {
+      "id": "pe-de-porco",
+      "nome": "Pé de Porco",
+      "categoria": "suinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": null,
+          "preco": 17.99
+        },
+        "marumbi3": {
+          "codigo": null,
+          "preco": 18.99
+        }
+      }
+    },
+    {
+      "id": "peito-de-frango-sem-osso",
+      "nome": "Peito De Frango Sem Osso",
+      "categoria": "bovinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "41",
+          "nomeGranMoney": "PEITO S/ OSSO",
+          "preco": 25.99
+        },
+        "marumbi3": {
+          "codigo": "41",
+          "nomeGranMoney": "PEITO SEM OSSO",
+          "preco": 25.99
+        }
+      }
+    },
+    {
+      "id": "peito-sem-osso",
+      "nome": "Peito sem Osso",
+      "categoria": "aves",
+      "lojas": {
+        "marumbi1": {
+          "codigo": null,
+          "preco": 25.99
+        },
+        "marumbi3": {
+          "codigo": null,
+          "preco": 25.99
+        }
+      }
+    },
+    {
+      "id": "pernil-suino",
+      "nome": "Pernil Suíno",
+      "categoria": "suinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "59",
+          "nomeGranMoney": "PERNIL SUINO",
+          "preco": 14.99
+        },
+        "marumbi3": {
+          "codigo": "59",
+          "nomeGranMoney": "PERNIL SUÍNO",
+          "preco": 14.99
+        }
+      }
+    },
+    {
+      "id": "picadao-suino",
+      "nome": "Picadão Suíno",
+      "categoria": "suinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "51",
+          "nomeGranMoney": "PICADAO SUINO",
+          "preco": 12.99
+        },
+        "marumbi3": {
+          "codigo": null,
+          "preco": 15.99
+        }
+      }
+    },
+    {
+      "id": "picanha",
+      "nome": "Picanha",
+      "categoria": "bovinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "25",
+          "nomeGranMoney": "PICANHA",
+          "preco": 59.99
+        }
+      }
+    },
+    {
+      "id": "picanha-nelore",
+      "nome": "Picanha Nelore",
+      "categoria": "bovinos",
+      "lojas": {
+        "marumbi3": {
+          "codigo": "25",
+          "nomeGranMoney": "PICANHA NELORE",
+          "preco": 99.99
+        }
+      }
+    },
+    {
+      "id": "ponta-de-peito",
+      "nome": "Ponta de Peito",
+      "categoria": "bovinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "26",
+          "nomeGranMoney": "PONTA DE PEITO",
+          "preco": 26.99
+        },
+        "marumbi3": {
+          "codigo": null,
+          "preco": 26.99
+        }
+      }
+    },
+    {
+      "id": "posta-branca",
+      "nome": "Posta Branca",
+      "categoria": "bovinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "27",
+          "nomeGranMoney": "POSTA BRANCA",
+          "preco": 39.99
+        },
+        "marumbi3": {
+          "codigo": "27",
+          "nomeGranMoney": "POSTA BRANCA",
+          "preco": 42.99
+        }
+      }
+    },
+    {
+      "id": "posta-vermelha",
+      "nome": "Posta Vermelha",
+      "categoria": "bovinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "28",
+          "nomeGranMoney": "POSTA VERMELHA",
+          "preco": 39.99
+        },
+        "marumbi3": {
+          "codigo": "28",
+          "nomeGranMoney": "POSTA VERMELHA",
+          "preco": 44.99
+        }
+      }
+    },
+    {
+      "id": "setinho",
+      "nome": "Setinho",
+      "categoria": "bovinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "30",
+          "nomeGranMoney": "SETINHO",
+          "preco": 29.99
+        },
+        "marumbi3": {
+          "codigo": "30",
+          "nomeGranMoney": "SETINHO",
+          "preco": 34.99
+        }
+      }
+    },
+    {
+      "id": "sobre-coxa",
+      "nome": "Sobre Coxa",
+      "categoria": "bovinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "15",
+          "nomeGranMoney": "SOBRE COXA",
+          "preco": 16.99
+        },
+        "marumbi3": {
+          "codigo": "79",
+          "nomeGranMoney": "SOBRE COXA",
+          "preco": 19.99
+        }
+      }
+    },
+    {
+      "id": "strogonoff-de-carne",
+      "nome": "Strogonoff de Carne",
+      "categoria": "bovinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "140",
+          "nomeGranMoney": "STROGONOFF DE CARNE",
+          "preco": 39.99
+        },
+        "marumbi3": {
+          "codigo": "140",
+          "nomeGranMoney": "STROGONOFF DE CARNE",
+          "preco": 49.99
+        }
+      }
+    },
+    {
+      "id": "suan",
+      "nome": "Suan",
+      "categoria": "suinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "23",
+          "nomeGranMoney": "SUAN",
+          "preco": 7.99
+        }
+      }
+    },
+    {
+      "id": "suan-suino",
+      "nome": "Suan Suíno",
+      "categoria": "suinos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": null,
+          "preco": 6.99
+        },
+        "marumbi3": {
+          "codigo": null,
+          "preco": 7.99
+        }
+      }
+    },
+    {
+      "id": "tulipa",
+      "nome": "Tulipa",
+      "categoria": "aves",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "43",
+          "nomeGranMoney": "TULIPA",
+          "preco": 36.99
+        },
+        "marumbi3": {
+          "codigo": "43",
+          "nomeGranMoney": "TULIPA",
+          "preco": 36.99
+        }
+      }
+    },
+    {
+      "id": "vina-perdigao",
+      "nome": "Vina Perdigão",
+      "categoria": "embutidos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": null,
+          "preco": 13.99
+        },
+        "marumbi3": {
+          "codigo": null,
+          "preco": 13.99
+        }
+      }
+    },
+    {
+      "id": "vina-promocao",
+      "nome": "Vina Promoçao",
+      "categoria": "embutidos",
+      "lojas": {
+        "marumbi1": {
+          "codigo": "100",
+          "nomeGranMoney": "VINA PROMOÇAO",
+          "preco": 9.99
+        },
+        "marumbi3": {
+          "codigo": "100",
+          "nomeGranMoney": "VINA PROMOÇAO",
+          "preco": 9.99
         }
       }
     }
