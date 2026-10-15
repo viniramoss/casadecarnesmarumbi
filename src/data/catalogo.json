@@ -1,10 +1,10 @@
 {
   "lojas": {
     "marumbi1": {
-      "atualizadoEm": "2026-10-15T22:35:52.894Z"
+      "atualizadoEm": "2026-10-15T23:05:34.362Z"
     },
     "marumbi3": {
-      "atualizadoEm": "2026-10-15T22:50:27.484Z"
+      "atualizadoEm": "2026-10-15T23:03:49.217Z"
     }
   },
   "produtos": [
@@ -399,8 +399,9 @@
           "preco": 42.99
         },
         "marumbi3": {
-          "codigo": null,
-          "preco": 54.99
+          "codigo": "13",
+          "nomeGranMoney": "FRALDINHA",
+          "preco": 49.99
         }
       }
     },
@@ -439,7 +440,8 @@
       "categoria": "aves",
       "lojas": {
         "marumbi1": {
-          "codigo": null,
+          "codigo": "38",
+          "nomeGranMoney": "FRANGO INTEIRO",
           "preco": 13.99
         }
       }
@@ -465,21 +467,11 @@
           "codigo": "49",
           "nomeGranMoney": "LINGUIÇA FINA FILIPAK",
           "preco": 36.99
-        }
-      }
-    },
-    {
-      "id": "linguica-fininha",
-      "nome": "Linguiça Fininha",
-      "categoria": "embutidos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 34.99
         },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 36.99
+        "marumbi1": {
+          "codigo": "49",
+          "nomeGranMoney": "LINGUIÇA FILIPAK FINA",
+          "preco": 34.99
         }
       }
     },
@@ -576,8 +568,9 @@
       "categoria": "bovinos",
       "lojas": {
         "marumbi1": {
-          "codigo": null,
-          "preco": 29.99
+          "codigo": "20",
+          "nomeGranMoney": "MUSCULO COM OSSO",
+          "preco": 24.99
         },
         "marumbi3": {
           "codigo": "20",
@@ -592,7 +585,8 @@
       "categoria": "bovinos",
       "lojas": {
         "marumbi1": {
-          "codigo": null,
+          "codigo": "21",
+          "nomeGranMoney": "MUSCULO SEM OSSO",
           "preco": 39.99
         },
         "marumbi3": {
@@ -625,8 +619,9 @@
       "categoria": "suinos",
       "lojas": {
         "marumbi1": {
-          "codigo": null,
-          "preco": 27.99
+          "codigo": "60",
+          "nomeGranMoney": "PANCETA",
+          "preco": 25.99
         },
         "marumbi3": {
           "codigo": "60",
@@ -752,7 +747,8 @@
           "preco": 26.99
         },
         "marumbi3": {
-          "codigo": null,
+          "codigo": "26",
+          "nomeGranMoney": "PONTA DE PEITO",
           "preco": 26.99
         }
       }
@@ -877,11 +873,13 @@
       "categoria": "embutidos",
       "lojas": {
         "marumbi1": {
-          "codigo": null,
+          "codigo": "53",
+          "nomeGranMoney": "VINA PERDIGÃO",
           "preco": 13.99
         },
         "marumbi3": {
-          "codigo": null,
+          "codigo": "53",
+          "nomeGranMoney": "VINA PERDIGÃO",
           "preco": 13.99
         }
       }
