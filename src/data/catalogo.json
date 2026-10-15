@@ -386,17 +386,6 @@
       }
     },
     {
-      "id": "file-com-mignon",
-      "nome": "Filé com Mignon",
-      "categoria": "bovinos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 38.99
-        }
-      }
-    },
-    {
       "id": "file-de-frango",
       "nome": "Filé de Frango",
       "categoria": "aves",
@@ -634,32 +623,6 @@
       }
     },
     {
-      "id": "moida-blend",
-      "nome": "Moída BLEND",
-      "categoria": "moídas",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 19.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 26.99
-        }
-      }
-    },
-    {
-      "id": "moida-especial",
-      "nome": "Moída ESPECIAL",
-      "categoria": "moídas",
-      "lojas": {
-        "marumbi3": {
-          "codigo": null,
-          "preco": 36.99
-        }
-      }
-    },
-    {
       "id": "moida-mista",
       "nome": "Moída Mista",
       "categoria": "moídas",
@@ -804,21 +767,6 @@
         "marumbi3": {
           "codigo": "41",
           "nomeGranMoney": "PEITO SEM OSSO",
-          "preco": 25.99
-        }
-      }
-    },
-    {
-      "id": "peito-sem-osso",
-      "nome": "Peito sem Osso",
-      "categoria": "aves",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 25.99
-        },
-        "marumbi3": {
-          "codigo": null,
           "preco": 25.99
         }
       }
@@ -998,10 +946,6 @@
       "nome": "Suan Suíno",
       "categoria": "suinos",
       "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 6.99
-        },
         "marumbi3": {
           "codigo": null,
           "preco": 7.99
