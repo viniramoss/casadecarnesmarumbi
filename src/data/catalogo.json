@@ -10,7 +10,7 @@
   "produtos": [
     {
       "id": "acem-com-osso",
-      "nome": "Acem Com Osso",
+      "nome": "Acém com Osso",
       "categoria": "bovinos",
       "lojas": {
         "marumbi1": {
@@ -27,7 +27,7 @@
     },
     {
       "id": "alcatra-c-maminha",
-      "nome": "Alcatra C/ Maminha",
+      "nome": "Alcatra com Maminha",
       "categoria": "bovinos",
       "lojas": {
         "marumbi1": {
@@ -112,7 +112,7 @@
     },
     {
       "id": "carne-moida-blend",
-      "nome": "Carne Moida Blend",
+      "nome": "Carne Moída Blend",
       "categoria": "moídas",
       "lojas": {
         "marumbi1": {
@@ -129,7 +129,7 @@
     },
     {
       "id": "carne-moida-especial",
-      "nome": "Carne Moida Especial",
+      "nome": "Carne Moída Especial",
       "categoria": "moídas",
       "lojas": {
         "marumbi1": {
@@ -146,7 +146,7 @@
     },
     {
       "id": "contra-file-com-mignon",
-      "nome": "Contra Filé Com Mignon",
+      "nome": "Contra Filé com Mignon",
       "categoria": "bovinos",
       "lojas": {
         "marumbi1": {
@@ -180,7 +180,7 @@
     },
     {
       "id": "contra-file-sem-osso",
-      "nome": "Contra Filé Sem Osso",
+      "nome": "Contra Filé sem Osso",
       "categoria": "bovinos",
       "lojas": {
         "marumbi1": {
@@ -197,7 +197,7 @@
     },
     {
       "id": "coracao-de-frango",
-      "nome": "Coração De Frango",
+      "nome": "Coração de Frango",
       "categoria": "aves",
       "lojas": {
         "marumbi1": {
@@ -248,7 +248,7 @@
     },
     {
       "id": "costela-suina",
-      "nome": "Costela Suina",
+      "nome": "Costela Suína",
       "categoria": "suinos",
       "lojas": {
         "marumbi3": {
@@ -260,7 +260,7 @@
     },
     {
       "id": "costela-suina-c-pele",
-      "nome": "Costela Suina C/ Pele",
+      "nome": "Costela Suína com Pele",
       "categoria": "suinos",
       "lojas": {
         "marumbi1": {
@@ -273,7 +273,7 @@
     {
       "id": "coxa",
       "nome": "Coxa",
-      "categoria": "bovinos",
+      "categoria": "aves",
       "lojas": {
         "marumbi3": {
           "codigo": "755",
@@ -301,21 +301,14 @@
     },
     {
       "id": "coxa-com-sobrecoxa-s-osso",
-      "nome": "Coxa Com Sobrecoxa S/Osso",
-      "categoria": "bovinos",
+      "nome": "Coxa com Sobrecoxa sem Osso",
+      "categoria": "aves",
       "lojas": {
         "marumbi3": {
           "codigo": "80",
           "nomeGranMoney": "COXA C SOBRE DESOSSADA",
           "preco": 29.99
-        }
-      }
-    },
-    {
-      "id": "coxa-com-sobrecoxa-sem-osso",
-      "nome": "Coxa Com Sobrecoxa Sem Osso",
-      "categoria": "bovinos",
-      "lojas": {
+        },
         "marumbi1": {
           "codigo": "93",
           "nomeGranMoney": "COXA C SOBRE SOSSO",
@@ -422,7 +415,7 @@
     },
     {
       "id": "file-empanado-de-frango",
-      "nome": "Filé Empanado De Frango",
+      "nome": "Filé Empanado de Frango",
       "categoria": "aves",
       "lojas": {
         "marumbi1": {
@@ -450,7 +443,7 @@
     },
     {
       "id": "fraldinha-na-mostarda",
-      "nome": "Fraldinha Na Mostarda",
+      "nome": "Fraldinha na Mostarda",
       "categoria": "bovinos",
       "lojas": {
         "marumbi3": {
@@ -462,7 +455,7 @@
     },
     {
       "id": "frango-a-passarinho",
-      "nome": "Frango A Passarinho",
+      "nome": "Frango à Passarinho",
       "categoria": "aves",
       "lojas": {
         "marumbi1": {
@@ -631,7 +624,7 @@
     {
       "id": "moela",
       "nome": "Moela",
-      "categoria": "bovinos",
+      "categoria": "miúdos",
       "lojas": {
         "marumbi1": {
           "codigo": "119",
@@ -668,7 +661,7 @@
     },
     {
       "id": "moida-mista",
-      "nome": "Moida Mista",
+      "nome": "Moída Mista",
       "categoria": "moídas",
       "lojas": {
         "marumbi1": {
@@ -800,8 +793,8 @@
     },
     {
       "id": "peito-de-frango-sem-osso",
-      "nome": "Peito De Frango Sem Osso",
-      "categoria": "bovinos",
+      "nome": "Peito de Frango sem Osso",
+      "categoria": "aves",
       "lojas": {
         "marumbi1": {
           "codigo": "41",
@@ -956,8 +949,8 @@
     },
     {
       "id": "sobre-coxa",
-      "nome": "Sobre Coxa",
-      "categoria": "bovinos",
+      "nome": "Sobrecoxa",
+      "categoria": "aves",
       "lojas": {
         "marumbi1": {
           "codigo": "15",
@@ -1049,7 +1042,7 @@
     },
     {
       "id": "vina-promocao",
-      "nome": "Vina Promoçao",
+      "nome": "Vina Promoção",
       "categoria": "embutidos",
       "lojas": {
         "marumbi1": {
