@@ -92,21 +92,6 @@
           "codigo": "3",
           "nomeGranMoney": "BUCHO",
           "preco": 23.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 23.99
-        }
-      }
-    },
-    {
-      "id": "calabresa-frimesa",
-      "nome": "Calabresa Frimesa",
-      "categoria": "embutidos",
-      "lojas": {
-        "marumbi3": {
-          "codigo": null,
-          "preco": 36.99
         }
       }
     },
@@ -317,17 +302,6 @@
       }
     },
     {
-      "id": "coxa-espalmada",
-      "nome": "Coxa Espalmada",
-      "categoria": "aves",
-      "lojas": {
-        "marumbi3": {
-          "codigo": null,
-          "preco": 14.99
-        }
-      }
-    },
-    {
       "id": "coxao-mole",
       "nome": "Coxão Mole",
       "categoria": "bovinos",
@@ -467,10 +441,6 @@
         "marumbi1": {
           "codigo": null,
           "preco": 13.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 15.99
         }
       }
     },
@@ -510,36 +480,6 @@
         "marumbi3": {
           "codigo": null,
           "preco": 36.99
-        }
-      }
-    },
-    {
-      "id": "linguica-friela",
-      "nome": "Linguiça Friela",
-      "categoria": "embutidos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 28.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 29.99
-        }
-      }
-    },
-    {
-      "id": "linguica-frimesa-toscana",
-      "nome": "Linguiça Frimesa Toscana",
-      "categoria": "embutidos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 29.9
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 29.99
         }
       }
     },
@@ -603,10 +543,6 @@
           "codigo": "76",
           "nomeGranMoney": "MOCOTO",
           "preco": 19.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 18.99
         }
       }
     },
@@ -732,25 +668,6 @@
           "codigo": "40",
           "nomeGranMoney": "PÉ DE FRANGO",
           "preco": 11.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 14.99
-        }
-      }
-    },
-    {
-      "id": "pe-de-porco",
-      "nome": "Pé de Porco",
-      "categoria": "suinos",
-      "lojas": {
-        "marumbi1": {
-          "codigo": null,
-          "preco": 17.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 18.99
         }
       }
     },
@@ -797,10 +714,6 @@
           "codigo": "51",
           "nomeGranMoney": "PICADAO SUINO",
           "preco": 12.99
-        },
-        "marumbi3": {
-          "codigo": null,
-          "preco": 15.99
         }
       }
     },
@@ -937,17 +850,6 @@
         "marumbi1": {
           "codigo": "23",
           "nomeGranMoney": "SUAN",
-          "preco": 7.99
-        }
-      }
-    },
-    {
-      "id": "suan-suino",
-      "nome": "Suan Suíno",
-      "categoria": "suinos",
-      "lojas": {
-        "marumbi3": {
-          "codigo": null,
           "preco": 7.99
         }
       }
