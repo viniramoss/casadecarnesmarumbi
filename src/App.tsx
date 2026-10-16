@@ -9,6 +9,7 @@ import Catalogo from "./pages/Catalogo";
 import Localizacao from "./pages/Localizacao";
 import Informacoes from "./pages/Informacoes";
 import NotFound from "./pages/NotFound";
+import { unidadeDoSite } from "./config/site";
 
 const queryClient = new QueryClient();
 
@@ -29,9 +30,10 @@ const App = () => (
       <BrowserRouter>
         <RolarParaOTopo />
         <Routes>
-          {/* A página inicial é o catálogo: primeiro a pessoa escolhe a unidade */}
-          <Route path="/" element={<EscolherUnidade />} />
-          <Route path="/catalogo/:loja" element={<Catalogo />} />
+          {/* A página inicial é o catálogo: primeiro a pessoa escolhe a unidade.
+              No site de uma unidade só, já abre o catálogo dela (ver src/config/site.ts). */}
+          <Route path="/" element={unidadeDoSite ? <Catalogo /> : <EscolherUnidade />} />
+          <Route path="/catalogo/:loja" element={unidadeDoSite ? <Navigate to="/" replace /> : <Catalogo />} />
           <Route path="/localizacao" element={<Localizacao />} />
           <Route path="/informacoes" element={<Informacoes />} />
           {/* Endereços antigos, ainda em links salvos */}

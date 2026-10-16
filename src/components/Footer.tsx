@@ -6,12 +6,13 @@ import { StoreLocation, contatos, getOrderedStores } from '../config/storeConfig
 import { linkDoCatalogo } from '../config/catalogo';
 
 // Endereço (abre o Maps), WhatsApp e horário de uma unidade
-const DadosDaLoja = ({ store }: { store: StoreLocation }) => (
+// (largo: quando é a única unidade do site, os três itens ficam lado a lado no computador)
+const DadosDaLoja = ({ store, largo = false }: { store: StoreLocation; largo?: boolean }) => (
   <div>
     <h3 className="font-serif text-xl font-bold">
       {store.displayName} <span className="font-sans text-base font-semibold text-butcher-300">· {store.bairro}</span>
     </h3>
-    <ul className="mt-4 space-y-3 font-medium">
+    <ul className={`mt-4 font-medium ${largo ? 'grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6' : 'space-y-3'}`}>
       <li>
         <a
           href={store.directionsUrl}
@@ -54,8 +55,9 @@ const DadosDaLoja = ({ store }: { store: StoreLocation }) => (
   </div>
 );
 
-// Igual em todas as telas: sempre com todas as unidades
+// Igual em todas as telas: sempre com todas as unidades do site
 const Footer = () => {
+  const lojas = getOrderedStores();
   const currentYear = new Date().getFullYear();
   const catalogo = linkDoCatalogo();
 
@@ -93,9 +95,9 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="grid gap-10 sm:grid-cols-2 lg:col-span-2">
-            {getOrderedStores().map(store => (
-              <DadosDaLoja key={store.id} store={store} />
+          <div className={`grid gap-10 lg:col-span-2 ${lojas.length > 1 ? 'sm:grid-cols-2' : ''}`}>
+            {lojas.map(store => (
+              <DadosDaLoja key={store.id} store={store} largo={lojas.length === 1} />
             ))}
           </div>
         </div>

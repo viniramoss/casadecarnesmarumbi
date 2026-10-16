@@ -1,5 +1,6 @@
 // Configuração centralizada das lojas Marumbi
 import type { StoreTag } from './catalogo';
+import { unidadeDoSite } from './site';
 
 export interface StoreLocation {
   id: string;
@@ -73,9 +74,11 @@ export const storeLocations: Record<string, StoreLocation> = {
   }
 };
 
-// Função para obter lojas ordenadas
+// Unidades do site, em ordem: todas, ou só a do site de uma unidade (ver src/config/site.ts)
 export const getOrderedStores = (): StoreLocation[] => {
-  return Object.values(storeLocations).sort((a, b) => a.order - b.order);
+  return Object.values(storeLocations)
+    .filter(store => !unidadeDoSite || store.catalogo === unidadeDoSite)
+    .sort((a, b) => a.order - b.order);
 };
 
 // Função para obter loja por ID
@@ -83,7 +86,7 @@ export const getStoreById = (id: string): StoreLocation | undefined => {
   return storeLocations[id];
 };
 
-// Loja pela chave do catalogo (marumbi1, marumbi3)
+// Loja pela chave do catalogo (marumbi1, marumbi3), entre as unidades do site
 export const getStoreByCatalogo = (tag: string): StoreLocation | undefined => {
-  return Object.values(storeLocations).find(store => store.catalogo === tag);
+  return getOrderedStores().find(store => store.catalogo === tag);
 };

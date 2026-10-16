@@ -82,7 +82,27 @@ Os endereços antigos `/products` e `/catalogo` levam para a página inicial.
 
 O site fica claro ou escuro conforme o sistema da pessoa (sem preferência, fica claro). Quem decide é o script no `index.html`; as cores dos dois modos ficam em `src/index.css`. A barra do topo, a faixa com o nome de cada página, a tela de escolher a unidade e o rodapé ficam escuros nos dois modos, de propósito; o que muda é a lista de preços, a busca e o conteúdo das abas.
 
-O rodapé é o mesmo em todas as telas, com os dados de todas as unidades.
+O rodapé é o mesmo em todas as telas, com os dados de todas as unidades do site.
+
+### Um site para cada unidade
+O mesmo código gera também o site de uma unidade só. Quem decide é a variável `VITE_UNIDADE` no projeto da Vercel (ver `src/config/site.ts`):
+
+| `VITE_UNIDADE` | O site |
+|---|---|
+| (sem a variável) | Todas as unidades, com a escolha na página inicial (é o `casadecarnesmarumbi.vercel.app`) |
+| `marumbi1` | Só a Marumbi 1 |
+| `marumbi3` | Só a Marumbi 3 |
+
+No site de uma unidade, a página inicial já é o catálogo dela, sem a escolha e sem a troca de unidade, e o rodapé, a Localização e as Informações mostram só ela. Os endereços `/catalogo/...` levam para a página inicial. Preços, dashboard, comando de preço e sincronização não mudam: todos os sites leem o mesmo `catalogo.json`, e cada push na `main` atualiza todos de uma vez.
+
+Para criar o site de uma unidade (uma vez só, no painel da Vercel):
+
+1. **Add New… → Project** e importe o repositório `viniramoss/casadecarnesmarumbi`.
+2. Em **Project Name**, coloque o nome do endereço, por exemplo `casadecarnesmarumbi3` (o site fica em `casadecarnesmarumbi3.vercel.app`, se o nome estiver livre).
+3. Em **Environment Variables**, crie `VITE_UNIDADE` com o valor `marumbi3`.
+4. Clique em **Deploy**.
+
+Repita com `marumbi1` para a outra unidade. Se o valor da variável estiver errado, o build falha dizendo quais valores valem, e o que está no ar não muda.
 
 ---
 
@@ -119,7 +139,7 @@ O GitHub roda a mesma sincronização a cada 15 minutos (`.github/workflows/sinc
 > Como a sincronização automática também faz push na `main`, rode `git pull` antes de mexer no código pelo PC. O botão Publicar da dashboard e o `--publicar` já fazem isso sozinhos.
 
 ### Fechar ou abrir uma unidade
-Tire (ou devolva) o bloco em `storeConfig.ts`, a chave em `tools/lib/catalogo.mjs` (`LOJAS`), o tipo `StoreTag` em `src/config/catalogo.ts` e os blocos daquela unidade no `catalogo.json`.
+Tire (ou devolva) o bloco em `storeConfig.ts`, a chave em `tools/lib/catalogo.mjs` (`LOJAS`), o tipo `StoreTag` em `src/config/catalogo.ts` e os blocos daquela unidade no `catalogo.json`. Se a unidade tiver site próprio, apague também o projeto dela na Vercel (ou crie um, ao abrir; veja "Um site para cada unidade").
 
 ---
 
@@ -146,6 +166,14 @@ npx tsc --noEmit -p tsconfig.app.json
 Esse comando pega erros de digitação e campos inválidos. **Vale rodar porque o build da Vercel não faz essa checagem** — ela roda só `vite build`, que ignora erros de tipo. Ou seja, dá para publicar código com erro de tipo sem a Vercel reclamar.
 
 Confira a página inicial, o catálogo de cada unidade (no modo claro e no escuro) e as abas Localização e Informações, no celular e no computador.
+
+Para ver no PC o site de uma unidade só (PowerShell):
+
+```powershell
+$env:VITE_UNIDADE="marumbi3"; npm run dev
+```
+
+Para voltar ao site com todas as unidades, feche o terminal ou rode `Remove-Item Env:VITE_UNIDADE`.
 
 ---
 
@@ -217,3 +245,4 @@ Fechou ou mudou uma loja? O site é só uma das pontas. Lembre também do **Goog
 - A Marumbi 2 (Cajuru) foi removida do site em agosto de 2026
 - A numeração segue 1 e 3 de propósito, para o Capão continuar com o nome que os clientes conhecem
 - Em outubro de 2026 o site virou catálogo de preços por unidade (sem fotos), com todos os produtos ligados a um código do GranMoney. A página inicial passou a ser a escolha da unidade
+- O mesmo código também gera um site para cada unidade (variável `VITE_UNIDADE`); os projetos de cada unidade na Vercel ainda não foram criados

@@ -6,6 +6,7 @@ import CabecalhoPagina from '../components/CabecalhoPagina';
 import Footer from '../components/Footer';
 import { StoreLocation, getOrderedStores, getStoreByCatalogo } from '../config/storeConfig';
 import { ProductCategory, categorias, formatPrice, lembrarUnidade, produtosDaLoja } from '../config/catalogo';
+import { unidadeDoSite } from '../config/site';
 
 // Normaliza para a busca ignorar acento e maiúsculas
 const normalizar = (texto: string) =>
@@ -39,8 +40,10 @@ const SeletorDeUnidade = ({ atual }: { atual: StoreLocation }) => (
 );
 
 const Catalogo = () => {
-  const { loja = '' } = useParams();
+  // No site de uma unidade só, o catálogo é a página inicial e não tem a unidade no endereço
+  const { loja = unidadeDoSite ?? '' } = useParams();
   const store = getStoreByCatalogo(loja);
+  const variasUnidades = getOrderedStores().length > 1;
   const [busca, setBusca] = useState('');
   const [categoria, setCategoria] = useState<ProductCategory | 'todos'>('todos');
 
@@ -82,7 +85,11 @@ const Catalogo = () => {
     <div className="flex min-h-screen flex-col bg-background">
       <Navbar />
 
-      <CabecalhoPagina rotulo="Catálogo de preços" titulo={store.displayName} lateral={<SeletorDeUnidade atual={store} />}>
+      <CabecalhoPagina
+        rotulo="Catálogo de preços"
+        titulo={store.displayName}
+        lateral={variasUnidades ? <SeletorDeUnidade atual={store} /> : undefined}
+      >
         {/* Sem ícone na frente, para o endereço alinhar à esquerda com o título */}
         <a
           href={store.directionsUrl}

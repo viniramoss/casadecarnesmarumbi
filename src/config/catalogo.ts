@@ -2,6 +2,7 @@
 // Os dados ficam em src/data/catalogo.json, que é editado pelas ferramentas em tools/
 // (dashboard, comando de preço e sincronização com o GranMoney). Não edite à mão sem necessidade.
 import dados from '../data/catalogo.json';
+import { unidadeDoSite } from './site';
 
 export type StoreTag = 'marumbi1' | 'marumbi3';
 export type ProductCategory = 'bovinos' | 'suinos' | 'aves' | 'moídas';
@@ -83,8 +84,10 @@ export const unidadeLembrada = (): StoreTag | null => {
   }
 };
 
-// Link do catálogo: vai direto para a unidade já escolhida nesta visita, senão para a escolha
+// Link do catálogo: no site de uma unidade é sempre a página inicial; no site com todas,
+// vai direto para a unidade já escolhida nesta visita, senão para a escolha
 export const linkDoCatalogo = (): string => {
+  if (unidadeDoSite) return '/';
   const loja = unidadeLembrada();
   return loja ? `/catalogo/${loja}` : '/';
 };

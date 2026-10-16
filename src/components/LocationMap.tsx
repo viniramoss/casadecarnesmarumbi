@@ -9,7 +9,7 @@ const LocationMap = () => {
   const [autoCycle, setAutoCycle] = useState(true);
 
   useEffect(() => {
-    if (!autoCycle) return;
+    if (!autoCycle || orderedStores.length < 2) return;
     const interval = setInterval(() => {
       setSelectedLocation(prev => {
         const currentIndex = orderedStores.findIndex(store => store.id === prev);
@@ -46,7 +46,9 @@ const LocationMap = () => {
 
           <div className="lg:col-span-2">
             <div className="h-full rounded-xl border border-border bg-card p-5 md:p-7 shadow-sm">
-              <h2 className="font-serif text-2xl font-bold text-card-foreground mb-5">Nossas unidades</h2>
+              <h2 className="font-serif text-2xl font-bold text-card-foreground mb-5">
+                {orderedStores.length > 1 ? 'Nossas unidades' : 'Endereço'}
+              </h2>
 
               <div className="space-y-3">
                 {orderedStores.map(store => {
