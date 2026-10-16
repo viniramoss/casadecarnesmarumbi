@@ -72,7 +72,7 @@ Endereço, telefone, WhatsApp e horário de cada unidade, mostrados na página i
 | Endereço | Arquivo | O que mostra |
 |---|---|---|
 | `/` | `src/pages/EscolherUnidade.tsx` | Página inicial: a pessoa escolhe a unidade toda vez que entra |
-| `/catalogo/marumbi1`, `/catalogo/marumbi3` | `src/pages/Catalogo.tsx` | Preços da unidade, com a troca de unidade no topo e os dados dela no rodapé. Dá para mandar o link direto de uma unidade |
+| `/catalogo/marumbi1`, `/catalogo/marumbi3` | `src/pages/Catalogo.tsx` | Preços da unidade, com a troca de unidade no topo. Dá para mandar o link direto de uma unidade |
 | `/localizacao` | `src/pages/Localizacao.tsx` | Mapa e endereço de todas as unidades |
 | `/informacoes` | `src/pages/Informacoes.tsx` | Telefone, horário e WhatsApp de todas as unidades |
 
@@ -80,7 +80,9 @@ Durante a visita, o site lembra a unidade escolhida (no `sessionStorage` da guia
 
 Os endereços antigos `/products` e `/catalogo` levam para a página inicial.
 
-O site fica claro ou escuro conforme o sistema da pessoa (sem preferência, fica claro). Quem decide é o script no `index.html`; as cores dos dois modos ficam em `src/index.css`.
+O site fica claro ou escuro conforme o sistema da pessoa (sem preferência, fica claro). Quem decide é o script no `index.html`; as cores dos dois modos ficam em `src/index.css`. A barra do topo, a faixa com o nome de cada página, a tela de escolher a unidade e o rodapé ficam escuros nos dois modos, de propósito; o que muda é a lista de preços, a busca e o conteúdo das abas.
+
+O rodapé é o mesmo em todas as telas, com os dados de todas as unidades.
 
 ---
 

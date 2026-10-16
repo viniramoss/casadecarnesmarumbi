@@ -25,7 +25,7 @@ export interface StoreLocation {
 // Contatos que valem para todas as unidades, mostrados no rodapé.
 // Instagram vazio = o botão não aparece.
 export const contatos = {
-  instagram: "",
+  instagram: "https://www.instagram.com/casadecarnesmarumbi/",
   email: "casadecarnesmarumbiadm@gmail.com",
 };
 

@@ -203,7 +203,7 @@ const Catalogo = () => {
         </div>
       </main>
 
-      <Footer loja={store} />
+      <Footer />
     </div>
   );
 };

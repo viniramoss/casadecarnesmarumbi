@@ -6,12 +6,12 @@ import { StoreLocation, contatos, getOrderedStores } from '../config/storeConfig
 import { linkDoCatalogo } from '../config/catalogo';
 
 // Endereço (abre o Maps), WhatsApp e horário de uma unidade
-const DadosDaLoja = ({ store, largo = false }: { store: StoreLocation; largo?: boolean }) => (
+const DadosDaLoja = ({ store }: { store: StoreLocation }) => (
   <div>
     <h3 className="font-serif text-xl font-bold">
       {store.displayName} <span className="font-sans text-base font-semibold text-butcher-300">· {store.bairro}</span>
     </h3>
-    <ul className={`mt-4 font-medium ${largo ? 'grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6' : 'space-y-3'}`}>
+    <ul className="mt-4 space-y-3 font-medium">
       <li>
         <a
           href={store.directionsUrl}
@@ -54,12 +54,8 @@ const DadosDaLoja = ({ store, largo = false }: { store: StoreLocation; largo?: b
   </div>
 );
 
-interface FooterProps {
-  loja?: StoreLocation; // no catálogo, mostra só a unidade escolhida
-}
-
-const Footer = ({ loja }: FooterProps) => {
-  const lojas = loja ? [loja] : getOrderedStores();
+// Igual em todas as telas: sempre com todas as unidades
+const Footer = () => {
   const currentYear = new Date().getFullYear();
   const catalogo = linkDoCatalogo();
 
@@ -97,9 +93,9 @@ const Footer = ({ loja }: FooterProps) => {
             </div>
           </div>
 
-          <div className={`grid gap-10 lg:col-span-2 ${lojas.length > 1 ? 'sm:grid-cols-2' : ''}`}>
-            {lojas.map(store => (
-              <DadosDaLoja key={store.id} store={store} largo={lojas.length === 1} />
+          <div className="grid gap-10 sm:grid-cols-2 lg:col-span-2">
+            {getOrderedStores().map(store => (
+              <DadosDaLoja key={store.id} store={store} />
             ))}
           </div>
         </div>
