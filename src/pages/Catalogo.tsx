@@ -175,16 +175,16 @@ const Catalogo = () => {
                     {secao.itens.map(item => (
                       <li
                         key={item.id}
-                        className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 shadow-sm"
+                        className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3.5 shadow-sm"
                       >
                         <span className="min-w-0 break-words font-bold leading-snug text-card-foreground">
                           {item.nome}
                         </span>
-                        <span className="shrink-0 whitespace-nowrap rounded-lg bg-gold-100 px-2.5 py-1.5 ring-1 ring-inset ring-gold-300 dark:bg-gold-500/10 dark:ring-gold-500/40">
-                          <span className="text-base font-extrabold text-gold-900 sm:text-lg dark:text-gold-300">
+                        <span className="shrink-0 whitespace-nowrap">
+                          <span className="text-base font-extrabold lining-nums tabular-nums text-card-foreground sm:text-lg">
                             {formatPrice(item.preco)}
                           </span>
-                          <span className="ml-0.5 text-xs font-bold text-gold-800 dark:text-gold-400">/{item.unidade}</span>
+                          <span className="ml-0.5 text-xs font-semibold text-muted-foreground">/{item.unidade}</span>
                         </span>
                       </li>
                     ))}
