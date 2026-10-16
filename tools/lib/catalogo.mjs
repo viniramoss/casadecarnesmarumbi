@@ -13,7 +13,7 @@ export const LOJAS = {
   marumbi3: 'Marumbi 3 (Capão da Imbuia)',
 };
 
-export const CATEGORIAS = ['bovinos', 'suinos', 'aves', 'embutidos', 'miúdos', 'moídas'];
+export const CATEGORIAS = ['bovinos', 'suinos', 'aves', 'moídas'];
 
 export function lerCatalogo() {
   return JSON.parse(readFileSync(ARQUIVO, 'utf8'));

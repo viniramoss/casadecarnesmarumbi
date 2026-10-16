@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Clock, Instagram, Mail, MapPin, MessageCircle } from 'lucide-react';
-import logo from '../logo/LogoMarumbiSemfundoLB.png';
+import logo from '../logo/logo-marumbi.png';
 import { StoreLocation, contatos, getOrderedStores } from '../config/storeConfig';
+import { linkDoCatalogo } from '../config/catalogo';
 
 // Endereço (abre o Maps), WhatsApp e horário de uma unidade
 const DadosDaLoja = ({ store, largo = false }: { store: StoreLocation; largo?: boolean }) => (
@@ -60,19 +61,21 @@ interface FooterProps {
 const Footer = ({ loja }: FooterProps) => {
   const lojas = loja ? [loja] : getOrderedStores();
   const currentYear = new Date().getFullYear();
+  const catalogo = linkDoCatalogo();
 
   return (
     <footer className="border-t border-white/10 bg-butcher-950 text-white">
       <div className="butcher-container py-12 md:py-14">
         <div className="grid gap-10 lg:grid-cols-3 lg:gap-8">
-          <div className="text-center lg:text-left">
-            <Link to="/" className="inline-block">
-              <img src={logo} alt="Casa de Carnes Marumbi" className="h-16 w-auto md:h-20 logo-marumbi" />
+          {/* Logo, texto e botões na mesma linha à esquerda */}
+          <div>
+            <Link to={catalogo} className="inline-block">
+              <img src={logo} alt="Casa de Carnes Marumbi" className="h-12 w-auto md:h-14 logo-marumbi" />
             </Link>
-            <p className="mx-auto mt-4 max-w-xs font-medium text-butcher-300 lg:mx-0">
+            <p className="mt-5 max-w-xs font-medium text-butcher-300">
               Há mais de 5 anos oferecendo as melhores carnes, com tradição e excelência no atendimento.
             </p>
-            <div className="mt-6 flex flex-wrap justify-center gap-3 lg:justify-start">
+            <div className="mt-6 flex flex-wrap gap-3">
               {contatos.instagram && (
                 <a
                   href={contatos.instagram}
@@ -105,7 +108,7 @@ const Footer = ({ loja }: FooterProps) => {
       <div className="border-t border-white/10 py-5">
         <div className="butcher-container flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <nav className="flex flex-wrap gap-x-6 gap-y-2 font-semibold">
-            <Link to="/" className="text-butcher-300 hover:text-white transition-colors">Catálogo</Link>
+            <Link to={catalogo} className="text-butcher-300 hover:text-white transition-colors">Catálogo</Link>
             <Link to="/localizacao" className="text-butcher-300 hover:text-white transition-colors">Localização</Link>
             <Link to="/informacoes" className="text-butcher-300 hover:text-white transition-colors">Informações</Link>
           </nav>

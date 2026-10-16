@@ -4,7 +4,7 @@
 import dados from '../data/catalogo.json';
 
 export type StoreTag = 'marumbi1' | 'marumbi3';
-export type ProductCategory = 'bovinos' | 'suinos' | 'aves' | 'embutidos' | 'miúdos' | 'moídas';
+export type ProductCategory = 'bovinos' | 'suinos' | 'aves' | 'moídas';
 
 // Preço de um produto em uma unidade, ligado ao proCodigo do GranMoney daquela unidade
 export interface PrecoNaLoja {
@@ -32,8 +32,6 @@ export const categorias: { id: ProductCategory; nome: string }[] = [
   { id: 'bovinos', nome: 'Bovinos' },
   { id: 'suinos', nome: 'Suínos' },
   { id: 'aves', nome: 'Aves' },
-  { id: 'embutidos', nome: 'Embutidos' },
-  { id: 'miúdos', nome: 'Miúdos' },
   { id: 'moídas', nome: 'Moídas' },
 ];
 
@@ -61,4 +59,32 @@ export const produtosDaLoja = (loja: StoreTag): ItemDaLoja[] => {
 
 export const formatPrice = (price: number): string => {
   return `R$ ${price.toFixed(2).replace('.', ',')}`;
+};
+
+// Unidade escolhida nesta visita, para a pessoa não escolher de novo ao voltar das outras abas.
+// Fica no sessionStorage: some quando a guia do navegador é fechada, então numa nova visita
+// a pessoa escolhe a unidade outra vez.
+const CHAVE_UNIDADE = 'marumbi_unidade';
+
+export const lembrarUnidade = (loja: StoreTag): void => {
+  try {
+    sessionStorage.setItem(CHAVE_UNIDADE, loja);
+  } catch {
+    // navegação privada ou armazenamento bloqueado: só não lembra
+  }
+};
+
+export const unidadeLembrada = (): StoreTag | null => {
+  try {
+    const loja = sessionStorage.getItem(CHAVE_UNIDADE);
+    return loja && loja in catalogo.lojas ? (loja as StoreTag) : null;
+  } catch {
+    return null;
+  }
+};
+
+// Link do catálogo: vai direto para a unidade já escolhida nesta visita, senão para a escolha
+export const linkDoCatalogo = (): string => {
+  const loja = unidadeLembrada();
+  return loja ? `/catalogo/${loja}` : '/';
 };

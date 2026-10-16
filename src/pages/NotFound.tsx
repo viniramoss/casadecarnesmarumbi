@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { linkDoCatalogo } from "../config/catalogo";
 
 const NotFound = () => {
   const location = useLocation();
@@ -21,7 +22,7 @@ const NotFound = () => {
           <p className="font-serif text-6xl font-bold text-gold-500">404</p>
           <h1 className="mt-3 text-2xl font-bold text-foreground">Página não encontrada</h1>
           <Link
-            to="/"
+            to={linkDoCatalogo()}
             className="mt-6 inline-flex rounded-md bg-gold-500 px-6 py-3 font-semibold text-black hover:bg-gold-400 transition-colors"
           >
             Ver o catálogo

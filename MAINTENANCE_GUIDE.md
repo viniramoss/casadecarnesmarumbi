@@ -61,7 +61,7 @@ O site agora é um **catálogo de preços**: o cliente escolhe a unidade e vê n
 - O nome no site é livre; o vínculo é pelo código.
 - Produto sem bloco de uma unidade não aparece naquela unidade.
 - `codigo: null` = veio do site antigo e ainda não foi ligado ao GranMoney (a sincronização ignora).
-- Categorias: `bovinos | suinos | aves | embutidos | miúdos | moídas`.
+- Categorias: `bovinos | suinos | aves | moídas`. Embutidos entram em Suínos; miúdos entram em Bovinos, menos a moela, que fica em Aves.
 
 Não edite à mão sem necessidade: use as ferramentas da seção 4.
 
@@ -75,6 +75,8 @@ Endereço, telefone, WhatsApp e horário de cada unidade, mostrados na página i
 | `/catalogo/marumbi1`, `/catalogo/marumbi3` | `src/pages/Catalogo.tsx` | Preços da unidade, com a troca de unidade no topo e os dados dela no rodapé. Dá para mandar o link direto de uma unidade |
 | `/localizacao` | `src/pages/Localizacao.tsx` | Mapa e endereço de todas as unidades |
 | `/informacoes` | `src/pages/Informacoes.tsx` | Telefone, horário e WhatsApp de todas as unidades |
+
+Durante a visita, o site lembra a unidade escolhida (no `sessionStorage` da guia do navegador): o link **Catálogo** e o logo voltam direto para ela. Numa nova visita a pessoa escolhe de novo.
 
 Os endereços antigos `/products` e `/catalogo` levam para a página inicial.
 

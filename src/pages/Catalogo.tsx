@@ -1,11 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { MapPin, Search, X } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import CabecalhoPagina from '../components/CabecalhoPagina';
 import Footer from '../components/Footer';
 import { StoreLocation, getOrderedStores, getStoreByCatalogo } from '../config/storeConfig';
-import { ProductCategory, categorias, formatPrice, produtosDaLoja } from '../config/catalogo';
+import { ProductCategory, categorias, formatPrice, lembrarUnidade, produtosDaLoja } from '../config/catalogo';
 
 // Normaliza para a busca ignorar acento e maiúsculas
 const normalizar = (texto: string) =>
@@ -44,6 +44,11 @@ const Catalogo = () => {
   const [busca, setBusca] = useState('');
   const [categoria, setCategoria] = useState<ProductCategory | 'todos'>('todos');
 
+  // Lembra a unidade enquanto a pessoa navega pelas outras abas
+  useEffect(() => {
+    if (store) lembrarUnidade(store.catalogo);
+  }, [store]);
+
   const itens = useMemo(() => (store ? produtosDaLoja(store.catalogo) : []), [store]);
 
   // Só as categorias que a unidade tem
@@ -78,16 +83,14 @@ const Catalogo = () => {
       <Navbar />
 
       <CabecalhoPagina rotulo="Catálogo de preços" titulo={store.displayName} lateral={<SeletorDeUnidade atual={store} />}>
+        {/* Sem ícone na frente, para o endereço alinhar à esquerda com o título */}
         <a
           href={store.directionsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-2 inline-flex items-start gap-2 text-sm font-medium text-white/85 hover:text-white transition-colors sm:text-base"
+          className="mt-2 block text-sm font-medium text-white/85 hover:text-white hover:underline underline-offset-4 transition-colors sm:text-base"
         >
-          <MapPin size={18} className="mt-0.5 shrink-0 text-gold-400" />
-          <span>
-            {store.address1} · {store.bairro}
-          </span>
+          {store.address1} · {store.bairro}
         </a>
       </CabecalhoPagina>
 

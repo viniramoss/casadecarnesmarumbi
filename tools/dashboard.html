@@ -92,7 +92,7 @@ const $ = id => document.getElementById(id);
 const esc = t => String(t ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const preco = n => n == null ? '—' : n.toFixed(2).replace('.', ',');
 const norm = t => String(t ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
-const NOMES_CATEGORIA = { bovinos: 'Bovinos', suinos: 'Suínos', aves: 'Aves', embutidos: 'Embutidos', 'miúdos': 'Miúdos', 'moídas': 'Moídas' };
+const NOMES_CATEGORIA = { bovinos: 'Bovinos', suinos: 'Suínos', aves: 'Aves', 'moídas': 'Moídas' };
 
 function status(msg, erro = false) { $('status').textContent = msg; $('status').className = erro ? 'erro' : ''; }
 
@@ -107,10 +107,10 @@ async function api(metodo, caminho, corpo) {
 function nomeSugerido(nome) { return nome.toLowerCase().replace(/(^|[\s/(-])(\p{L})/gu, (m, a, b) => a + b.toUpperCase()); }
 function categoriaSugerida(nome) {
   const n = norm(nome);
-  if (/frango|sobrecoxa|coxinha|tulipa|\basa\b|galinha|chester|peru/.test(n)) return 'aves';
-  if (/lingui|calabresa|vina|salsicha|mortadela|presunto|salame/.test(n)) return 'embutidos';
+  if (/frango|sobrecoxa|coxinha|tulipa|\basa\b|galinha|chester|peru|moela/.test(n)) return 'aves';
+  // Embutidos ficam em Suínos; os outros miúdos ficam em Bovinos
+  if (/lingui|calabresa|vina|salsicha|mortadela|presunto|salame/.test(n)) return 'suinos';
   if (/suin|porco|lombo|pernil|bisteca|panceta|bacon|costelinha|picadao|suan|toucinho|copa/.test(n)) return 'suinos';
-  if (/figado|bucho|mocoto|\brim\b|coracao|lingua|dobradinha|rabada|miudo/.test(n)) return 'miúdos';
   if (/moid[ao]/.test(n)) return 'moídas';
   return 'bovinos';
 }

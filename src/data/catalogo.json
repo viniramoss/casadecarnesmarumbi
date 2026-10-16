@@ -86,7 +86,7 @@
     {
       "id": "bucho",
       "nome": "Bucho",
-      "categoria": "miúdos",
+      "categoria": "bovinos",
       "lojas": {
         "marumbi1": {
           "codigo": "3",
@@ -338,7 +338,7 @@
     {
       "id": "figado-bovino",
       "nome": "Fígado Bovino",
-      "categoria": "miúdos",
+      "categoria": "bovinos",
       "lojas": {
         "marumbi3": {
           "codigo": "11",
@@ -350,7 +350,7 @@
     {
       "id": "figado-de-boi",
       "nome": "Fígado de Boi",
-      "categoria": "miúdos",
+      "categoria": "bovinos",
       "lojas": {
         "marumbi1": {
           "codigo": "11",
@@ -449,7 +449,7 @@
     {
       "id": "linguica-artesanal",
       "nome": "Linguiça Artesanal",
-      "categoria": "embutidos",
+      "categoria": "suinos",
       "lojas": {
         "marumbi1": {
           "codigo": "47",
@@ -461,7 +461,7 @@
     {
       "id": "linguica-fina",
       "nome": "Linguiça Fina",
-      "categoria": "embutidos",
+      "categoria": "suinos",
       "lojas": {
         "marumbi3": {
           "codigo": "49",
@@ -529,7 +529,7 @@
     {
       "id": "mocoto",
       "nome": "Mocotó",
-      "categoria": "miúdos",
+      "categoria": "bovinos",
       "lojas": {
         "marumbi1": {
           "codigo": "76",
@@ -541,7 +541,7 @@
     {
       "id": "moela",
       "nome": "Moela",
-      "categoria": "miúdos",
+      "categoria": "aves",
       "lojas": {
         "marumbi1": {
           "codigo": "119",
@@ -870,7 +870,7 @@
     {
       "id": "vina-perdigao",
       "nome": "Vina Perdigão",
-      "categoria": "embutidos",
+      "categoria": "suinos",
       "lojas": {
         "marumbi1": {
           "codigo": "53",
@@ -887,7 +887,7 @@
     {
       "id": "vina-promocao",
       "nome": "Vina Promoção",
-      "categoria": "embutidos",
+      "categoria": "suinos",
       "lojas": {
         "marumbi1": {
           "codigo": "100",
