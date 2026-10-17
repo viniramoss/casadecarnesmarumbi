@@ -143,8 +143,10 @@ Tudo em `src/config/storeConfig.ts`. Ao trocar o telefone, **lembre de trocar no
 ```typescript
 phone: "(41) 99203-7766",
 whatsappNumber: "+5541992037766",
-whatsappLink: "https://wa.me/+5541992037766?text=Olá,%20vim%20pelo%20site...",
+whatsappLink: linkDoWhatsApp("+5541992037766"),
 ```
+
+A mensagem que já vem escrita quando a pessoa chama a loja no WhatsApp fica em `mensagemWhatsApp`, no mesmo arquivo, e vale para todos os botões de WhatsApp do site.
 
 ### Fechar ou reabrir uma loja
 
