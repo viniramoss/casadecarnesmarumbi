@@ -36,13 +36,13 @@ const Footer = () => {
                 <Link to="/" className="text-butcher-300 hover:text-white transition-colors">Início</Link>
               </li>
               <li>
-                <a href="/#precos" className="text-butcher-300 hover:text-white transition-colors">Preços</a>
+                <Link to="/products" className="text-butcher-300 hover:text-white transition-colors">Produtos</Link>
               </li>
               <li>
-                <a href="#location" className="text-butcher-300 hover:text-white transition-colors">Localização</a>
+                <a href="/#location" className="text-butcher-300 hover:text-white transition-colors">Localização</a>
               </li>
               <li>
-                <a href="#contact" className="text-butcher-300 hover:text-white transition-colors">Contato</a>
+                <a href="/#contact" className="text-butcher-300 hover:text-white transition-colors">Contato</a>
               </li>
             </ul>
           </div>

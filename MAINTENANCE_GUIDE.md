@@ -15,7 +15,7 @@ Como mexer no site, testar e publicar.
 
 O site é feito em **React + Vite + Tailwind**. Não tem banco de dados: os dados das lojas são arquivos de código.
 
-**Este site não tem preços.** A primeira tela pede a unidade mais próxima e leva para o catálogo de preços dela:
+**Este site não tem preços.** A página de produtos (botão *Ver Produtos* e menu *Produtos*) pede a unidade mais próxima e leva para o catálogo de preços dela:
 
 | Unidade | Catálogo de preços |
 |---|---|
@@ -53,17 +53,17 @@ Depois é só esperar um minuto e conferir em https://casadecarnesmarumbi.vercel
 ## 3. Os arquivos que importam
 
 ### `src/config/storeConfig.ts` — as lojas
-Endereço, bairro, telefone, WhatsApp, horário, mapa e endereço do catálogo de preços (`catalogoUrl`) de cada unidade. A escolha da unidade na primeira tela, as seções de Localização e Informações e o rodapé leem tudo daqui — mudou aqui, mudou em todos os lugares.
+Endereço, bairro, telefone, WhatsApp, horário, mapa e endereço do catálogo de preços (`catalogoUrl`) de cada unidade. A escolha da unidade na página de produtos, as seções de Localização e Informações e o rodapé leem tudo daqui — mudou aqui, mudou em todos os lugares.
 
 ### As telas
 | Parte do site | Arquivo |
 |---|---|
-| Primeira tela, com a escolha da unidade | `src/components/Hero.tsx` |
+| Primeira tela | `src/components/Hero.tsx` |
+| Página de produtos (`/products`), com a escolha da unidade | `src/pages/Products.tsx` |
 | Localização (mapa) | `src/components/LocationMap.tsx` |
 | Informações (telefone e horário) | `src/components/Contact.tsx` |
 | Rodapé | `src/components/Footer.tsx` |
 
-O endereço antigo `/products` leva para a primeira tela.
 
 ---
 
@@ -186,4 +186,4 @@ Fechou ou mudou uma loja? O site é só uma das pontas. Lembre também dos **cat
 - **2 unidades ativas:** Marumbi 1 (Uberaba) e Marumbi 3 (Capão da Imbuia)
 - A Marumbi 2 (Cajuru) foi removida do site em agosto de 2026
 - A numeração segue 1 e 3 de propósito, para o Capão continuar com o nome que os clientes conhecem
-- Desde outubro de 2026 este site não mostra produtos nem preços: a página de produtos e os destaques saíram, e a primeira tela leva para o catálogo de preços de cada unidade
+- Desde outubro de 2026 este site não mostra produtos nem preços: a página de produtos virou a escolha da unidade, que leva para o catálogo de preços de cada uma, e os destaques com preço saíram da página inicial

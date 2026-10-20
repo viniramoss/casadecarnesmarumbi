@@ -36,7 +36,7 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center space-x-8">
           <NavLink to="/#home">Início</NavLink>
-          <NavLink to="/#precos">Preços</NavLink>
+          <NavLink to="/products">Produtos</NavLink>
           <NavLink to="/#location">Localização</NavLink>
           <NavLink to="/#contact">Informações</NavLink>
         </nav>
@@ -57,8 +57,8 @@ const Navbar = () => {
             <MobileNavLink to="/#home" onClick={() => setIsMobileMenuOpen(false)}>
               Início
             </MobileNavLink>
-            <MobileNavLink to="/#precos" onClick={() => setIsMobileMenuOpen(false)}>
-              Preços
+            <MobileNavLink to="/products" onClick={() => setIsMobileMenuOpen(false)}>
+              Produtos
             </MobileNavLink>
             <MobileNavLink to="/#location" onClick={() => setIsMobileMenuOpen(false)}>
               Localização
