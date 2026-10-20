@@ -13,7 +13,16 @@ Como mexer no site, testar e publicar.
 | **Hospedagem** | Vercel, projeto `viniramoss-projects/casadecarnesmarumbi` |
 | **Site no ar** | https://casadecarnesmarumbi.vercel.app |
 
-O site é feito em **React + Vite + Tailwind**. Não tem banco de dados: preços, produtos e dados das lojas são arquivos de código. Mudar um preço = editar um arquivo e publicar.
+O site é feito em **React + Vite + Tailwind**. Não tem banco de dados: os dados das lojas são arquivos de código.
+
+**Este site não tem preços.** A primeira tela pede a unidade mais próxima e leva para o catálogo de preços dela:
+
+| Unidade | Catálogo de preços |
+|---|---|
+| Marumbi 1 (Uberaba) | https://catalogomarumbiuberaba.vercel.app |
+| Marumbi 3 (Capão da Imbuia) | https://catalogomarumbiimbuia.vercel.app |
+
+Os dois catálogos ficam em outro repositório, `viniramoss/catalogomarumbi`, com o próprio guia. Mudança de preço ou de produto é feita lá, não aqui.
 
 ---
 
@@ -43,98 +52,22 @@ Depois é só esperar um minuto e conferir em https://casadecarnesmarumbi.vercel
 
 ## 3. Os arquivos que importam
 
-Quase tudo que você vai querer mudar está em **três arquivos**:
-
-### `src/data/productsData.ts` — os produtos e preços
-A lista dos 45 produtos. É aqui que se muda preço, nome, descrição e em quais lojas cada item aparece.
-
 ### `src/config/storeConfig.ts` — as lojas
-Endereço, telefone, WhatsApp, horário e mapa de cada unidade. As seções de Localização, Informações e o rodapé do site leem tudo daqui — mudou aqui, mudou nos três lugares.
+Endereço, bairro, telefone, WhatsApp, horário, mapa e endereço do catálogo de preços (`catalogoUrl`) de cada unidade. A escolha da unidade na primeira tela, as seções de Localização e Informações e o rodapé leem tudo daqui — mudou aqui, mudou em todos os lugares.
 
-### `src/config/productsConfig.ts` — as regras
-Os tipos e as funções auxiliares. Mexe-se pouco aqui, só quando a regra muda (unidade de venda, nova categoria, nova loja).
+### As telas
+| Parte do site | Arquivo |
+|---|---|
+| Primeira tela, com a escolha da unidade | `src/components/Hero.tsx` |
+| Localização (mapa) | `src/components/LocationMap.tsx` |
+| Informações (telefone e horário) | `src/components/Contact.tsx` |
+| Rodapé | `src/components/Footer.tsx` |
 
-Os arquivos de tela (`src/pages/Products.tsx`, `src/components/FeaturedProducts.tsx`, `src/components/StoreTags.tsx`) normalmente não precisam ser tocados para mudanças de conteúdo.
+O endereço antigo `/products` leva para a primeira tela.
 
 ---
 
 ## 4. Receitas
-
-### Mudar o preço de um produto
-
-Abra `src/data/productsData.ts`, ache o produto pelo nome e edite os números:
-
-```typescript
-{
-  id: 11,
-  name: "Coxão Mole",
-  price: {
-    default: 46.99,   // preço em destaque no card
-    marumbi1: 46.99,  // Uberaba
-    marumbi3: 59.99,  // Capão da Imbuia
-  },
-  ...
-}
-```
-
-**Regra do `default`:** é o preço grande que aparece no card. Mantenha igual ao da loja mais barata. As etiquetas coloridas mostram o valor de cada unidade.
-
-Se o preço é o mesmo nas duas lojas, pode usar a forma curta:
-
-```typescript
-price: createSimplePrice(39.99),
-```
-
-Quando todas as lojas têm o mesmo preço, o site não mostra etiqueta nem o aviso *"Preços podem variar por loja"* — isso é automático, não precisa configurar.
-
-### Adicionar um produto
-
-1. Coloque a foto em `src/images/carnes/`
-2. Importe no topo do `productsData.ts`:
-   ```typescript
-   import novoCorte from '../images/carnes/novoCorte.jpg';
-   ```
-3. Adicione o item na lista:
-   ```typescript
-   {
-     id: 100,                    // precisa ser único
-     name: "Novo Corte",
-     description: "Descrição que aparece no card.",
-     price: {
-       default: 49.99,
-       marumbi1: 49.99,
-       marumbi3: 54.99,
-     },
-     image: novoCorte,
-     category: "bovinos",        // bovinos | suinos | aves | embutidos | miúdos | moídas
-     tag: "Promoção",            // opcional, é o selo vermelho
-     showLocationTags: true,     // mostra as etiquetas de loja
-   }
-   ```
-
-**ID duplicado quebra os filtros da página** — confira que o número não existe ainda.
-
-### Produto que só tem em uma loja
-
-```typescript
-availableAt: ['marumbi1'],   // só Uberaba
-```
-
-Sem essa linha, o produto aparece em todas as lojas. Com ela, o card ganha a etiqueta `📍 Marumbi 1`.
-
-### Produto que não é vendido por quilo
-
-Por padrão todo preço aparece como `R$ 39,99 / kg`. Para kits e combos:
-
-```typescript
-priceLabel: "6 por R$ 10,00",   // substitui o preço formatado
-```
-
-Para outra unidade (bandeja, unidade):
-
-```typescript
-unit: 'un',    // vira "R$ 4,00 / un"
-```
 
 ### Mudar telefone, horário ou endereço de uma loja
 
@@ -148,24 +81,21 @@ whatsappLink: linkDoWhatsApp("+5541992037766"),
 
 A mensagem que já vem escrita quando a pessoa chama a loja no WhatsApp fica em `mensagemWhatsApp`, no mesmo arquivo, e vale para todos os botões de WhatsApp do site.
 
+Os catálogos de preços têm uma cópia desses dados (em `src/config/storeConfig.ts` do repositório `viniramoss/catalogomarumbi`). Mudou aqui, mude lá também.
+
+### Mudar o endereço de um catálogo de preços
+
+Se o site de uma unidade mudar de endereço, troque o `catalogoUrl` dela em `src/config/storeConfig.ts`.
+
 ### Fechar ou reabrir uma loja
 
-Apague (ou devolva) o bloco inteiro da loja em `storeConfig.ts`. Localização, Informações e rodapé acompanham sozinhos.
-
-Mas **não para por aí**. Ao fechar uma unidade, confira também:
-
-- Em `productsData.ts`, apague as linhas de preço daquela loja e tire a chave dos `availableAt`
-- Se algum produto só era vendido naquela unidade, decida se sai do site ou troca de loja
-- Se o `default` de algum produto vinha do preço daquela loja, atualize — senão o site anuncia um valor que não existe mais
-- Em `productsConfig.ts`, ajuste o tipo `StoreTag` e o objeto `storeTags`
-
-> **Já aconteceu:** quando a Cajuru fechou, a Moída ESPECIAL ficou com o preço da Cajuru em destaque, um valor que nenhuma loja praticava.
+Apague (ou devolva) o bloco inteiro da loja em `storeConfig.ts`. A escolha da unidade, Localização, Informações e rodapé acompanham sozinhos. Do lado dos catálogos, veja o guia do repositório `viniramoss/catalogomarumbi`.
 
 ---
 
 ## 5. Testar antes de publicar
 
-Para mudanças de preço simples, dá para publicar direto — o risco é baixo. Para qualquer coisa estrutural, vale rodar local primeiro:
+Para mudanças simples de texto, dá para publicar direto — o risco é baixo. Para qualquer coisa estrutural, vale rodar local primeiro:
 
 ```bash
 npm install
@@ -185,7 +115,7 @@ npx tsc --noEmit -p tsconfig.app.json
 
 Esse comando pega erros de digitação e campos inválidos. **Vale rodar porque o build da Vercel não faz essa checagem** — ela roda só `vite build`, que ignora erros de tipo. Ou seja, dá para publicar código com erro de tipo sem a Vercel reclamar.
 
-Confira sempre as quatro seções: Produtos, Localização, Informações e rodapé.
+Confira sempre a escolha da unidade (os dois botões abrem o catálogo certo), Localização, Informações e rodapé.
 
 ---
 
@@ -247,7 +177,7 @@ Mostra o log completo do build, para achar a causa quando um deploy falha.
 
 ## 8. O que fica fora do site
 
-Fechou ou mudou uma loja? O site é só uma das pontas. Lembre também do **Google Meu Negócio** e do **Instagram** — nenhum dos dois é atualizado por aqui.
+Fechou ou mudou uma loja? O site é só uma das pontas. Lembre também dos **catálogos de preços** (repositório `viniramoss/catalogomarumbi`), do **Google Meu Negócio** e do **Instagram** — nenhum deles é atualizado por aqui.
 
 ---
 
@@ -256,4 +186,4 @@ Fechou ou mudou uma loja? O site é só uma das pontas. Lembre também do **Goog
 - **2 unidades ativas:** Marumbi 1 (Uberaba) e Marumbi 3 (Capão da Imbuia)
 - A Marumbi 2 (Cajuru) foi removida do site em agosto de 2026
 - A numeração segue 1 e 3 de propósito, para o Capão continuar com o nome que os clientes conhecem
-- **45 produtos** cadastrados
+- Desde outubro de 2026 este site não mostra produtos nem preços: a página de produtos e os destaques saíram, e a primeira tela leva para o catálogo de preços de cada unidade

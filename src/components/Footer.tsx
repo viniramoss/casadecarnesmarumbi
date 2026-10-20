@@ -36,7 +36,7 @@ const Footer = () => {
                 <Link to="/" className="text-butcher-300 hover:text-white transition-colors">Início</Link>
               </li>
               <li>
-                <Link to="/products" className="text-butcher-300 hover:text-white transition-colors">Produtos</Link>
+                <a href="/#precos" className="text-butcher-300 hover:text-white transition-colors">Preços</a>
               </li>
               <li>
                 <a href="#location" className="text-butcher-300 hover:text-white transition-colors">Localização</a>

@@ -3,6 +3,8 @@ export interface StoreLocation {
   id: string;
   title: string;
   displayName: string;
+  bairro: string;
+  catalogoUrl: string; // site com os preços da unidade (repositório viniramoss/catalogomarumbi)
   address1: string;
   address2: string;
   cep: string;
@@ -31,6 +33,8 @@ export const storeLocations: Record<string, StoreLocation> = {
     id: "uberaba",
     title: "Uberaba - Marumbi 1",
     displayName: "Marumbi 1",
+    bairro: "Uberaba",
+    catalogoUrl: "https://catalogomarumbiuberaba.vercel.app",
     address1: "Rua Eunice Bettini Bartoszeck, 1122",
     address2: "Uberaba, Curitiba - PR",
     cep: "CEP: 81590-180",
@@ -49,6 +53,8 @@ export const storeLocations: Record<string, StoreLocation> = {
     id: "capao",
     title: "Capão da Imbuia - Marumbi 3",
     displayName: "Marumbi 3",
+    bairro: "Capão da Imbuia",
+    catalogoUrl: "https://catalogomarumbiimbuia.vercel.app",
     address1: "Rua Delegado Leopoldo Belczak, 2045",
     address2: "Capão da Imbuia, Curitiba - PR",
     cep: "CEP: 82810-060",
